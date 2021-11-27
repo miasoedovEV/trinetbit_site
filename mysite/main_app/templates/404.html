@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+    <body>
+        <main class="main">
+            <div class="container container-main container-error">
+                <p class="error-404">404</p>
+                <p class="error-massege">Sorry, we were unable to find that page</p>
+                <p class="error-link"><a class="link_error" href="{% url 'index' %}"">Go to home page</a></p>
+            </div>
+            <div class="elipse"></div>
+        </main>
+    </body>
+{% endblock %}

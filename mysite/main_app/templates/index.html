@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<body>
+    <main class="main main-index">
+        <div class="container container-main container-index">
+            <p class="index-heading"><spa class="excretion">TRINETBIT</spa> - простой способ получать прибыль.</p>
+            <div class="container-index-cards">
+                <ul class="list-index-cards">
+                    <li class="index-card">
+                        <p class="text-card">2343</p>
+                        <p class="text-card lower-index-text-card">зарегистрированных клиента</p>
+                    </li>
+                    <li class="index-card">
+                        <p class="text-card">12,5%</p>
+                        <p class="text-card lower-index-text-card">средний ежемесячный процент</p>
+                    </li>
+                    <li class="index-card">
+                        <p class="text-card">81,7%</p>
+                        <p class="text-card lower-index-text-card">средний процент закрытых сделок в плюс</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="container-index-cards">
+                <ul class="list-index-cards">
+                    <li class="index-card">
+                        <p class="text-card">4235$</p>
+                        <p class="text-card lower-index-text-card">средняя прибыль клиента за месяц</p>>
+                    </li>
+                    <li class="index-card">
+                        <p class="text-card">2 154 235$</p>
+                        <p class="text-card lower-index-text-card">суммарная прибыль клиентов за месяц</p>
+                    </li>
+                    <li class="index-card">
+                        <p class="text-card">1 неделя</p>
+                        <p class="text-card lower-index-text-card">среднее время получения первой прибыли</p>
+                    </li>
+                </ul>
+            </div>
+            <p class="text-details-index">Узнать <span class="excretion">подробнее</span> о продукте.</p>
+            <p class="text-details-index text-calculate-index">Рассчитайте <span class="excretion">свой</span> доход сейчас.</p>
+            <div class="container-calc-profit">
+                <ul class="list-input-index">
+                    <li class="item-input-index"><input type="text" maxlength="150" required="" id="start_depo" value="Стартовый депозит" class="label label-index"></li>
+                    <li class="item-input-index"><input type="text" maxlength="150" required="" id="time_month" value="Время в месяцах" class="label label-index"></li>
+                    <li class="item-input-index"><input type="text" maxlength="150" required="" id="profit" value="Ваша прибыль" class="label label-index"></li>
+                </ul>
+                <p class="remark-index">*Прибыль рассчитывается исходя из среднего ежемесячного процента.</p>
+            </div>
+            <p class="bottom-heading-index">Начните получать прибыль.</p>
+            <a class="link-instruction-index"><p class="text-instruction-index"><span class="excretion">Инструкция</span> с порядком действий</p></a>
+            <a class="link-register-index" href="{% url 'register' %}">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+        </div>
+        <div class="elipse"></div>
+        <div class="elipse elipse-top"></div>
+    </main>
+    <script type="text/javascript">
+       let  start_depo = document.getElementById('start_depo');
+            time_month = document.getElementById('time_month');
+            profit = document.getElementById('profit');
+
+        function removePlaceholderDepo(start_depo)  {
+            if (start_depo.value == "Стартовый депозит") {
+                start_depo.value = "";
+            }
+        }
+
+        function replacePlaceholderDepo(start_depo)  {
+            if (start_depo.value == "") {
+                start_depo.value = "Стартовый депозит";
+            }
+        }
+
+        function removePlaceholderTime(time_month)  {
+            if (time_month.value == "Время в месяцах") {
+                time_month.value = "";
+            }
+        }
+
+        function replacePlaceholderTime(time_month)  {
+            if (time_month.value == "") {
+                time_month.value = "Время в месяцах";
+            }
+        }
+
+        function removePlaceholderProfit(profit)  {
+            if (profit.value == "Ваша прибыль") {
+                profit.value = "";
+            }
+        }
+
+        function replacePlaceholderProfit(profit)  {
+            if (profit.value == "" ) {
+                profit.value = "Ваша прибыль";
+            }
+        }
+
+        function getProfit()  {
+            let start_depo = document.getElementById('start_depo');
+                time_month = document.getElementById('time_month');
+                profit = document.getElementById('profit');
+            if (time_month.value != "Время в месяцах" && start_depo.value != "Стартовый депозит") {
+                let profit_month = 0
+                    month = Number(time_month.value)
+                    depo = Number(start_depo.value)
+                for (let i = 0; i < month; i++) {
+                    depo = depo * 1.125
+                    }
+                profit.value = depo
+            }
+            if (profit.value == "0" || profit.value == "0") {
+                profit.value = "Ваша прибыль";
+            }
+        }
+        
+        setInterval(getProfit, 2000);
+        start_depo.setAttribute('onBlur', "replacePlaceholderDepo(this)");
+        start_depo.setAttribute('onFocus', "removePlaceholderDepo(this)");
+        time_month.setAttribute('onBlur', "replacePlaceholderTime(this)");
+        time_month.setAttribute('onFocus', "removePlaceholderTime(this)");
+        profit.setAttribute('onBlur', "replacePlaceholderProfit(this)");
+        profit.setAttribute('onFocus', "removePlaceholderProfit(this)");
+    </script>
+</body>
+{% endblock %}

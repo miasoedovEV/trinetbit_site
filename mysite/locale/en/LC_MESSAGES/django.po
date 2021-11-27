@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-02 08:20+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\main_app\templates\about_project.html:6
+#: .\main_app\templates\about_project.html:25
+#: .\user_app\templates\register.html:19
+msgid "О продукте"
+msgstr "About project"
+
+#: .\main_app\templates\about_project.html:27
+#: .\user_app\templates\profile.html:9
+msgid "Добро пожаловать на сайт"
+msgstr ""
+
+#: .\main_app\templates\about_project.html:28
+#: .\user_app\templates\register.html:21
+msgid "Личный кабинет"
+msgstr "Personal account"
+
+#: .\main_app\templates\about_project.html:29
+#: .\user_app\templates\profile.html:11
+msgid "Выйти"
+msgstr ""
+
+#: .\main_app\templates\about_project.html:31
+msgid "Вы не авторизованы"
+msgstr ""
+
+#: .\main_app\templates\about_project.html:32
+#: .\user_app\templates\login.html:13 .\user_app\templates\register.html:22
+msgid "Войти"
+msgstr "Login"
+
+#: .\main_app\templates\about_project.html:33
+msgid "Если вы не зарегистрированы, зарегистрируйтесь"
+msgstr ""
+
+#: .\main_app\templates\about_project.html:34
+#: .\user_app\templates\register.html:7 .\user_app\templates\register.html:42
+msgid "Регистрация"
+msgstr "Register"
+
+#: .\user_app\forms.py:10
+msgid "имя пользователя"
+msgstr "user's name"
+
+#: .\user_app\forms.py:11
+msgid "пароль"
+msgstr "password"
+
+#: .\user_app\forms.py:15
+msgid "   Имя пользователя"
+msgstr ""
+
+#: .\user_app\forms.py:16
+msgid "   Адрес кошелька"
+msgstr ""
+
+#: .\user_app\forms.py:17
+msgid "   Пароль"
+msgstr "Password"
+
+#: .\user_app\forms.py:18
+msgid "   Повторите пароль"
+msgstr ""
+
+#: .\user_app\forms.py:19
+msgid "   Api key"
+msgstr ""
+
+#: .\user_app\forms.py:20
+msgid "   Api secret"
+msgstr ""
+
+#: .\user_app\forms.py:21
+msgid "   Email"
+msgstr ""
+
+#: .\user_app\forms.py:52
+msgid "Код"
+msgstr "Code"
+
+#: .\user_app\models.py:8
+msgid "пользователь"
+msgstr ""
+
+#: .\user_app\models.py:9
+msgid "дата регистрации"
+msgstr ""
+
+#: .\user_app\models.py:10
+msgid "статус подписки"
+msgstr ""
+
+#: .\user_app\models.py:11
+msgid "адрес кошелька"
+msgstr ""
+
+#: .\user_app\models.py:12
+msgid "api key"
+msgstr ""
+
+#: .\user_app\models.py:13
+msgid "api secret"
+msgstr ""
+
+#: .\user_app\models.py:14
+msgid "id пользователя bybit"
+msgstr ""
+
+#: .\user_app\models.py:15
+msgid "Электронная почта"
+msgstr ""
+
+#: .\user_app\models.py:25
+msgid "профиль"
+msgstr ""
+
+#: .\user_app\models.py:26
+msgid "профили"
+msgstr ""
+
+#: .\user_app\templates\login.html:6
+msgid "Вход"
+msgstr ""
+
+#: .\user_app\templates\login.html:9
+msgid "Страница входа"
+msgstr ""
+
+#: .\user_app\templates\profile.html:6
+msgid "Профиль"
+msgstr ""
+
+#: .\user_app\templates\profile.html:12
+msgid "Редактирование профиля"
+msgstr ""
+
+#: .\user_app\templates\profile.html:16
+msgid "Сохранить"
+msgstr "Save"
+
+#: .\user_app\templates\register.html:20
+msgid "Контакты"
+msgstr "Contacts"
+
+#: .\user_app\templates\register.html:48
+msgid "Зарегистрироваться"
+msgstr "Register"
+
+#: .\user_app\templates\verification.html:7
+#: .\user_app\templates\verification.html:11
+msgid "Подтверждение email"
+msgstr ""
+
+#: .\user_app\templates\verification.html:15
+msgid "Подтвердить"
+msgstr ""
+
+#: .\user_app\templates\verification.html:16
+msgid "Выслать новый"
+msgstr ""

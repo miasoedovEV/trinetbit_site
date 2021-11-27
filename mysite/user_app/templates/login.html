@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<body>
+    <main class="main">
+        <div class="container container-main container-main-login">
+            <form class="form" id="main-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <ul class="list-label">
+                    <li class="item-label-list">{{ form.username }}</li>
+                    <li class="item-label-list item-label-list-password">
+                        {{ form.password }}
+                        <img type="image" src="/static/images/cl_eye.svg" class="shower-pass open-pass login-pass" id="open-logpass" alt="show">
+                        <img type="image" src="/static/images/eye.svg" class="shower-pass close-pass login-pass" id="close-logpass" alt="hide">
+                    </li>
+                </ul>
+                <button type="submit" class="bt-site bt-login">{% trans "ВОЙТИ" %}</button>
+                <button type="submit" class="bt-site bt-reautification" name="reautification">{% trans "Забыл пароль" %}</button>
+            </form>
+        </div>
+        <div class="elipse"></div>
+    </main>
+    <script type="text/javascript">
+        let form = document.getElementById('main-form');
+            username = document.getElementById('id_username');
+            password = document.getElementById('id_password');
+            bt_open_log = document.getElementById('open-logpass');
+            bt_close_log = document.getElementById('close-logpass');
+
+        function removePlaceholderUsername(input_name)  {
+            if (input_name.value == "Имя пользователя") {
+                input_name.value = "";
+                input_name.className = "label";
+            }
+        }
+
+        function replacePlaceholderUsername(input_name)  {
+            if (input_name.value == "") {
+                input_name.value = "Имя пользователя";
+                username.className = "label label-login";
+            }
+        }
+
+        function removePlaceholderPassword(password)  {
+            if (password.value == "Пароль") {
+                password.value = "";
+                password.type = "password";
+                password.className = "label label-pass-img";
+            }
+        }
+
+        function replacePlaceholderPassword(password)  {
+            if (password.value == "") {
+                password.value = "Пароль";
+                password.type = "text";
+                password.className = "label label-password label-pass-img";
+                document.getElementById('open-logpass').style.display = "inline";
+                document.getElementById('close-logpass').style.display = "none";
+            }
+        }
+
+        function open_pass_log() {  
+            edit = document.getElementById('id_password')
+            if (edit.value != "Пароль") {
+                edit.type = "text";
+                document.getElementById('open-logpass').style.display = "none";
+                document.getElementById('close-logpass').style.display = "inline";
+            }        
+
+        }
+
+        function close_pass_log() {
+            document.getElementById('id_password').type = "password";
+            document.getElementById('open-logpass').style.display = "inline";
+            document.getElementById('close-logpass').style.display = "none";        
+
+        }
+
+        bt_open_log.addEventListener("click", open_pass_log);
+        bt_close_log.addEventListener("click", close_pass_log);
+        username.setAttribute('value', "Имя пользователя");
+        username.blur();
+        username.setAttribute('onBlur', "replacePlaceholderUsername(this)");
+        username.setAttribute('onFocus', "removePlaceholderUsername(this)");
+        username.className = "label label-login";
+        password.setAttribute('value', "Пароль");
+        password.setAttribute('onBlur', "replacePlaceholderPassword(this)");
+        password.setAttribute('onFocus', "removePlaceholderPassword(this)");
+        password.className = "label label-password label-pass-img";
+        password.setAttribute('type', 'text');
+    </script>
+</body>
+{% endblock %}

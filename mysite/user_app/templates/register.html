@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<body>
+    <main class="main">
+        <div class="container container-main">
+            <form class="form" id="main-form" method="post">
+                {% csrf_token %}
+                <ul class="list-label">
+                    <li class="item-label-list">{{ form.api_key }}</li>
+                    <li class="item-label-list">{{ form.api_secret }}</li>
+                    <li class="item-label-list">{{ form.username }}</li>
+                    <li class="item-label-list">{{ form.email }}</li>
+                    <li class="item-label-list">{{ form.wallet_address }}</li>
+                    <li class="item-label-list item-label-list-password1-register">
+                        <img type="image" src="/static/images/cl_eye.svg" class="shower-pass open-pass login-pass" id="open-regpass1" alt="show">
+                        <img type="image" src="/static/images/eye.svg" class="shower-pass close-pass login-pass" id="close-regpass1" alt="hide">
+                        {{ form.password1 }}
+                    </li>
+                    <li class="item-label-list item-label-list-password2-register">
+                        {{ form.password2 }}
+                        <img type="image" src="/static/images/cl_eye.svg" class="shower-pass open-pass login-pass" id="open-regpass2" alt="show">
+                        <img type="image" src="/static/images/eye.svg" class="shower-pass close-pass login-pass" id="close-regpass2" alt="hide">
+                    </li>
+                    {% if error_message %}
+                        {{ error_message }}
+                    {% endif %}
+                </ul>
+                <button type="submit" class="bt-site bt-reg">{% trans "ЗАРЕГИСТРИРОВАТЬСЯ" %}</button>
+                <div class="check-box-contaner check-box-contaner-agreement">
+                    <label class="check">
+                        {{ form.agreement }}
+                        <span class="check_box"></span>                         
+                        Я принимаю условия <span class="excretion">Пользовательского соглашения</span> и даю 
+                        своё согласие TRINETBIT на обработку моей персональной информации на условиях, определенных <span class="excretion">Политикой конфиденциальности</span>.
+                    </label>
+                </div>
+                <div class="check-box-contaner check-box-contaner-mailing">
+                    <label class="check">
+                        {{ form.mailing }}
+                        <span class="check_box"></span> 
+                        Я <span class="excretion">НЕ хочу</span> получать информационную рассылку данного сервиса.
+                    </label>
+                </div>
+            </form>
+            <div id="keys" class="hint hint-keys">
+                <div class="container-line">
+                    <img src="/static/images/line_1_keys.svg" class="line-keys">
+                    <img src="/static/images/line_2_keys.svg">
+                </div>
+                <div class="text-hint text-hint-keys">
+                    <span class="excretion">API key</span> и <span class="excretion">API secret</span> неооходимы для того, что бы открывать и закрывать сделки на бирже. Подробнее о том, как это работает читайте в разделе “Как это работает” на странице “<span class="excretion">О продукте</span>”. Подробнее о самой самом API читайте на <span class="excretion">сайте</span> Bybit.
+                </div>
+            </div>
+            <div id="name" class="hint hint-name">
+                <div class="text-hint text-hint-name">
+                    Имя пользователя должно содержать <span class="excretion">от 3 до 20</span> символов, и не должно противоречить нормам и действующему законодательству страны клиента.
+                </div>
+                <div class="container-line">
+                    <img src="/static/images/line.svg" class="line-name">
+                </div>
+            </div>
+            <div id="email" class="hint hint-email">
+                <div class="container-line">
+                    <img src="/static/images/line.svg" class="line-email">
+                </div>
+                <div class="text-hint text-hint-email">
+                    Пожалуйста, вводите <span class="excretion">действительный</span> адрес электронной почты. На него придет код подтверждения. Так же с помощью него можно будет сбросить пароль от личного кабинета.
+                </div>
+            </div>
+            <div id="wallet" class="hint hint-wallet">
+                <div class="text-hint text-hint-wallet">
+                    Номер BTC кошелька, с которого будут выполнятся переводы вознаграждения. Он необходим для сверки поступающих средств и продления доступа к площадке.
+                </div>
+                <div class="container-line">
+                    <img src="/static/images/line.svg" class="line-wallet">
+                </div>
+            </div>
+            <div id="pass1" class="hint hint-pass1">
+                <div class="container-line">
+                    <img src="/static/images/line.svg" class="line-pass1">
+                </div>
+                <div class="text-hint text-hint-pass1">
+                    Обратите внимание, пароль должен состоять <span class="excretion">не менее</span>, чем из <span class="excretion">8</span> символов. Содержать цифру, один из спецсимволов, строчные и заглавные буквы.
+                </div>
+            </div>
+            <div id="pass2" class="hint hint-pass2">
+                <div class="text-hint text-hint-pass2">
+                    Пожалуйста, повторите пароль.
+                </div>
+                <div class="container-line container-line-pass2">
+                    <img src="/static/images/line.svg" class="line-pass2">
+                </div>
+            </div>
+        </div>
+        <div class="elipse"></div>
+    </main>
+    <script type="text/javascript">
+        var input_name = document.getElementById('id_username'),
+            input_address = document.getElementById('id_wallet_address'),
+            input_pass1 = document.getElementById('id_password1'),
+            input_pass2 = document.getElementById('id_password2'),
+            input_key = document.getElementById('id_api_key'),
+            input_secret = document.getElementById('id_api_secret'),
+            input_mail = document.getElementById('id_email');
+            agreement = document.getElementById('id_agreement');
+            mailing = document.getElementById('id_mailing');
+            form = document.getElementById('main-form');
+            keys = document.getElementById('keys');
+            my_name = document.getElementById('name');
+            email = document.getElementById('email');
+            wallet = document.getElementById('wallet');
+            pass_hid_1 = document.getElementById('pass1');
+            pass_hid_2 = document.getElementById('pass2');
+            bt_open_reg_pass1 = document.getElementById('open-regpass1');
+            bt_close_reg_pass1 = document.getElementById('close-regpass1');
+            bt_open_reg_pass2 = document.getElementById('open-regpass2');
+            bt_close_reg_pass2 = document.getElementById('close-regpass2');
+
+        function removePlaceholderName(input_name)  {
+            if (input_name.value == "Имя пользователя") {
+                input_name.value = "";
+                my_name.style.display = 'flex';
+            }
+        }
+
+        function replacePlaceholderName(input_name)  {
+            if (input_name.value == "") {
+                input_name.value = "Имя пользователя";
+                my_name.style.display = 'none';
+
+            }
+        }
+
+        function removePlaceholderAddres(addres)  {
+            if (addres.value == "Адрес кошелька") {
+                addres.value = "";
+                wallet.style.display = 'flex';
+            }
+        }
+
+        function replacePlaceholderAddres(addres)  {
+            if (addres.value == "") {
+                addres.value = "Адрес кошелька";
+                wallet.style.display = 'none';
+            }
+        }
+
+        function removePlaceholderPass1(pass1)  {
+            if (pass1.value == "Пароль") {
+                pass1.value = ""
+                pass1.type = "password";
+                pass_hid_1.style.display = "flex";
+            }
+        }
+
+        function replacePlaceholderPass1(pass1)  {
+            if (pass1.value == "") {
+                pass1.value = "Пароль";
+                pass1.type = "text";
+                pass_hid_1.style.display = "none";
+                document.getElementById('open-regpass1').style.display = "inline";
+                document.getElementById('close-regpass1').style.display = "none";   
+            }
+        }
+
+        function removePlaceholderPass2(pass2)  {
+            if (pass2.value == "Повторите пароль") {
+                pass2.value = ""
+                pass2.type = "password";
+                pass_hid_2.style.display = "flex";
+            }
+        }
+
+        function replacePlaceholderPass2(pass2)  {
+            if (pass2.value == "") {
+                pass2.value = "Повторите пароль";
+                pass2.type = "text";
+                pass_hid_2.style.display = "none";
+                document.getElementById('open-regpass2').style.display = "inline";
+                document.getElementById('close-regpass2').style.display = "none"; 
+            }
+        }
+
+        function removePlaceholderKey(key)  {
+            if (key.value == "Api key") {
+                key.value = "";
+                keys.style.display = 'flex';
+
+            }
+        }
+
+        function replacePlaceholderKey(key)  {
+            if (key.value == "") {
+                key.value = "Api key";
+                keys.style.display = 'none'; 
+            }
+        }
+
+        function removePlaceholderSecret(secret)  {
+            if (secret.value == "Api secret") {
+                secret.value = "";
+                keys.style.display = 'flex'; 
+            }
+        }
+
+        function replacePlaceholderSecret(secret)  {
+            if (secret.value == "") {
+                secret.value = "Api secret";
+                keys.style.display = 'none'; 
+            }
+        }
+
+        function removePlaceholderEmail(mail)  {
+            if (mail.value == "Email") {
+                mail.type = 'email';
+                mail.value = "";
+                email.style.display = 'flex';
+            }
+        }
+
+        function replacePlaceholderEmail(mail)  {
+            if (mail.value == "") {
+                mail.type = 'text';
+                mail.value = "Email";
+                email.style.display = 'none';
+            }
+        }
+
+        function open_pass1_reg() {  
+            edit = document.getElementById('id_password1')
+            if (edit.value != "Пароль") {
+                edit.type = "text";
+                document.getElementById('open-regpass1').style.display = "none";
+                document.getElementById('close-regpass1').style.display = "inline";
+            }        
+
+        }
+
+        function close_pass1_reg() {
+            document.getElementById('id_password1').type = "password";
+            document.getElementById('open-regpass1').style.display = "inline";
+            document.getElementById('close-regpass1').style.display = "none";        
+
+        }
+
+        function open_pass2_reg() {  
+            edit = document.getElementById('id_password2')
+            if (edit.value != "Пароль") {
+                edit.type = "text";
+                document.getElementById('open-regpass2').style.display = "none";
+                document.getElementById('close-regpass2').style.display = "inline";
+            }        
+
+        }
+
+        function close_pass2_reg() {
+            document.getElementById('id_password2').type = "password";
+            document.getElementById('open-regpass2').style.display = "inline";
+            document.getElementById('close-regpass2').style.display = "none";        
+
+        }
+
+        bt_open_reg_pass1.addEventListener("click", open_pass1_reg);
+        bt_close_reg_pass1.addEventListener("click", close_pass1_reg);
+        bt_open_reg_pass2.addEventListener("click", open_pass2_reg);
+        bt_close_reg_pass2.addEventListener("click", close_pass2_reg);
+        keys.style.display = 'none'; 
+        keys.style.display = 'none';
+        my_name.style.display = 'none';
+        email.style.display = 'none';
+        wallet.style.display = 'none';
+        pass_hid_1.style.display = 'none';
+        pass_hid_2.style.display = 'none';
+        input_name.setAttribute('value', "Имя пользователя");
+        input_name.blur();
+        input_name.setAttribute('onBlur', "replacePlaceholderName(this)");
+        input_name.setAttribute('onFocus', "removePlaceholderName(this)");
+        input_address.setAttribute('value', "Адрес кошелька");
+        input_address.setAttribute('onBlur', "replacePlaceholderAddres(this)");
+        input_address.setAttribute('onFocus', "removePlaceholderAddres(this)");
+        input_pass1.setAttribute('value', "Пароль");
+        input_pass1.setAttribute('type', 'text');
+        input_pass1.setAttribute('onBlur', "replacePlaceholderPass1(this)");
+        input_pass1.setAttribute('onFocus', "removePlaceholderPass1(this)");
+        input_pass2.setAttribute('value', "Повторите пароль");
+        input_pass2.setAttribute('type', 'text')
+        input_pass2.setAttribute('onBlur', "replacePlaceholderPass2(this)");
+        input_pass2.setAttribute('onFocus', "removePlaceholderPass2(this)");
+        input_key.setAttribute('value', "Api key");
+        input_key.setAttribute('onBlur', "replacePlaceholderKey(this)");
+        input_key.setAttribute('onFocus', "removePlaceholderKey(this)");
+        input_secret.setAttribute('value', "Api secret");
+        input_secret.setAttribute('onBlur', "replacePlaceholderSecret(this)");
+        input_secret.setAttribute('onFocus', "removePlaceholderSecret(this)");
+        input_mail.setAttribute('type', 'text');
+        input_mail.setAttribute('value', "Email");
+        input_mail.setAttribute('onBlur', "replacePlaceholderEmail(this)");
+        input_mail.setAttribute('onFocus', "removePlaceholderEmail(this)");
+    </script>
+</body>
+{% endblock %}

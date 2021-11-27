@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% load static %}
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        {% block header %}
+            <header class="header">
+                <div class="container">
+                    <div class="flex-row">
+                        <div class="logo">
+                            <span class="logo-text">TRINETBIT</span>
+                        </div>
+                        <nav class="nav">
+                            <ul class="nav-list">
+                                <li class="item-nav"><a class="nav-link" href="{% url 'project' %}">FAQ</a></li>
+                                <li class="item-nav"><a class="nav-link" href="{% url 'project' %}">{% trans "О продукте" %}</a></li>
+                                <li class="item-nav"><a class="nav-link" href="{% url 'index' %}">{% trans "Домой" %}</a></li>
+                                {% if request.user.is_authenticated %}
+                                    <li class="item-nav"><a class="nav-link" href="{% url 'personal_account' %}">{% trans "Личный кабинет" %}</a></li>
+                                    <li class="item-nav"><a class="nav-link" href="{% url 'logout' %}">{% trans "Выйти" %}</a></li>
+                                {% else %}
+                                    <li class="item-nav"><a class="nav-link" href="{% url 'login' %}">{% trans "Войти" %}</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            {% get_current_language as LANGUAGE_CODE %}
+                            <input name="next" type="hidden" value="{{ redirect_to }}" />
+                            {% if LANGUAGE_CODE == 'en' %}
+                                <input class= "info_lan" name="language" type="hidden" value="ru" />
+                                <input class="bt bt-on bt-ru" type="submit" value="RU" />
+                                <input class="bt bt-off bt-en" type="submit" value="EN" disabled="true"/>
+                            {% else %}
+                                <input class="info_lan" name="language" type="hidden" value="en" />
+                                <input class="bt bt-off bt-ru" type="submit" value="RU" disabled="false"/>
+                                <input class="bt bt-on bt-en" type="submit" value="EN" />
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </header>
+        {% endblock %}
+        {% block content %}
+        {% endblock content %}
+        {% block footer%}
+            <footer class="footer">
+                <div class="container container-footer">
+                    <p class="text-footer domen">© trinetbit.com</p>
+                    <p class="text-footer">
+                        <span class="span-footer">Пользовательское соглашение</span>
+                        <span>Политика конфиденциальности</span>
+                    </p>
+                </div>
+            </footer>
+        {% endblock footer%}
+
+
+</body>
+</html>

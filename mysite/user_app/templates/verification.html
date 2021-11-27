@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<body>
+    <main  class="main">
+        <div class="container container-main container-main-verify">
+            <form class="form" id="form" method="post">
+                {% csrf_token %}
+                <div class="item-label-list">{{ form.code }} </div>
+                <button name="confirmation" class="bt-site bt-confirm" type="submit">{% trans "Подтвердить" %}</button>
+                <button name="resending" class="bt-site bt-resend" id='bt-resend' type="submit">{% trans "Выслать новый" %}</button>
+            </form>
+        </div>
+        <div class="elipse"></div>
+    </main>
+    <script type="text/javascript">
+        function getActive() {
+            document.getElementById('bt-resend').disabled = false;
+        }
+
+        function removePlaceholderCode(input_code)  {
+            if (input_code.value == "Код подтверждения") {
+                input_code.value = "";
+            }
+        }
+
+        function replacePlaceholderCode(input_code)  {
+            if (input_code.value == "") {
+                input_code.value = "Код подтверждения";
+            }
+        }
+
+        let delay_popup = 7000;
+            code = document.getElementById('id_code');
+        document.getElementById('bt-resend').disabled = true;
+        setTimeout(getActive, delay_popup);
+        code.setAttribute('value', "Код подтверждения");
+        code.blur();
+        code.setAttribute('onBlur', "replacePlaceholderCode(this)");
+        code.setAttribute('onFocus', "removePlaceholderCode(this)");
+    </script>
+</body>
+{% endblock %}
