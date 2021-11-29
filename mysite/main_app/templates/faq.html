@@ -1,10 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About project</title>
-</head>
-<body>
-    Cool project!!!
-</body>
-</html>
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+    <body>
+        <main class="main main-faq">
+            <div class="container container-faq">
+                <div class="question-container">
+                    <span class="question">1. У меня <span class="excretion">уже есть</span> аккаунт на Bybit, могу ли я подлючить его?</span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt1-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt1-question-close">
+                </div>
+                <p class="answer" id="answer1">
+                    Ответ: На данный момент нет. Это связанно с отсутствием фукнционала биржи, позволяющего подключить Вас в качестве партнера. 
+                    В случае появления такого функционала мы пересмотрим пользовательское соглашение.
+                </p>
+                <div class="question-container question-container-big">
+                    <span class="question">
+                        2. Почему <span class="excretion">адрес</span> для регистрации на бирже <span class="excretion">по кнопке</span> и 
+                        <span class="excretion">адрес</span>, полученный мной <span class="excretion">в интернете</span> по запросу, <span class="excretion">отличаются</span>?
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt2-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt2-question-close">
+                </div>
+                <p class="answer" id="answer2">
+                    Ответ: Адрес, на который вы переходите по кнопке уже включает в себя дополнительные аргументы для регистрации Вас в качестве партнера. 
+                    Равнозачно вы можете скопировать следующую строку “?affiliate_id=24364&group_id=0&group_type=1” и вставить после 
+                    https://www.bybit.com/ru-RU/register - оффициальной ссылки регистрации. Мы напоминаем, что 
+                    <span class="excretion">не просим</span> нам <span class="excretion">верить</span>, а <span class="excretion">просим сомневаться и проверять</span>. 
+                    Зарегистрируйтесь на бирже и задайте вопрос о нашей ссылке в службу поддержки Bybit. 
+                </p>
+                <div class="question-container question-containerd-middle">
+                    <span class="question">
+                        3. У площадки есть <span class="excretion">прямой</span> доступ к управлению кошельком?
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt3-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt3-question-close">
+                </div>
+                <p class="answer" id="answer3">
+                    Ответ: Нет. У <span class="excretion">площадки нет прямого доступа</span> к управлению Вашим кошельком, потому что функционал Bybit API этого не предусматривает.
+                </p>
+                <div class="question-container question-containerd-middle">
+                    <span class="question">
+                        4. <span class="excretion">Какие операции</span> с моим биржевым аккаунтом <span class="excretion">доступны площадке</span>?
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt4-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt4-question-close">
+                </div>
+                <p class="answer" id="answer4">
+                    Ответ: Для работы мы используем фукнционал запроса информации о депозите. Текущий баланс, снятие - это нужно нам для проверки возможности работы с 
+                    площадкой, суммы ордеров и рассчетов прибыли. Функционал выставления и закрытия ордеров необходим нам непосредственно для ведения торговли. 
+                    Фукнционал запроса данных о проведенных торговых операциях позволяет нам собирать отображаемую в Вашем личном кабинете персональную статистику, а 
+                    так же выводить обезличенные усредненные цифры на главной странице.
+                </p>
+                <div class="question-container question-containerd-middle">
+                    <span class="question">
+                        5.  Почему <span class="excretion">минимальный депозит</span> должен быть <span class="excretion">не менее 200</span> долларов США для работы с площадкой?
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt5-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt5-question-close">
+                </div>
+                <p class="answer" id="answer5">
+                    Ответ: минимальный депозит обусловлен двумя факторами:
+                    Во-первых, биржа предусматриват минимальную сумму входа в сделку.
+                    Во-вторых, торговля на криптовалютной бирже связанна с рисками. Мы  смоделировали несколько ситуаций, по результатам которых пришли к выводам, что 
+                    это оптимальный минимум. Мы ценим каждого клиента, поэтому хотим, что бы в случае закрытой сделки в минус, Вы смогли продолжить пользоваться услугами
+                     нашей площадки и открыть для себя тот потенциал, который мы закладывали в нее.
+                </p>
+                <div class="question-container">
+                    <span class="question">
+                        6.  <span class="excretion">Как</span> мне <span class="excretion">оплатить доступ</span> к площадке? 
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt6-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt6-question-close">
+                </div>
+                <p class="answer" id="answer6">
+                    Ответ: Ничего платить сейчас не нужно. В конце рассчетного периода (один календарный месяц) в Вашем личном кабинете появится информация о том 
+                    какая сумма и на какой BTC кошелек должна быть переведена. <span class="excretion">Сумма зависит от полученной Вами прибыли</span> и составит 20% при прибыли до 10%, 30% при 
+                    прибыли от 10% до 15% и 40% при прибыли свыше 15%. Подобная прогрессивная система мотивирует нас развиваться и улучшать продукт.
+                </p>
+                <div class="question-container">
+                    <span class="question">
+                        7.  Почему доступ к площадке был приостановлен? 
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt7-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt7-question-close">
+                </div>
+                <div class="answer" id="answer7">
+                    <p class="answer7">Ответ: Существует четыре возможных причины приостановки доступа к площадке со стороны Trinetbit.</p>
+                    <ul class="answerlist-cause">
+                        <li>1. <span class="excretion">Оплата продления</span> доступа к площадке <span class="excretion">не</span> была <span class="excretion">произведена</span>.</li>
+                        <li>2. Ваш биржевой <span class="excretion">аккаунт не</span> зарегистрирован, как <span class="excretion">партнерский</span>.</li>
+                        <li>3. <span class="excretion">Депозит</span> на вашем биржевом аккаунте <span class="excretion">не позволяет выставить ордер</span>.</li>
+                        <li>4. Данные <span class="excretion">API</span> не верны или устарели.</li>
+                    </ul>
+                </div>
+                <div class="question-container question-containerd-middle">
+                    <span class="question">
+                        8.  Я произвел оплату для продления доступа к площадке, но статус учетной записи в личном кабинете  “Не активна”? 
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt8-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt8-question-close">
+                </div>
+                <div class="answer" id="answer8">
+                    <p class="paragraph-answer8">
+                        Ответ: Площадка выполняет сверку по оплате каждые два часа в последний день рассчетного периода и каждые 6 часов в другие дни. 
+                        Сверка в последний день рассчетного периода осуществляется в  00:00, 02:00, 04:00, 06:00, 08:00, 10:00, 12:00, 14:00, 16:00, 18:00, 20:00 и  22:00 
+                        Доступ к системе будет воcстановлен в момент подтверждения площадкой оплаты после сверки, но не позднее 24 часов после перевода.
+                        (UTC +3). Сверка в любой другой день осуществляется в 00:00, 06:00, 12:00, 18:00 (UTC +3). 
+                    </p>
+                    <p class="paragraph-project-no-indentation">
+                        Мы так же напоминаем Вам, что согласно пункту 5.2.1.1 <a href="{% url 'eula' %}" class="excretion">Пользовательского соглашения</a> оплата должна производится с кошелька, указанного при регистрации, 
+                        либо кошелька указанного и подтвержденного в личном кабинете, в противном случае перевод считается добровольным пожертвованием и возврату не подлежит.
+                    </p>
+                </div>
+                <div class="question-container question-containerd-middle">
+                    <span class="question">
+                        9.  Вы (площадка) говорите, что торговая стратегия основана на рисках от 1 до 3 процентов, что это занчит?
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt9-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt9-question-close">
+                </div>
+                <p class="answer" id="answer9">
+                    Ответ:  это значит что сумма каждой сделки, открытой площадкой, не будет превышать от 1 до 3 процентов от суммы депозита. Приводя пример на цифрах: 
+                    сумма сделки не первысит 30 долларов при депозите в 1000 долларов.
+                </p>
+                <div class="question-container question-containerd-middle">
+                    <span class="question">
+                        10.  Мне неудобно самостоятельно регистрировать биржевой аккаунт. Может ли это сделать площадка для меня?
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt10-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt10-question-close">
+                </div>
+                <p class="answer" id="answer10">
+                    Ответ: нет. Это противоречит концепции площадки о защищенности клиентов. Доступ к Вашему биржевому аккаунту должен быть только у Вас. Если у Вас 
+                    возникли сложно при регистрации, ознакомтесь с нашей <a href="{% url 'guide' %}" class="excretion">пошаговой инструкцией</a>, она правда написана очень доступным языком.
+                </p>
+                <div class="question-container">
+                    <span class="question">
+                        11.  За счет чего формируется прибыль?
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt11-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt11-question-close">
+                </div>
+                <p class="answer" id="answer11">
+                    Ответ: в основе Вашего процветания лежат наши навыки Трейдинга. Маржинальная торговля с кредитным плечом
+                    и краткосрочные спекуляции - основа торговли на бирже, как фондовой, так и криптовалютной.
+                    Если Вы хотите узнать больше о торговле на криптовалютной бирже, а так же быть в курсе последних новостей компании - подписывайтесь на наш 
+                    <span class="excretion">телеграм канал</span>.
+                </p>
+                <div class="question-container">
+                    <span class="question">
+                        12.  Я не нашел ответа на свой вопрос!
+                    </span>
+                    <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt12-question-show">
+                    <input type="image" class="bt-answer bt-close-answer" src="/static/images/jackdaw_up.svg" id="bt12-question-close">
+                </div>
+                <p class="answer" id="answer12">
+                    Ответ: к сожалению, невозможно учесть все вопросы, которые могут возникнуть у клиента. К счатью, мы ценим каждого клиента. Задайте нам свой вопрос 
+                    <span class="excretion">напрямую</span> и мы обязательно Вам ответим!
+                </p>
+                
+            </div>
+            <script type="text/javascript">
+                let bt1_question_show = document.getElementById('bt1-question-show');
+                    bt1_question_close = document.getElementById('bt1-question-close');
+                    bt2_question_show = document.getElementById('bt2-question-show');
+                    bt2_question_close = document.getElementById('bt2-question-close');
+                    bt3_question_show = document.getElementById('bt3-question-show');
+                    bt3_question_close = document.getElementById('bt3-question-close');
+                    bt4_question_show = document.getElementById('bt4-question-show');
+                    bt4_question_close = document.getElementById('bt4-question-close');
+                    bt5_question_show = document.getElementById('bt5-question-show');
+                    bt5_question_close = document.getElementById('bt5-question-close');
+                    bt6_question_show = document.getElementById('bt6-question-show');
+                    bt6_question_close = document.getElementById('bt6-question-close');
+                    bt7_question_show = document.getElementById('bt7-question-show');
+                    bt7_question_close = document.getElementById('bt7-question-close');
+                    bt8_question_show = document.getElementById('bt8-question-show');
+                    bt8_question_close = document.getElementById('bt8-question-close');
+                    bt9_question_show = document.getElementById('bt9-question-show');
+                    bt9_question_close = document.getElementById('bt9-question-close');
+                    bt10_question_show = document.getElementById('bt10-question-show');
+                    bt10_question_close = document.getElementById('bt10-question-close');
+                    bt11_question_show = document.getElementById('bt11-question-show');
+                    bt11_question_close = document.getElementById('bt11-question-close');
+                    bt12_question_show = document.getElementById('bt12-question-show');
+                    bt12_question_close = document.getElementById('bt12-question-close');
+
+                function open_answer(id_answer, id_bt_show, id_bt_close) {
+                    document.getElementById(id_answer).style.display = "block";
+                    document.getElementById(id_bt_show).style.display = "none"; 
+                    document.getElementById(id_bt_close).style.display = "block";
+                }
+
+                function close_answer(id_answer, id_bt_show, id_bt_close) {
+                    document.getElementById(id_answer).style.display = "none";
+                    document.getElementById(id_bt_show).style.display = "block"; 
+                    document.getElementById(id_bt_close).style.display = "none";        
+
+                }
+
+                bt1_question_show.addEventListener("click", function(){open_answer("answer1", "bt1-question-show", "bt1-question-close")});
+                bt1_question_close.addEventListener("click", function(){close_answer("answer1", "bt1-question-show", "bt1-question-close")});
+                bt2_question_show.addEventListener("click", function(){open_answer("answer2", "bt2-question-show", "bt2-question-close")});
+                bt2_question_close.addEventListener("click", function(){close_answer("answer2", "bt2-question-show", "bt2-question-close")});
+                bt3_question_show.addEventListener("click", function(){open_answer("answer3", "bt3-question-show", "bt3-question-close")});
+                bt3_question_close.addEventListener("click", function(){close_answer("answer3", "bt3-question-show", "bt3-question-close")});
+                bt4_question_show.addEventListener("click", function(){open_answer("answer4", "bt4-question-show", "bt4-question-close")});
+                bt4_question_close.addEventListener("click", function(){close_answer("answer4", "bt4-question-show", "bt4-question-close")});
+                bt5_question_show.addEventListener("click", function(){open_answer("answer5", "bt5-question-show", "bt5-question-close")});
+                bt5_question_close.addEventListener("click", function(){close_answer("answer5", "bt5-question-show", "bt5-question-close")});
+                bt6_question_show.addEventListener("click", function(){open_answer("answer6", "bt6-question-show", "bt6-question-close")});
+                bt6_question_close.addEventListener("click", function(){close_answer("answer6", "bt6-question-show", "bt6-question-close")});
+                bt7_question_show.addEventListener("click", function(){open_answer("answer7", "bt7-question-show", "bt7-question-close")});
+                bt7_question_close.addEventListener("click", function(){close_answer("answer7", "bt7-question-show", "bt7-question-close")});
+                bt8_question_show.addEventListener("click", function(){open_answer("answer8", "bt8-question-show", "bt8-question-close")});
+                bt8_question_close.addEventListener("click", function(){close_answer("answer8", "bt8-question-show", "bt8-question-close")});
+                bt9_question_show.addEventListener("click", function(){open_answer("answer9", "bt9-question-show", "bt9-question-close")});
+                bt9_question_close.addEventListener("click", function(){close_answer("answer9", "bt9-question-show", "bt9-question-close")});
+                bt10_question_show.addEventListener("click", function(){open_answer("answer10", "bt10-question-show", "bt10-question-close")});
+                bt10_question_close.addEventListener("click", function(){close_answer("answer10", "bt10-question-show", "bt10-question-close")});
+                bt11_question_show.addEventListener("click", function(){open_answer("answer11", "bt11-question-show", "bt11-question-close")});
+                bt11_question_close.addEventListener("click", function(){close_answer("answer11", "bt11-question-show", "bt11-question-close")});
+                bt12_question_show.addEventListener("click", function(){open_answer("answer12", "bt12-question-show", "bt12-question-close")});
+                bt12_question_close.addEventListener("click", function(){close_answer("answer12", "bt12-question-show", "bt12-question-close")});
+            </script>
+        </main>
+    </body>
+{% endblock %}

@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <title>{{ title }}</title>
         <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/mystyle.css' %}" type="text/css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -19,7 +19,7 @@
                         </div>
                         <nav class="nav">
                             <ul class="nav-list">
-                                <li class="item-nav"><a class="nav-link" href="{% url 'project' %}">FAQ</a></li>
+                                <li class="item-nav"><a class="nav-link" href="{% url 'faq' %}">FAQ</a></li>
                                 <li class="item-nav"><a class="nav-link" href="{% url 'project' %}">{% trans "О продукте" %}</a></li>
                                 <li class="item-nav"><a class="nav-link" href="{% url 'index' %}">{% trans "Домой" %}</a></li>
                                 {% if request.user.is_authenticated %}
@@ -55,8 +55,8 @@
                 <div class="container container-footer">
                     <p class="text-footer domen">© trinetbit.com</p>
                     <p class="text-footer">
-                        <span class="span-footer">Пользовательское соглашение</span>
-                        <span>Политика конфиденциальности</span>
+                        <a href="{% url 'eula' %}" class="span-footer">Пользовательское соглашение</a>
+                        <a href="{% url 'private_policity' %}" >Политика конфиденциальности</a>
                     </p>
                 </div>
             </footer>

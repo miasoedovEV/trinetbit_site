@@ -32,8 +32,8 @@
                     <label class="check">
                         {{ form.agreement }}
                         <span class="check_box"></span>                         
-                        Я принимаю условия <span class="excretion">Пользовательского соглашения</span> и даю 
-                        своё согласие TRINETBIT на обработку моей персональной информации на условиях, определенных <span class="excretion">Политикой конфиденциальности</span>.
+                        Я принимаю условия <a href="{% url 'eula' %}" class="excretion">Пользовательского соглашения</a> и даю 
+                        своё согласие TRINETBIT на обработку моей персональной информации на условиях, определенных <a href="{% url 'private_policity' %}" class="excretion">Политикой конфиденциальности</a>.
                     </label>
                 </div>
                 <div class="check-box-contaner check-box-contaner-mailing">

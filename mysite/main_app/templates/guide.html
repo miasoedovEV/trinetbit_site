@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+    <body>
+        <main class="main main-guide">
+            <div class="container container-guide">
+                <ul class="list-guide">
+                    <li class="item-list-guide item-list-guide-first normal-margin-private">
+                        <span class="number-step-guide paragraph-private">1.</span>
+                        <p class="step-guide-first paragraph-private">
+                            Перейдите по <a class="excretion" href="https://www.bybit.com/ru-RU/register?affiliate_id=24364&group_id=0&group_type=1">ссылке</a> или вставьте в строчку запроса 
+                            “https://www.bybit.com/ru-RU/register?affiliate_id=24364&group_id=0&group_type=1” и 
+                            зарегистрируйте аккаунт на бирже Bybit.
+                        </p>
+                    </li>
+                    <li class="item-list-guide item-list-guide-second normal-margin-private">
+                        <p class="step-guide-second paragraph-private">
+                            2. Следуйте инструкциям биржи для регистрации аккаунта.
+                        </p>
+                        <img src="/static/images/main_reg.jpg" alt="picture of the entrance to the site Bybit">
+                    </li>
+                </ul>
+                <p class="paragraph-private guide-margin-paragraph">
+                    3. После успешного создания и подтверждения аккаунта - подключите 2FA для своего аккаунта. Это дополнительсная степень защиты, 
+                    интегрированная биржей, необходимая для создания API ключа и секрета.
+                </p>
+                <div class="container-guide-header-bybit">
+                    <img class="img-guide-header" src="/static/images/navbar_bybit.jpg" alt="Bybit's site header">
+                </div>
+                <p class="paragraph-private guide-margin-paragraph paragraph-guide-put-bt">
+                    3.1 Нажмите на иконку
+                </p>
+                <div class="container-guide-security-bybit">
+                    <p class="paragraph-guide-security">3.2 Выберите в выпаввшем меню “Аккаунт и безопасность”</p>
+                    <img class="arrow arrow-security" src="/static/images/arrow_left.svg" alt="arrow">
+                </div>
+                <p class="paragraph-private guide-margin-paragraph paragraph-guide-put-bt">
+                    3.2 Нажмите кнопку настройки. 
+                </p>
+                <div class="container-guide-settings-bybit">
+                    <img class="arrow arrow-settings" src="/static/images/arrow_right.svg" alt="arrow">
+                </div>
+                <p class="paragraph-guide-note guide-margin-paragraph">
+                    Примечание: для работы с площадкой TRINETBIT настраивать SMS аутентификацию не обязательно, но мы рекомендуем Вам настроить и ее. 
+                    Это дополнительная степень защиты Вашего аккаунта.
+                </p>
+                <p class="paragraph-private guide-margin-paragraph paragraph-guide-put-bt">
+                    3.3 Следуйте дальнейшим инструкциям на сайте.  
+                </p>
+                <p class="paragraph-private guide-margin-paragraph">
+                    4. Создание API.
+                </p>
+                <div class="container-guide-api-enter-bybit">
+                    <img class="arrow arrow-enter-api" src="/static/images/arrow_right.svg" alt="arrow">
+                </div>
+                <div class="container-guide-api-create-bybit">
+                    <img class="arrow arrow-api-create" src="/static/images/arrow_right.svg" alt="arrow">
+                    <p class="paragraph-guide-api-create">4.1 Создайте новый API ключ.</p>
+                </div>
+                <div class="container-guide-api-create-bybit container-guide-api-bot">
+                    <p class="paragraph-guide-api-bot-first">4.1 Выберите указанное поле.</p>
+                    <p class="paragraph-guide-api-bot-second">4.2 Название может быть любым.</p>
+                    <p class="paragraph-guide-api-bot-third">4.3 Поставте галки в те же поля, что и на картинке.</p>
+                    <img class="arrow arrow-api-create-first" src="/static/images/arrow_right.svg" alt="arrow">
+                    <img class="arrow arrow-api-create-second" src="/static/images/arrow_left.svg" alt="arrow">
+                    <img class="arrow arrow-api-create-third" src="/static/images/arrow_right.svg" alt="arrow">
+                </div>
+                <div class="container-guide-api-create-bybit container-guide-api-2fa">
+                    <p class="paragraph-guide-api-2fa">4.4 Подвердите создание API через настроенную ранее 2FA.</p>
+                </div>
+                <div class="container-guide-api-create-bybit container-guide-api-keys">
+                    <p class="paragraph-guide-api-keys-first">4.4 <span class="excretion">ОБРАТИТЕ ВНИМАНИЕ</span>: После нажатия “Подтвержаю” Вы не сможете посмотреть секрет!Скопируйте и 
+                        вставьте его сразу в поле регистрации или запишите в недоступном для третьих лиц месте, что бы скопировать позже.
+                    </p>
+                    <p class="paragraph-guide-api-keys-second">5. <span class="excretion">ПОЗДРАВЛЯЕМ</span>: Вы успешно зарегистрировались на бирже и создали API. теперь все готово для подлючения к платформе. 
+                        Добро пожаловать!
+                    </p>
+                </div>
+            </div>
+        </main>
+    </body>
+{% endblock %}

@@ -26,7 +26,7 @@
                 <ul class="list-index-cards">
                     <li class="index-card">
                         <p class="text-card">4235$</p>
-                        <p class="text-card lower-index-text-card">средняя прибыль клиента за месяц</p>>
+                        <p class="text-card lower-index-text-card">средняя прибыль клиента за месяц</p>
                     </li>
                     <li class="index-card">
                         <p class="text-card">2 154 235$</p>
@@ -38,7 +38,7 @@
                     </li>
                 </ul>
             </div>
-            <p class="text-details-index">Узнать <span class="excretion">подробнее</span> о продукте.</p>
+            <p class="text-details-index">Узнать <a href="{% url 'project' %}" class="excretion">подробнее</a> о продукте.</p>
             <p class="text-details-index text-calculate-index">Рассчитайте <span class="excretion">свой</span> доход сейчас.</p>
             <div class="container-calc-profit">
                 <ul class="list-input-index">
@@ -49,7 +49,7 @@
                 <p class="remark-index">*Прибыль рассчитывается исходя из среднего ежемесячного процента.</p>
             </div>
             <p class="bottom-heading-index">Начните получать прибыль.</p>
-            <a class="link-instruction-index"><p class="text-instruction-index"><span class="excretion">Инструкция</span> с порядком действий</p></a>
+            <a href="{% url 'guide' %}" class="link-instruction-index"><p class="text-instruction-index"><span class="excretion">Инструкция</span> с порядком действий</p></a>
             <a class="link-register-index" href="{% url 'register' %}">ЗАРЕГИСТРИРОВАТЬСЯ</a>
         </div>
         <div class="elipse"></div>
@@ -107,7 +107,7 @@
                 for (let i = 0; i < month; i++) {
                     depo = depo * 1.125
                     }
-                profit.value = depo
+                profit.value = Math.round(depo * 100) / 100
             }
             if (profit.value == "0" || profit.value == "0") {
                 profit.value = "Ваша прибыль";
