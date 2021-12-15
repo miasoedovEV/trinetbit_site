@@ -3,9 +3,9 @@
 {% load i18n %}
 {% block content %}
 <body>
-    <main class="main main-profile">
-        <div class="container container-main container-main-profile">
-            <div class="first-part">
+    <main class="main main-profile" id="main-profile">
+        <div class="container container-main container-main-profile"> 
+            <div class="first-part" id="first-part">
                 <div class="heating-data">
                     <span class="username">{{ request.user.username }}</span>
                     <input type="image" class="settings-bt" src="/static/images/coolicon.svg" id="open-window">
@@ -50,7 +50,7 @@
                                 {{status}}
                             </span>
                         {% else %}
-                            <span class="status-card-account status-no-active" id="status">
+                            <span class="status-card-account status-no-active">
                                 {{status}}
                             </span>
                         {% endif %}
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="second-part">
+            <div class="second-part" id="second-part">
                 <h2 class="heating-second-part">Orders</h2>
                 <table class="table-result">
                     <thead>
@@ -170,6 +170,23 @@
         </div>
     </main>
     <script type="text/javascript">
+        const screenWidth = window.innerWidth
+
+        if (screenWidth < 1800) {
+            if (window.innerHeight > 900) {
+                document.getElementById('main-profile').style.width = String(screenWidth) + "px";
+                document.getElementById('first-part').style.padding = "160px 50px 162px 0";
+                document.getElementById('first-part').style.width = "22%";
+                document.getElementById('second-part').style.width = "68%";
+                document.getElementById('change-data-window').style.transform = "scale(0.8, 0.8)";
+                document.getElementById('change-data-window').style.left = "10%";
+            } 
+            else {
+                document.getElementById('first-part').style.padding = "160px 42px 162px 20px";
+                document.getElementById('change-data-window').style.transform = "scale(0.9, 0.9)";
+            }
+        }
+
         let bt_sum_paid = document.getElementById('bt-sum-paid');
             bt_id_wallet = document.getElementById('bt-id-wallet');
             input_wallet = document.getElementById('id_wallet_address');

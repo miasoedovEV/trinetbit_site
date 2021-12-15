@@ -3,8 +3,8 @@
 {% load i18n %}
 {% block content %}
 <body>
-    <main class="main">
-        <div class="container container-main container-main-login">
+    <main class="main" id="main-login">
+        <div class="container container-main container-main-login" id="container-login">
             <form class="form" id="main-form" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <ul class="list-label">
@@ -16,12 +16,36 @@
                     </li>
                 </ul>
                 <button type="submit" class="bt-site bt-login">{% trans "ВОЙТИ" %}</button>
+                <p class="paragraph-private password-recovery-text">
+                    <span class="excretion">В случае потери пароля, введите логин и нажмите кнопку "Забыл пароль".</span>
+                </p>
                 <button type="submit" class="bt-site bt-reautification" name="reautification">{% trans "Забыл пароль" %}</button>
             </form>
         </div>
         <div class="elipse"></div>
     </main>
     <script type="text/javascript">
+        const screenWidth = window.innerWidth
+
+        if (screenWidth < 1800) {
+            let screenHeight= window.innerHeight
+            document.getElementById('main-login').style.width = String(screenWidth) + "px";
+            if (window.innerHeight > 900) {
+                let padding_index_container = screenHeight * 0.3
+                document.getElementById('container-login').style.padding = padding_index_container + "px 0 0 0";
+                document.getElementById('container-login').style.width = screenWidth * 0.6;
+                document.getElementById('main-login').style.height = String(screenHeight) + "px";
+                margin_login = screenWidth * -0.045
+                document.getElementById('container-login').style.margin = "0 0 0" + String(margin_login) + "px";           
+            } 
+            else {
+                let padding_index_container = screenHeight * 0.15
+                document.getElementById('container-login').style.padding = padding_index_container + "px 0 0 0";
+                document.getElementById('container-login').style.width = screenWidth * 0.6;
+                margin_login = screenWidth * -0.045
+                document.getElementById('container-login').style.margin = "0 0 0" + String(margin_login) + "px";
+            }
+        }
         let form = document.getElementById('main-form');
             username = document.getElementById('id_username');
             password = document.getElementById('id_password');

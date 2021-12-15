@@ -3,8 +3,8 @@
 {% load i18n %}
 {% block content %}
     <body>
-        <main class="main main-faq">
-            <div class="container container-faq">
+        <main class="main main-faq" id="main-faq">
+            <div class="container container-faq zoom-item" id="container-faq">
                 <div class="question-container">
                     <span class="question">1. У меня <span class="excretion">уже есть</span> аккаунт на Bybit, могу ли я подлючить его?</span>
                     <input type="image" class="bt-answer bt-show-answer" src="/static/images/jackdaw_down.svg" id="bt1-question-show">
@@ -157,11 +157,31 @@
                 </div>
                 <p class="answer" id="answer12">
                     Ответ: к сожалению, невозможно учесть все вопросы, которые могут возникнуть у клиента. К счатью, мы ценим каждого клиента. Задайте нам свой вопрос 
-                    <span class="excretion">напрямую</span> и мы обязательно Вам ответим!
+                    <a class="excretion" href="mailto:support@tribetbit.com">напрямую</a> и мы обязательно Вам ответим!
                 </p>
                 
             </div>
             <script type="text/javascript">
+                const screenWidth = window.innerWidth
+
+                if (screenWidth < 1800) {
+                    document.getElementById('main-faq').style.width = String(screenWidth) + "px";
+                    if (window.innerHeight > 900) {
+                        let screenHeight= window.innerHeight + window.innerHeight * 0.1
+                        document.getElementById('container-faq').style.width = String(screenWidth) + 'px';
+                        document.getElementById('main-faq').style.height = String(screenHeight) + "px";
+                        let padding_index_container = screenHeight * 0.1
+                        document.getElementById('container-faq').style.padding = padding_index_container + "px 0 0 0";
+                    } 
+                    else {
+                        let screenHeight= window.innerHeight +  1.3 * window.innerHeight
+                        document.getElementById('container-faq').style.width = String(screenWidth) + 'px';
+                        document.getElementById('main-faq').style.height = String(screenHeight) + "px";
+                        let padding_index_container = screenHeight * 0.04
+                        document.getElementById('container-faq').style.padding = padding_index_container + "px 0 0 0";
+                    }
+                }
+
                 let bt1_question_show = document.getElementById('bt1-question-show');
                     bt1_question_close = document.getElementById('bt1-question-close');
                     bt2_question_show = document.getElementById('bt2-question-show');
@@ -191,13 +211,20 @@
                     document.getElementById(id_answer).style.display = "block";
                     document.getElementById(id_bt_show).style.display = "none"; 
                     document.getElementById(id_bt_close).style.display = "block";
+                    height_div = document.getElementById(id_answer).offsetHeight;
+                    document.getElementById(id_answer).innerHeight = height_div;
+                    height_main = document.getElementById("main-faq").offsetHeight + height_div + 150;
+                    document.getElementById("main-faq").style.height = String(height_main) + "px";
+
                 }
 
                 function close_answer(id_answer, id_bt_show, id_bt_close) {
                     document.getElementById(id_answer).style.display = "none";
                     document.getElementById(id_bt_show).style.display = "block"; 
-                    document.getElementById(id_bt_close).style.display = "none";        
-
+                    document.getElementById(id_bt_close).style.display = "none";
+                    height_div = document.getElementById(id_answer).innerHeight;
+                    height_main = document.getElementById("main-faq").offsetHeight - height_div - 150;
+                    document.getElementById("main-faq").style.height = String(height_main) + "px";    
                 }
 
                 bt1_question_show.addEventListener("click", function(){open_answer("answer1", "bt1-question-show", "bt1-question-close")});

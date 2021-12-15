@@ -6,16 +6,16 @@
         <meta charset="UTF-8">
         <title>{{ title }}</title>
         <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/mystyle.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
         {% block header %}
-            <header class="header">
+            <header class="header" id="header">
                 <div class="container">
                     <div class="flex-row">
                         <div class="logo">
-                            <span class="logo-text">TRINETBIT</span>
+                            <a class="logo-text" href="{% url 'index' %}">TRINETBIT</a>
                         </div>
                         <nav class="nav">
                             <ul class="nav-list">
@@ -51,7 +51,7 @@
         {% block content %}
         {% endblock content %}
         {% block footer%}
-            <footer class="footer">
+            <footer class="footer" id="footer">
                 <div class="container container-footer">
                     <p class="text-footer domen">© trinetbit.com</p>
                     <p class="text-footer">
@@ -60,6 +60,23 @@
                     </p>
                 </div>
             </footer>
+            <script type="text/javascript">
+                if (screenWidth < 1800) {
+                    let content_main_page = document.getElementsByClassName('zoom-item');
+                    for (var i = 0; i < content_main_page.length; i++) {
+                        if (window.innerHeight > 900) {
+                            content_main_page[i].style.transform = "scale(0.85, 0.85)";
+                            document.getElementById('header').style.height = String(window.innerHeight * 0.07) + "px";
+                            document.getElementById('header').style.padding = String(window.innerHeight * 0.01) + "px 0 0 0";
+                            document.getElementById('footer').style.height = String(window.innerHeight * 0.07) + "px";
+                        } 
+                        else {
+                            content_main_page[i].style.transform = "scale(0.8, 0.8)";
+                        }
+                    }
+                    document.getElementById('footer').style.width = String(screenWidth) + "px";
+                }
+            </script>
         {% endblock footer%}
 
 

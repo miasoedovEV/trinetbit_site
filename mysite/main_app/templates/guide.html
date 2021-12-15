@@ -3,8 +3,8 @@
 {% load i18n %}
 {% block content %}
     <body>
-        <main class="main main-guide">
-            <div class="container container-guide">
+        <main class="main main-guide" id="main-guide">
+            <div class="container container-guide zoom-item" id="container-guide">
                 <ul class="list-guide">
                     <li class="item-list-guide item-list-guide-first normal-margin-private">
                         <span class="number-step-guide paragraph-private">1.</span>
@@ -73,11 +73,75 @@
                     <p class="paragraph-guide-api-keys-first">4.4 <span class="excretion">ОБРАТИТЕ ВНИМАНИЕ</span>: После нажатия “Подтвержаю” Вы не сможете посмотреть секрет!Скопируйте и 
                         вставьте его сразу в поле регистрации или запишите в недоступном для третьих лиц месте, что бы скопировать позже.
                     </p>
-                    <p class="paragraph-guide-api-keys-second">5. <span class="excretion">ПОЗДРАВЛЯЕМ</span>: Вы успешно зарегистрировались на бирже и создали API. теперь все готово для подлючения к платформе. 
-                        Добро пожаловать!
-                    </p>
                 </div>
+                <p class="paragraph-private guide-margin-paragraph">
+                    5. Вы успешно зарегистрировались на бирже и создали API. Для подлючения к платформе почти все готово. Осталась пара шагов.
+                </p>
+                <p class="paragraph-private guide-margin-paragraph">
+                    6. Пополните <span class="excretion">свой биржевой</span> счет на сумму <span class="excretion">от 200 долларов</span>. Для конвертации фиатной валюты в криптовалюту (USDT, BTC и другие). Чтобы не терять комиссию на обменниках, мы рекомендуем использовать P2P обмен (напрямую между покупателем и продавцом). 
+                    Данный сервис представлен на бирже <span class="excretion">Binance.com</span>. Вы можете использовать услуги любых сервисов, но мы рекомендуем обменник биржи Binance.
+                </p>
+                <p class="paragraph-private guide-margin-paragraph">
+                    <span class="excretion">БУДЬТЕ ВНИМАТЕЛЬНЫ ПРИ ОБМЕНЕ</span>
+                </p>
+                <p class="paragraph-private guide-margin-paragraph">
+                    После совершения обмена на USDT, необходимо перевести средства на Ваш счет на бирже bybit, на которой мы ведем торговлю. Для удобства и скорости, рекомендуем использовать монету USDT сеть TRX (TRC 20).
+                </p>
+                <p class="paragraph-private guide-margin-paragraph">
+                    7. Теперь переведите средства с спотового счета на деривативный.
+                </p>
+                <p class="paragraph-private guide-margin-paragraph">
+                    7.1 Перейдите во вкладки “активы” и выберите “Спот Аккаунт”.
+                </p>
+                <img class="just-img-guide assets-img margin-need-guide-long" src="/static/images/assets.jpg" alt="assets">
+                <p class="paragraph-private guide-margin-paragraph">
+                    7.2 Нажмите на кнопку “перевод” в левой верхней части страницы.
+                </p>
+                <img class="just-img-guide translation-page-img margin-need-guide-long" src="/static/images/translation_page.jpg" alt="translation page">
+                <p class="paragraph-private guide-margin-paragraph">
+                    7.3 Переведите средства в деривативный аккаунт.   
+                </p>
+                <img class="just-img-guide translation-menu-img" id="margin-need-guide-square" src="/static/images/translation_menu.jpg" alt="translation menu">
+                <p class="paragraph-private guide-margin-paragraph">
+                    8. <span class="excretion">ПОЗДРАВЛЯЕМ!</span> Все необходимое для работы с площадкой TRINEBIT готово.  Регистрируйтесь по кнопке внизу и начинайте получать прибыль!   
+                </p>
+                <a class="link-register-index link-register-guide" href="{% url 'register' %}" id="margin-need-guide-link">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+                <p class="paragraph-private guide-margin-paragraph">
+                    Если у Вас остались вопросы касательно регистрации, пожалуста, напишите нам на почту <span class="excretion">support@trinetbit.com</span> с пометкой “помощь с регистрацией”, и мы постараемся Вам помочь!
+                </p>
             </div>
+            <script type="text/javascript">
+                const screenWidth = window.innerWidth
+                document.getElementById('main-guide').style.width = String(screenWidth) + "px";
+                if (screenWidth > 1000 && screenWidth < 1800) {
+                    if (window.innerHeight > 900) {
+                        let screenHeight= window.innerHeight +  3.2 * window.innerHeight
+                        document.getElementById('container-guide').style.width = String(screenWidth * 0.75) + 'px';
+                        document.getElementById('main-guide').style.height = String(screenHeight) + "px";
+                        document.getElementById('container-guide').style.padding = "0";
+                        document.getElementById('container-guide').style.margin = String(-screenHeight * 0.04) + "px 0 0 20px";
+                        margin_need = document.getElementsByClassName('margin-need-guide-long');
+                        for (var i = 0; i < margin_need.length; i++) {
+                            margin_need[i].style.margin = '0 0 96px 210px';
+                        }
+                        document.getElementById('margin-need-guide-square').style.margin = '0 0 96px 440px';
+                        document.getElementById('margin-need-guide-link').style.margin = '0 0 235px 470px';
+                    } 
+                    else {
+                        let screenHeight= window.innerHeight +  11.5 * window.innerHeight
+                        document.getElementById('container-guide').style.width = String(screenWidth * 0.75) + 'px';
+                        document.getElementById('main-guide').style.height = String(screenHeight) + "px";
+                        document.getElementById('container-guide').style.padding = "0";
+                        document.getElementById('container-guide').style.margin = "-700px 0 0 20px";
+                        margin_need = document.getElementsByClassName('margin-need-guide-long');
+                        for (var i = 0; i < margin_need.length; i++) {
+                            margin_need[i].style.margin = '0 0 96px 210px';
+                        }
+                        document.getElementById('margin-need-guide-square').style.margin = '0 0 96px 440px';
+                        document.getElementById('margin-need-guide-link').style.margin = '0 0 235px 470px';
+                    }
+                }
+            </script>
         </main>
     </body>
 {% endblock %}

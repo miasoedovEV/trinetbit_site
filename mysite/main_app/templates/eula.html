@@ -3,8 +3,8 @@
 {% load i18n %}
 {% block content %}
     <body>
-        <main class="main main-eula">
-            <div class="container container-eula">
+        <main class="main main-eula" id="main-eula">
+            <div class="container container-eula zoom-item" id="container-eula">
                 <h2 class="heating-private paragraph-eula-no-indentation">
                     Пользовательское соглашение портала Trinetbit.com
                 </h2>
@@ -87,7 +87,7 @@
                 </p>
                 <p class="paragraph-private normal-margin-private alignment-eula">
                     4.1. Регистрация Пользователя на Сайте является бесплатной, добровольной и производится по адресу в сети Интернет 
-                    <a class="excretion" href="{% url 'register' %}">https://www.trinetbit.com/registration</a>
+                    <a class="excretion" href="{% url 'register' %}">https://www.trinetbit.com/users/registration</a>
                 </p>
                 <p class="paragraph-private normal-margin-private alignment-eula">
                     4.2. При регистрации на Сайте Пользователь обязан предоставить Администрации Сайта необходимую достоверную и актуальную информацию для 
@@ -128,7 +128,7 @@
                 <p class="paragraph-private normal-margin-private alignment-eula">
                     4.8. Принимая условия Соглашения путем регистрации на Сайте, Пользователь, являющийся физическим лицом, подтверждает свое согласие на обработку 
                     Администрацией его персональных данных, предоставленных при регистрации. Обработка персональных данных Пользователя осуществляется в соответствии с 
-                    законодательством Российской Федерации. Администрация обрабатывает персональные данные Пользователя в целях предоставления Пользователю услуг, 
+                    законодательством Российской Федерации. Портал обрабатывает персональные данные Пользователя в целях предоставления Пользователю услуг, 
                     проверки, исследования и анализа таких данных, позволяющих поддерживать и улучшать сервисы и разделы Сайта, а также разрабатывать новые сервисы и 
                     разделы Сайта. Администрация Сайта принимает все необходимые меры для защиты персональных данных Пользователя от неправомерного доступа, изменения, 
                     раскрытия или уничтожения. Администрация предоставляет доступ к персональным данным Пользователя только тем работникам, подрядчикам и агентам 
@@ -218,7 +218,7 @@
                     Пользователя в личном кабинете. В противном случае перевод считается добровольным пожертвованием и возвращению не подлежит.
                 </p>
                 <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3. Пользователю при использовании Сайта запрещается:
+                    5.3. Пользователю при использовании Портала запрещается:
                 </p>
                 <p class="paragraph-private normal-margin-private alignment-eula">
                     5.3.1. регистрироваться в качестве Пользователя от имени или вместо другого лица («фальшивый аккаунт») или регистрировать группу (объединение) лиц 
@@ -302,8 +302,12 @@
                     исключением случаев, когда такие действия были прямо разрешены Пользователю в соответствии с условиями отдельного соглашения с Администрацией;
                 </p>
                 <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.5. В случае несогласия Пользователя с условиями Соглашения или их обновлениями, Пользователь обязан отказаться от его использования, 
+                    5.4 В случае несогласия Пользователя с условиями Соглашения или их обновлениями, Пользователь обязан отказаться от его использования, 
                     проинформировав об этом Администрацию в установленном порядке.
+                </p>
+                <p class="paragraph-private normal-margin-private alignment-eula">
+                    5.5 вручную проводить операции по торговле на привязанном к Порталу Биржевом аккаунте. В случае вмешательства в сделку или в 
+                    случае ручного открытия/закрытия сделки Портал приостанавливает работу с Биржевым аккаунтом пользователя до установления деталей.
                 </p>
                 <p class="paragraph-private heating-item-private normal-margin-private alignment-eula">
                     6. Ограничение ответственности
@@ -353,6 +357,27 @@
                     располагаются по адресу: <a href="{% url 'private_policity' %}" class="excretion">https://trinetbit.com/Confidentiality</a>.
                 </p>
             </div>
+            <script type="text/javascript">
+                const screenWidth = window.innerWidth
+
+                if (screenWidth < 1800) {
+                    document.getElementById('main-eula').style.width = String(screenWidth) + "px";
+                    if (window.innerHeight > 900) {
+                        let screenHeight= window.innerHeight +  2.9 * window.innerHeight
+                        document.getElementById('container-eula').style.width = String(screenWidth * 0.75) + 'px';
+                        document.getElementById('main-eula').style.height = String(screenHeight) + "px";
+                        document.getElementById('container-eula').style.padding = String(screenHeight * 0.03) + "px 0 0 0";
+                        document.getElementById('container-eula').style.margin = "-600px 0 0 20px";
+                    } 
+                    else {
+                        let screenHeight= window.innerHeight +  9.9 * window.innerHeight
+                        document.getElementById('container-eula').style.width = String(screenWidth * 0.75) + 'px';
+                        document.getElementById('main-eula').style.height = String(screenHeight) + "px";
+                        document.getElementById('container-eula').style.padding = "0";
+                        document.getElementById('container-eula').style.margin = "-600px 0 0 20px";
+                    }
+                }
+            </script>
         </main>
     </body>
 {% endblock %}

@@ -3,8 +3,8 @@
 {% load i18n %}
 {% block content %}
     <body>
-        <main class="main main-private">
-            <div class="container container-private">
+        <main class="main main-private" id="main-private">
+            <div class="container container-private zoom-item" id="container-private">
                 <h1 class="heating-private normal-margin-private">Политика обработки персональных данных.</h1>
                 <p class="paragraph-private normal-margin-private">
                     Настоящая политика обработки персональных данных (далее по тексту — «Политика») TRINETBIT (далее по тексту — «Площадка») устанавливает объем, 
@@ -114,6 +114,27 @@
                 </p>
                 
             </div>
+            <script type="text/javascript">
+                const screenWidth = window.innerWidth
+
+                if (screenWidth < 1800) {
+                    document.getElementById('main-private').style.width = String(screenWidth) + "px";
+                    if (window.innerHeight > 900) {
+                        let screenHeight= window.innerHeight + window.innerHeight * 0.3
+                        document.getElementById('container-private').style.width = String(screenWidth * 0.75) + 'px';
+                        document.getElementById('main-private').style.height = String(screenHeight) + "px";
+                        document.getElementById('container-private').style.padding = String(screenHeight * 0.05) + "px 0 0 0";
+                        document.getElementById('container-private').style.margin = "0 0 0 20px";
+                    } 
+                    else {
+                        let screenHeight= window.innerHeight +  2.6 * window.innerHeight
+                        document.getElementById('container-private').style.width = String(screenWidth * 0.75) + 'px';
+                        document.getElementById('main-private').style.height = String(screenHeight) + "px";
+                        document.getElementById('container-private').style.padding = "0";
+                        document.getElementById('container-private').style.margin = "0 0 0 20px";
+                    }
+                }
+            </script>
         </main>
     </body>
 {% endblock %}

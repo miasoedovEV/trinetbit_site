@@ -3,8 +3,8 @@
 {% load i18n %}
 {% block content %}
     <body>
-        <main class="main main-project">
-            <div class="container container-project">
+        <main class="main main-project" id="main-project">
+            <div class="container container-project zoom-item" id="container-project">
                 <h2 class="heating-project">О продукте</h2>
                 <p class="paragraph-project"><span class="excretion big-word-project">Trinetbit</span> - веб приложение, позволяющее получать стабильный пассивный доход.</p>
                 <p class="paragraph-project paragraph-project-no-indentation">
@@ -129,5 +129,25 @@
                 
             </div>
         </main>
+        <script type="text/javascript">
+            const screenWidth = window.innerWidth
+    
+            if (screenWidth > 1000 && screenWidth < 1800) {
+                document.getElementById('main-project').style.width = String(screenWidth) + "px";
+                if (window.innerHeight > 900) {
+                    let screenHeight= window.innerHeight + window.innerHeight * 0.3
+                    document.getElementById('container-project').style.width = String(screenWidth) + 'px';
+                    document.getElementById('main-project').style.height = String(screenHeight) + "px";
+                    document.getElementById('container-project').style.padding = String(screenHeight * 0.1) + "px 0 0 0";
+                } 
+                else {
+                    let screenHeight= window.innerHeight + window.innerHeight * 2.5
+                    document.getElementById('container-project').style.width = String(screenWidth) + 'px';
+                    document.getElementById('main-project').style.height = String(screenHeight) + "px";
+                    document.getElementById('container-project').style.padding = "0";
+                }
+                
+            }
+        </script>
     </body>
 {% endblock %}

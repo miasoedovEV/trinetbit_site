@@ -3,8 +3,8 @@
 {% load i18n %}
 {% block content %}
 <body>
-    <main class="main main-index">
-        <div class="container container-main container-index">
+    <main class="main main-index" id="main-index">
+        <div class="container container-main container-index" id="container-index">
             <p class="index-heading"><spa class="excretion">TRINETBIT</spa> - простой способ получать прибыль.</p>
             <div class="container-index-cards">
                 <ul class="list-index-cards">
@@ -56,7 +56,35 @@
         <div class="elipse elipse-top"></div>
     </main>
     <script type="text/javascript">
-       let  start_depo = document.getElementById('start_depo');
+        const screenWidth = window.innerWidth
+
+        if (screenWidth < 1800) {
+            document.getElementById('main-index').style.width = String(screenWidth) + "px";
+            if (window.innerHeight > 900) {
+                document.getElementById('container-index').style.transform = "scale(0.97, 0.97)";
+                document.getElementById('header').style.height = String(window.innerHeight * 0.076) + "px";
+                document.getElementById('header').style.padding = String(window.innerHeight * 0.015) + "px 0 0 0";
+                let screenHeight= window.innerHeight + window.innerHeight * 0.1
+                document.getElementById('main-index').style.height = String(screenHeight) + "px";
+                document.getElementById('container-index').style.width = String(screenWidth) + 'px';
+                let padding_index_container = screenHeight * 0.2
+                document.getElementById('container-index').style.padding = padding_index_container + "px 0 0 0";
+                document.getElementById('main-index').style.width = String(screenWidth) + "px";
+
+            } 
+            else {
+                document.getElementById('container-index').style.transform = "scale(0.8, 0.8)";
+                let screenHeight= window.innerHeight +  0.7 * window.innerHeight
+                document.getElementById('main-index').style.height = String(screenHeight) + "px";
+                document.getElementById('container-index').style.width = String(screenWidth) + 'px';
+                let padding_index_container = screenHeight * 0.08
+                document.getElementById('container-index').style.padding = padding_index_container + "px 0 0 0";
+                document.getElementById('main-index').style.width = String(screenWidth) + "px";
+
+            }
+        }
+
+        let  start_depo = document.getElementById('start_depo');
             time_month = document.getElementById('time_month');
             profit = document.getElementById('profit');
 
@@ -103,11 +131,12 @@
             if (time_month.value != "Время в месяцах" && start_depo.value != "Стартовый депозит") {
                 let profit_month = 0
                     month = Number(time_month.value)
+                    start_depo_value = Number(start_depo.value)
                     depo = Number(start_depo.value)
                 for (let i = 0; i < month; i++) {
                     depo = depo * 1.125
                     }
-                profit.value = Math.round(depo * 100) / 100
+                profit.value = Math.round((depo - start_depo_value) * 100) / 100
             }
             if (profit.value == "0" || profit.value == "0") {
                 profit.value = "Ваша прибыль";
