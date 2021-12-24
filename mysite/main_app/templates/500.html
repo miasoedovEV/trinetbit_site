@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+    <body>
+        <main class="main" id="main-error">
+            <div class="container container-main container-error" id="container-error">
+                <p class="error-404">500</p>
+                <p class="error-massege">Sorry, server error</p>
+                <p class="error-link"><a class="link_error" href="{% url 'index' %}">Go to home page</a></p>
+            </div>
+            <div class="elipse"></div>
+            <script type="text/javascript">
+                const screenWidth = window.innerWidth
+                document.getElementById('main-error').style.width = String(screenWidth) + "px";
+                if (screenWidth < 1800) {
+                    if (window.innerHeight > 900) {
+                        let screenHeight= window.innerHeight + window.innerHeight * 0.1
+                        let padding_index_container = screenHeight * 0.35
+                        document.getElementById('container-error').style.padding = padding_index_container + "px 0 0 0";
+                        document.getElementById('main-error').style.height = String(screenHeight) + "px";
+                        document.getElementById('container-error').style.width = screenWidth;
+                        margin_error = screenWidth * -0.045
+                        document.getElementById('container-error').style.margin = "0 0 0" + String(margin_error) + "px";
+                    } 
+                    else {
+                        let screenHeight= window.innerHeight
+                        let padding_index_container = screenHeight * 0.25   
+                        document.getElementById('container-error').style.padding = padding_index_container + "px 0 0 0";
+                        document.getElementById('container-error').style.width = screenWidth * 0.6;
+                        margin_error = screenWidth * -0.045
+                        document.getElementById('container-error').style.margin = "0 0 0" + String(margin_error) + "px";
+                    }
+                }
+            </script>
+        </main>
+    </body>
+{% endblock %}

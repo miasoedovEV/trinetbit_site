@@ -41,3 +41,15 @@ class Profit(models.Model):
         db_table = 'profit'
         verbose_name = _('доходность')
         verbose_name_plural = _('доходности')
+
+
+class Proxies(models.Model):
+    proxy = models.CharField(max_length=100, verbose_name=_('прокси'))
+
+    def __str__(self):
+        return self.proxy
+
+    class Meta:
+        db_table = 'proxies'
+        verbose_name = _('прокси')
+        verbose_name_plural = _('прокси')

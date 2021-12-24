@@ -16,12 +16,12 @@ import random
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
+from django.template.context_processors import csrf
+from .config import DICT_ADDRESS
 
 RANDOM_VALUES_HUGE = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
                       'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
                       'Z', 'X', 'C', 'V', 'B', 'N', 'M']
-
-DICT_ADDRESS = ['mail.ru', 'support@trinetbit.com', 'TechSup1234']
 
 RANDOM_VALUES_LOW = [value.lower() for value in RANDOM_VALUES_HUGE]
 
@@ -116,29 +116,27 @@ class MyLoginView(LoginView):
     def get_context_data(self, **kwargs):
         context = super(MyLoginView, self).get_context_data()
         context['title'] = 'Login'
+        context.update(csrf(self.request))
         return context
 
     def post(self, request, *args, **kwargs):
-        try:
-            if request.POST.get('reautification') is not None:
-                username = request.POST.get('username')
-                if request.POST.get('username') is not None:
-                    username = username
-                    try:
-                        user = User.objects.get(username__exact=username)
-                    except Exception:
-                        user = None
-                    if user is not None:
-                        profile = Profile.objects.get(user=user)
-                        email = profile.email
-                        password = generate_password()
-                        user.set_password(password)
-                        user.save()
-                        send_mail(email, MESSAGE_PASS.format(username=username, password=password),
-                                  new_password_subject)
-            return super(MyLoginView, self).post(request)
-        except Exception:
-            HttpResponseRedirect(reverse('error'))
+        if request.POST.get('reautification') is not None:
+            username = request.POST.get('username')
+            if request.POST.get('username') is not None:
+                username = username
+                try:
+                    user = User.objects.get(username__exact=username)
+                except Exception:
+                    user = None
+                if user is not None:
+                    profile = Profile.objects.get(user=user)
+                    email = profile.email
+                    password = generate_password()
+                    user.set_password(password)
+                    user.save()
+                    send_mail(email, MESSAGE_PASS.format(username=username, password=password),
+                              new_password_subject)
+        return super(MyLoginView, self).post(request)
 
 
 class MyLogoutView(LogoutView):
@@ -154,36 +152,34 @@ class RegisterView(FormView):
     def get_context_data(self, **kwargs):
         context = super(RegisterView, self).get_context_data()
         context['title'] = 'Register'
+        context.update(csrf(self.request))
         return context
 
     def post(self, request, *args, **kwargs):
-        try:
-            form = RegisterForm(request.POST)
-            if form.is_valid():
-                api_key = form.cleaned_data.get('api_key')
-                api_secret = form.cleaned_data.get('api_secret')
-                username = form.cleaned_data.get('username')
-                wallet_address = form.cleaned_data.get('wallet_address')
-                email = form.cleaned_data.get('email')
-                password = form.cleaned_data.get('password1')
-                agreement = form.cleaned_data.get('agreement')
-                mailing = form.cleaned_data.get('mailing')
-                data_info = dict(username=username, password1=password, password2=password, api_key=api_key,
-                                 api_secret=api_secret,
-                                 wallet_address=wallet_address,
-                                 email=email,
-                                 agreement=agreement,
-                                 mailing=mailing)
-                cache.set('data_info', dumps(data_info))
-                code = generate_code()
-                cache.set('code', code)
-                send_mail(email, MESSAGE_CODE.format(username=username, code=code), verification_code_subject)
-                return HttpResponseRedirect(reverse('verification'))
-            messages = [mes for mes in dict(form.errors).values()]
-            return render(request, self.template_name,
-                          {'form': form, 'title': 'Register', 'error_message': messages[0]})
-        except Exception:
-            HttpResponseRedirect(reverse('error'))
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            api_key = form.cleaned_data.get('api_key')
+            api_secret = form.cleaned_data.get('api_secret')
+            username = form.cleaned_data.get('username')
+            wallet_address = form.cleaned_data.get('wallet_address')
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password1')
+            agreement = form.cleaned_data.get('agreement')
+            mailing = form.cleaned_data.get('mailing')
+            data_info = dict(username=username, password1=password, password2=password, api_key=api_key,
+                             api_secret=api_secret,
+                             wallet_address=wallet_address,
+                             email=email,
+                             agreement=agreement,
+                             mailing=mailing)
+            cache.set('data_info', dumps(data_info))
+            code = generate_code()
+            cache.set('code', code)
+            send_mail(email, MESSAGE_CODE.format(username=username, code=code), verification_code_subject)
+            return HttpResponseRedirect(reverse('verification'))
+        messages = [mes for mes in dict(form.errors).values()]
+        return render(request, self.template_name,
+                      {'form': form, 'title': 'Register', 'error_message': messages[0]})
 
 
 # Create your views here.
@@ -234,48 +230,46 @@ class ProfileView(LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProfileView, self).get_context_data()
+        context.update(csrf(self.request))
         return self.create_context(context)
 
     def post(self, request, *args, **kwargs):
-        try:
-            context = self.create_context(context={})
-            old_password = request.POST.get('old_password')
-            if request.POST.get('wallet_address') is not None:
-                form = WalletForm(request.POST)
-            elif old_password is not None:
-                if request.user.check_password(old_password):
-                    form = PasswordForm(request.POST)
-                else:
-                    context['result'] = 'error'
-                    context['message'] = 'Invalid old password!'
-                    return render(request, self.template_name, context)
+        context = self.create_context(context={})
+        old_password = request.POST.get('old_password')
+        if request.POST.get('wallet_address') is not None:
+            form = WalletForm(request.POST)
+        elif old_password is not None:
+            if request.user.check_password(old_password):
+                form = PasswordForm(request.POST)
             else:
-                form = ApiForm(request.POST)
-            if form.is_valid():
-                if old_password is not None:
-                    user = User.objects.get(username__exact=request.user.username)
-                    user.set_password(form.cleaned_data['password1'])
-                    user.save()
-                    login(request, user)
-                    context['result'] = 'good'
-                    context['message'] = 'Data updated successfully!'
-                    return render(request, self.template_name, context)
-                profile = Profile.objects.get(user=request.user)
-                if request.POST.get('wallet_address') is not None:
-                    profile.wallet_address = form.cleaned_data['wallet_address']
-                else:
-                    profile.api_key = form.cleaned_data['api_key']
-                    profile.api_secret = form.cleaned_data['api_secret']
-                profile.save()
+                context['result'] = 'error'
+                context['message'] = 'Invalid old password!'
+                return render(request, self.template_name, context)
+        else:
+            form = ApiForm(request.POST)
+        if form.is_valid():
+            if old_password is not None:
+                user = User.objects.get(username__exact=request.user.username)
+                user.set_password(form.cleaned_data['password1'])
+                user.save()
+                login(request, user)
                 context['result'] = 'good'
                 context['message'] = 'Data updated successfully!'
                 return render(request, self.template_name, context)
-            context['result'] = 'error'
-            messages = [mes for mes in dict(form.errors).values()]
-            context['message'] = messages[0][0]
+            profile = Profile.objects.get(user=request.user)
+            if request.POST.get('wallet_address') is not None:
+                profile.wallet_address = form.cleaned_data['wallet_address']
+            else:
+                profile.api_key = form.cleaned_data['api_key']
+                profile.api_secret = form.cleaned_data['api_secret']
+            profile.save()
+            context['result'] = 'good'
+            context['message'] = 'Data updated successfully!'
             return render(request, self.template_name, context)
-        except Exception:
-            HttpResponseRedirect(reverse('error'))
+        context['result'] = 'error'
+        messages = [mes for mes in dict(form.errors).values()]
+        context['message'] = messages[0][0]
+        return render(request, self.template_name, context)
 
 
 class VerificationView(FormView):
@@ -285,63 +279,61 @@ class VerificationView(FormView):
     def get_context_data(self, **kwargs):
         context = super(VerificationView, self).get_context_data()
         context['title'] = 'Verification'
+        context.update(csrf(self.request))
         return context
 
     def post(self, request, *args, **kwargs):
+        form = VerificationForm(request.POST)
         try:
-            form = VerificationForm(request.POST)
-            try:
-                data_info = loads(cache.get('data_info'))
-            except Exception:
-                return HttpResponseRedirect(reverse('register'))
-            code = cache.get('code')
-            form.user_code = code
-            if form.is_valid():
-                form_register = RegisterForm(data_info)
-                form_register.is_valid()
-                user = form_register.save()
-                api_key = form_register.cleaned_data.get('api_key')
-                api_secret = form_register.cleaned_data.get('api_secret')
-                username = form_register.cleaned_data.get('username')
-                wallet_address = form_register.cleaned_data.get('wallet_address')
-                date_register = datetime.now()
-                bybit_user_id = get_user_id(api_key, api_secret)
-                subscription_status = 'Active'
-                email = form_register.cleaned_data.get('email')
-                mailing = form_register.cleaned_data.get('mailing')
-                Profile.objects.create(
-                    user=user,
-                    api_key=api_key,
-                    api_secret=api_secret,
-                    date_register=date_register,
-                    bybit_user_id=bybit_user_id,
-                    subscription_status=subscription_status,
-                    wallet_address=wallet_address,
-                    email=email,
-                    mailing=mailing
-                )
-                Profit.objects.create(
-                    user=user,
-                    day=0.0,
-                    month=0.0,
-                    year=0.0,
-                    sum_paid=0.0
-                )
-                raw_password = form_register.cleaned_data.get('password1')
-                user = authenticate(username=username, password=raw_password)
-                login(request, user)
-                cache.delete('data_info')
-                cache.delete('code')
-                return HttpResponseRedirect(reverse('index'))
-            cache.set('data_info', dumps(data_info))
-            if 'resending' in request.POST.keys():
-                code = generate_code()
-                cache.set('code', code)
-                send_mail(data_info['email'], MESSAGE_CODE.format(username=data_info['username'], code=code),
-                          verification_code_subject)
-                return HttpResponseRedirect(reverse('verification'))
-            cache.set('code', code)
-            return render(request, self.template_name, {'form': form, 'title': 'Verification'})
+            data_info = loads(cache.get('data_info'))
         except Exception:
-            HttpResponseRedirect(reverse('error'))
+            return HttpResponseRedirect(reverse('register'))
+        code = cache.get('code')
+        form.user_code = code
+        if form.is_valid():
+            form_register = RegisterForm(data_info)
+            form_register.is_valid()
+            user = form_register.save()
+            api_key = form_register.cleaned_data.get('api_key')
+            api_secret = form_register.cleaned_data.get('api_secret')
+            username = form_register.cleaned_data.get('username')
+            wallet_address = form_register.cleaned_data.get('wallet_address')
+            date_register = datetime.now()
+            bybit_user_id = get_user_id(api_key, api_secret)
+            subscription_status = 'Active'
+            email = form_register.cleaned_data.get('email')
+            mailing = form_register.cleaned_data.get('mailing')
+            Profile.objects.create(
+                user=user,
+                api_key=api_key,
+                api_secret=api_secret,
+                date_register=date_register,
+                bybit_user_id=bybit_user_id,
+                subscription_status=subscription_status,
+                wallet_address=wallet_address,
+                email=email,
+                mailing=mailing
+            )
+            Profit.objects.create(
+                user=user,
+                day=0.0,
+                month=0.0,
+                year=0.0,
+                sum_paid=0.0
+            )
+            raw_password = form_register.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            cache.delete('data_info')
+            cache.delete('code')
+            return HttpResponseRedirect(reverse('index'))
+        cache.set('data_info', dumps(data_info))
+        if 'resending' in request.POST.keys():
+            code = generate_code()
+            cache.set('code', code)
+            send_mail(data_info['email'], MESSAGE_CODE.format(username=data_info['username'], code=code),
+                      verification_code_subject)
+            return HttpResponseRedirect(reverse('verification'))
+        cache.set('code', code)
+        return render(request, self.template_name, {'form': form, 'title': 'Verification'})
 # Create your views here.

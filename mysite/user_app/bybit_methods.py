@@ -3,7 +3,7 @@ import hmac
 import math
 from json import loads, dumps
 from urllib.parse import quote_plus
-from .models import Profile
+from .models import Profile, Proxies
 import requests
 import urllib3
 import pandas as pd
@@ -11,8 +11,13 @@ from decimal import Decimal, getcontext
 
 GOOD_VALUE_WALLET = 0
 SYMBOL = 'USDT'
-PROXY = 'http://68.183.129.76:3129'
 GET_METHOD = 'GET'
+
+
+def get_proxy():
+    proxy = Proxies.objects.order_by('?').first()
+    dict_proxy = {'http': f'http://{proxy}'}
+    return dict_proxy
 
 
 def get_timestamp(proxy):
@@ -20,7 +25,7 @@ def get_timestamp(proxy):
     Get timestamp function
     :return: time
     """
-    resp = requests.request('GET', url='https://api-testnet.bybit.com/v2/public/time', proxies={'http': proxy[0]})
+    resp = requests.request('GET', url='https://api-testnet.bybit.com/v2/public/time', proxies=proxy)
     server_time = int(float(loads(resp.text)['time_now']) * 1000)
     return server_time
 
@@ -96,10 +101,11 @@ def go_command(method: str, url: str, secret_key: str, params: dict, proxies: di
 
 
 def validate_deposit(api_key, api_secret):
+    proxy = get_proxy()
     try:
         url = 'https://api.bybit.com/v2/private/wallet/balance'
-        data = {"api_key": api_key, "symbol": SYMBOL, "timestamp": get_timestamp(PROXY)}
-        response_balance = go_command(GET_METHOD, url, api_secret, data, {'http': PROXY})
+        data = {"api_key": api_key, "symbol": SYMBOL, "timestamp": get_timestamp({'http': proxy})}
+        response_balance = go_command(GET_METHOD, url, api_secret, data, {'http': proxy})
         if response_balance['result'] is None:
             return None
         balance = float(response_balance['result'][SYMBOL]['available_balance'])
@@ -113,10 +119,11 @@ def validate_deposit(api_key, api_secret):
 
 def get_balance(user):
     profile_info = Profile.objects.get(user=user)
+    proxy = get_proxy()
     try:
         url = 'https://api.bybit.com/v2/private/wallet/balance'
-        data_usdt = {"api_key": profile_info.api_key, "timestamp": get_timestamp(PROXY)}
-        response_balance = go_command(GET_METHOD, url, profile_info.api_secret, data_usdt, {'http': PROXY})
+        data_usdt = {"api_key": profile_info.api_key, "timestamp": get_timestamp(proxy)}
+        response_balance = go_command(GET_METHOD, url, profile_info.api_secret, data_usdt, proxy)
         if response_balance['result'] is None:
             return None, None
         balance_usdt = round(float(response_balance['result'][SYMBOL]['available_balance']), 2)
@@ -127,17 +134,19 @@ def get_balance(user):
 
 
 def get_user_id(api_key, api_secret):
+    proxy = get_proxy()
     url = 'https://api.bybit.com/v2/private/account/api-key'
-    data = {"api_key": api_key, "timestamp": get_timestamp(PROXY)}
-    response = go_command(GET_METHOD, url, api_secret, data, {'http': PROXY})
+    data = {"api_key": api_key, "timestamp": get_timestamp(proxy)}
+    response = go_command(GET_METHOD, url, api_secret, data, proxy)
     user_id = response['result'][0]['user_id']
     return user_id
 
 
 def find_price(symbol):
     try:
+        proxy = get_proxy()
         url = 'https://api.bybit.com/v2/public/tickers'
-        response_currency = requests.request('GET', url, verify=False, proxies={'http': PROXY})
+        response_currency = requests.request('GET', url, verify=False, proxies=proxy)
         response_currency = loads(response_currency.text)
         for dict_info in response_currency['result']:
             if dict_info['symbol'] == symbol:
@@ -177,11 +186,12 @@ def my_round(value, step):
 
 def get_result_trade(user):
     getcontext().prec = 3
+    proxy = get_proxy()
     profile_info = Profile.objects.get(user=user)
     url_get_fund_records = 'https://api.bybit.com//v2/private/wallet/fund/records'
-    data = {"api_key": profile_info.api_key, "coin": 'USDT', "timestamp": get_timestamp(PROXY), "page": 1,
+    data = {"api_key": profile_info.api_key, "coin": 'USDT', "timestamp": get_timestamp(proxy), "page": 1,
             "wallet_fund_type": "RealisedPNL", "limit": 50}
-    response = go_command(GET_METHOD, url_get_fund_records, profile_info.api_secret, data, {'http': PROXY})
+    response = go_command(GET_METHOD, url_get_fund_records, profile_info.api_secret, data, proxy)
     if response['result']['data'] is None:
         return None
     df = pd.DataFrame(response['result']['data'])
