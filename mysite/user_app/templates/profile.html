@@ -69,8 +69,17 @@
                         <input type="image" class="clipp-bt" src="/static/images/copy.svg" id="bt-sum-paid">
                     </div>
                     <div class="item-info-paid">
-                        <span class="text-card-paid">Wallet: {{wallet}}</span>
+                        <span class="text-card-paid">Wallet: TJz...e4X</span>
                         <input type="image" class="clipp-bt" src="/static/images/copy.svg" id="bt-id-wallet">
+                    </div>
+                </div>
+                <div class="paid-block block-data">
+                    <span class="heating-card-account">
+                        Registered wallet
+                    </span>
+                    <div class="item-info-paid">
+                        <span class="text-card-paid">Wallet: {{wallet}}</span>
+                        <input type="image" class="clipp-bt" src="/static/images/copy.svg" id="bt-id-wallet-client">
                     </div>
                 </div>
             </div>
@@ -240,6 +249,10 @@
         }
 
         function copy_id_wallet() {
+            navigator.clipboard.writeText("TJznWFhGQSde5QKyHgpTCrRLZxZRVUTe4X");    
+        }
+
+        function copy_id_wallet_client() {
             navigator.clipboard.writeText("{{id_wallet}}");    
         }
 
@@ -382,6 +395,7 @@
         bt_close_ops.addEventListener("click", close_oldpass);
         bt_sum_paid.addEventListener("click", copy_sum_paid);
         bt_id_wallet.addEventListener("click", copy_id_wallet);
+        document.getElementById("bt-id-wallet-client").addEventListener("click", copy_id_wallet_client);
         bt_open_api.addEventListener("click", open_var_api);
         input_wallet.value = "Введите новый кошелек";
         input_wallet.setAttribute('onBlur', "replacePlaceholderWallet(this)");

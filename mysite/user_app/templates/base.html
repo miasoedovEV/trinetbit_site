@@ -6,8 +6,9 @@
         <meta charset="UTF-8">
         <title>{{ title }}</title>
         <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/my_style.css' %}" type="text/css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="{% static 'images/logo.svg' %}" type="image/x-icon">
     </head>
     <body>
         {% block header %}
@@ -21,7 +22,6 @@
                             <ul class="nav-list">
                                 <li class="item-nav"><a class="nav-link" href="{% url 'faq' %}">FAQ</a></li>
                                 <li class="item-nav"><a class="nav-link" href="{% url 'project' %}">{% trans "О продукте" %}</a></li>
-                                <li class="item-nav"><a class="nav-link" href="{% url 'index' %}">{% trans "Домой" %}</a></li>
                                 {% if request.user.is_authenticated %}
                                     <li class="item-nav"><a class="nav-link" href="{% url 'personal_account' %}">{% trans "Личный кабинет" %}</a></li>
                                     <li class="item-nav"><a class="nav-link" href="{% url 'logout' %}">{% trans "Выйти" %}</a></li>
