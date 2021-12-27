@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=_('пользователь'))
     date_register = models.DateTimeField(verbose_name=_('дата регистрации'))
-    subscription_status = models.CharField(max_length=13, verbose_name=_('статус подписки'))
+    subscription_status = models.CharField(max_length=70, verbose_name=_('статус подписки'))
     wallet_address = models.CharField(max_length=40, verbose_name=_('адрес кошелька'))
     api_key = models.CharField(default=None, max_length=18, verbose_name=_('api key'))
     api_secret = models.CharField(default=None, max_length=36, verbose_name=_('api secret'))
@@ -53,3 +53,20 @@ class Proxies(models.Model):
         db_table = 'proxies'
         verbose_name = _('прокси')
         verbose_name_plural = _('прокси')
+
+
+class TradeResult(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=_('пользователь'))
+    result = models.JSONField(verbose_name=_('результаты торговли'))
+    id_order_long = models.CharField(max_length=200, verbose_name=_('id ордера на лонг'), default='')
+    id_order_short = models.CharField(max_length=200, verbose_name=_('id ордера на шорт'), default='')
+    wallet_balance_long = models.FloatField(default=0, verbose_name=_('баланс во время открытия ордера лонг'))
+    wallet_balance_short = models.FloatField(default=0, verbose_name=_('баланс во время открытия ордера шорт'))
+
+    def __str__(self):
+        return self.user.username
+
+    class Meta:
+        db_table = 'trade result'
+        verbose_name = _('результаты торговли')
+        verbose_name_plural = _('результаты торговли')

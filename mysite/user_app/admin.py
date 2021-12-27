@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, Profit
+from .models import Profile, Profit, Proxies, TradeResult
 from django.utils.translation import gettext_lazy as _
 
 
@@ -15,6 +15,18 @@ class ProfitsAdmin(admin.ModelAdmin):
     verbose_name = _('профиты')
 
 
+class ProxiesAdmin(admin.ModelAdmin):
+    list_display = ['proxy']
+    verbose_name = _('прокси')
+
+
+class TradeResultAdmin(admin.ModelAdmin):
+    list_display = ['user', 'result', 'id_order_long', 'id_order_short', 'wallet_balance_long', 'wallet_balance_short']
+    verbose_name = _('результаты торговли')
+
+
 # Register your models here.
 admin.site.register(Profile, ProfilesAdmin)
 admin.site.register(Profit, ProfitsAdmin)
+admin.site.register(Proxies, ProxiesAdmin)
+admin.site.register(TradeResult, TradeResultAdmin)
