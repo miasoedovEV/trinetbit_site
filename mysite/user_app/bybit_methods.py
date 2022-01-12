@@ -3,11 +3,9 @@ import hmac
 import math
 from json import loads, dumps
 from urllib.parse import quote_plus
-from .models import Profile, Proxies
+from .models import Profile, Proxies, TradeResult
 import requests
 import urllib3
-import pandas as pd
-from decimal import Decimal, getcontext
 
 GOOD_VALUE_WALLET = 0
 SYMBOL = 'USDT'
@@ -185,40 +183,15 @@ def my_round(value, step):
 
 
 def get_result_trade(user):
-    getcontext().prec = 3
-    proxy = get_proxy()
-    profile_info = Profile.objects.get(user=user)
-    url_get_fund_records = 'https://api.bybit.com//v2/private/wallet/fund/records'
-    data = {"api_key": profile_info.api_key, "coin": 'USDT', "timestamp": get_timestamp(proxy), "page": 1,
-            "wallet_fund_type": "RealisedPNL", "limit": 50}
-    response = go_command(GET_METHOD, url_get_fund_records, profile_info.api_secret, data, proxy)
-    if response['result']['data'] is None:
-        return None
-    df = pd.DataFrame(response['result']['data'])
+    profit_info = TradeResult.objects.get(user=user)
+    trade_result = loads(profit_info.result)
+    trade_result.reverse()
     list_data = []
-    last_price = find_price('BTCUSDT')
-    for index, time in enumerate(df.exec_time.values):
-        balance_changes = Decimal(df.amount.values[index]) * 100 / Decimal(df.wallet_balance.values[index])
-        changes_in_btc = Decimal(usdt_to_btc(float(df.amount.values[index]), last_price))
-        changes_in_usdt = Decimal(df.amount.values[index])
-        if changes_in_usdt > 0:
+    for index, dict_info in enumerate(trade_result):
+        if dict_info['balance_change_usdt'] > 0:
             balance_direction = 'up'
         else:
             balance_direction = 'down'
-        if index != 0:
-            if df.exec_time.values[index][8:10] == df.exec_time.values[index - 1][8:10]:
-                list_data[-1][1] += balance_changes
-                list_data[-1][2] += changes_in_btc
-                list_data[-1][3] += changes_in_usdt
-                if list_data[-1][3] > 0:
-                    balance_direction = 'up'
-                else:
-                    balance_direction = 'down'
-                list_data[-1][5] = balance_direction
-            else:
-                list_data.append([f"#{df.id.values[index]}", balance_changes, changes_in_btc, changes_in_usdt,
-                                  df.exec_time.values[index][0:10], balance_direction])
-        else:
-            list_data.append([f"#{df.id.values[index]}", balance_changes, changes_in_btc, changes_in_usdt,
-                              df.exec_time.values[index][0:10], balance_direction])
+        list_data.append([f"#{index}", dict_info['balance_change_percent'], dict_info['balance_change_btc'],
+                          dict_info['balance_change_usdt'], dict_info['date'], balance_direction])
     return list_data

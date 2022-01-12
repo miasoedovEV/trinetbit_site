@@ -6,8 +6,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import FormView, UpdateView
-from .models import Profit, TradeResult
 from .forms import RegisterForm, VerificationForm, PasswordForm, WalletForm, ApiForm
+from .models import Profit
 from datetime import datetime
 from .bybit_methods import *
 from django.core.cache import cache
@@ -321,11 +321,13 @@ class VerificationView(FormView):
                 year=0.0,
                 sum_paid=0.0
             )
+            date_now = datetime.now()
+            info_trade = [dict(date=date_now.strftime('%d-%m-%Y'), balance_change_percent=0,
+                               balance_change_btc=0,
+                               balance_change_usdt=0)]
             TradeResult.objects.create(
                 user=user,
-                result=dumps(dict(balance_change_percent=0,
-                                  balance_change_btc=0,
-                                  balance_change_usdt=0))
+                result=dumps(info_trade)
             )
             raw_password = form_register.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)

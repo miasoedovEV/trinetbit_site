@@ -58,15 +58,12 @@ class Proxies(models.Model):
 class TradeResult(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name=_('пользователь'))
     result = models.JSONField(verbose_name=_('результаты торговли'))
-    id_order_long = models.CharField(max_length=200, verbose_name=_('id ордера на лонг'), default='')
-    id_order_short = models.CharField(max_length=200, verbose_name=_('id ордера на шорт'), default='')
-    wallet_balance_long = models.FloatField(default=0, verbose_name=_('баланс во время открытия ордера лонг'))
-    wallet_balance_short = models.FloatField(default=0, verbose_name=_('баланс во время открытия ордера шорт'))
+    wallet_balance_morning = models.FloatField(default=0, verbose_name=_("баланс утром"))
 
     def __str__(self):
         return self.user.username
 
     class Meta:
-        db_table = 'trade result'
+        db_table = 'traderesult'
         verbose_name = _('результаты торговли')
         verbose_name_plural = _('результаты торговли')

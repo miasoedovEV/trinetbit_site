@@ -21,7 +21,7 @@ class ProxiesAdmin(admin.ModelAdmin):
 
 
 class TradeResultAdmin(admin.ModelAdmin):
-    list_display = ['user', 'result', 'id_order_long', 'id_order_short', 'wallet_balance_long', 'wallet_balance_short']
+    list_display = ['user', 'result', 'wallet_balance_morning']
     verbose_name = _('результаты торговли')
 
 
