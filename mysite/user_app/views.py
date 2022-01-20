@@ -296,6 +296,9 @@ class VerificationView(FormView):
             user = form_register.save()
             api_key = form_register.cleaned_data.get('api_key')
             api_secret = form_register.cleaned_data.get('api_secret')
+            balance = get_balance(api_key=api_key, api_secret=api_secret)[1]
+            if balance is None:
+                balance = 0.0
             username = form_register.cleaned_data.get('username')
             wallet_address = form_register.cleaned_data.get('wallet_address')
             date_register = datetime.now()
@@ -303,6 +306,10 @@ class VerificationView(FormView):
             subscription_status = 'Active'
             email = form_register.cleaned_data.get('email')
             mailing = form_register.cleaned_data.get('mailing')
+            if mailing is False:
+                mailing = True
+            else:
+                mailing = False
             Profile.objects.create(
                 user=user,
                 api_key=api_key,
@@ -327,7 +334,8 @@ class VerificationView(FormView):
                                balance_change_usdt=0)]
             TradeResult.objects.create(
                 user=user,
-                result=dumps(info_trade)
+                result=dumps(info_trade),
+                wallet_balance_morning=float(balance)
             )
             raw_password = form_register.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)

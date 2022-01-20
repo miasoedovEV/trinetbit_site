@@ -7,7 +7,7 @@ from .models import Profile, Proxies, TradeResult
 import requests
 import urllib3
 
-GOOD_VALUE_WALLET = 0
+GOOD_VALUE_WALLET = 200
 SYMBOL = 'USDT'
 GET_METHOD = 'GET'
 
@@ -101,7 +101,7 @@ def go_command(method: str, url: str, secret_key: str, params: dict, proxies: di
 def validate_deposit(api_key, api_secret):
     proxy = get_proxy()
     try:
-        url = 'https://api.bybit.com/v2/private/wallet/balance'
+        url = 'https://api-testnet.bybit.com/v2/private/wallet/balance'
         data = {"api_key": api_key, "symbol": SYMBOL, "timestamp": get_timestamp({'http': proxy})}
         response_balance = go_command(GET_METHOD, url, api_secret, data, {'http': proxy})
         if response_balance['result'] is None:
@@ -115,13 +115,16 @@ def validate_deposit(api_key, api_secret):
         return None
 
 
-def get_balance(user):
-    profile_info = Profile.objects.get(user=user)
+def get_balance(user=None, api_key=None, api_secret=None):
+    if user is not None:
+        profile_info = Profile.objects.get(user=user)
+        api_key = profile_info.api_key
+        api_secret = profile_info.api_secret
     proxy = get_proxy()
     try:
-        url = 'https://api.bybit.com/v2/private/wallet/balance'
-        data_usdt = {"api_key": profile_info.api_key, "timestamp": get_timestamp(proxy)}
-        response_balance = go_command(GET_METHOD, url, profile_info.api_secret, data_usdt, proxy)
+        url = 'https://api-testnet.bybit.com/v2/private/wallet/balance'
+        data_usdt = {"api_key": api_key, "timestamp": get_timestamp(proxy)}
+        response_balance = go_command(GET_METHOD, url, api_secret, data_usdt, proxy)
         if response_balance['result'] is None:
             return None, None
         balance_usdt = round(float(response_balance['result'][SYMBOL]['available_balance']), 2)
@@ -133,7 +136,7 @@ def get_balance(user):
 
 def get_user_id(api_key, api_secret):
     proxy = get_proxy()
-    url = 'https://api.bybit.com/v2/private/account/api-key'
+    url = 'https://api-testnet.bybit.com/v2/private/account/api-key'
     data = {"api_key": api_key, "timestamp": get_timestamp(proxy)}
     response = go_command(GET_METHOD, url, api_secret, data, proxy)
     user_id = response['result'][0]['user_id']
@@ -143,7 +146,7 @@ def get_user_id(api_key, api_secret):
 def find_price(symbol):
     try:
         proxy = get_proxy()
-        url = 'https://api.bybit.com/v2/public/tickers'
+        url = 'https://api-testnet.bybit.com/v2/public/tickers'
         response_currency = requests.request('GET', url, verify=False, proxies=proxy)
         response_currency = loads(response_currency.text)
         for dict_info in response_currency['result']:
@@ -192,6 +195,6 @@ def get_result_trade(user):
             balance_direction = 'up'
         else:
             balance_direction = 'down'
-        list_data.append([f"#{index}", dict_info['balance_change_percent'], dict_info['balance_change_btc'],
+        list_data.append([f"#{index + 1}", dict_info['balance_change_percent'], dict_info['balance_change_btc'],
                           dict_info['balance_change_usdt'], dict_info['date'], balance_direction])
     return list_data
