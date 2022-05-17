@@ -1,0 +1,39 @@
+@import "my_common.css";
+
+
+.faq {
+    background: var(--content-block-background-color);
+}
+
+.accordion-button::after {
+    background-image: url("../assets/arrow_down.png");
+}
+.accordion-button:not(.collapsed)::after {
+    background-image: url("../assets/arrow_down.png");
+}
+.accordion-button:not(.collapsed){
+    background-color: transparent;
+    box-shadow: none;
+    color: #AEAFC1;
+}
+.accordion-button {
+    background: transparent;
+    border: 0;
+    color: #AEAFC1;
+    font-size: 2em;
+}
+.accordion-button:focus {
+    border: 0;
+    box-shadow: none;
+}
+.accordion-item {
+    background: transparent;
+    border: 0;
+    color: #AEAFC1;
+}
+.accordion-body {
+    font-size: 1.4em;
+}
+.causes {
+    list-style-type: decimal;
+}

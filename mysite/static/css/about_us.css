@@ -1,0 +1,34 @@
+@import "my_common.css";
+
+.about {
+    background: var(--content-block-background-color);
+}
+
+
+.about-product {
+    font-size: 2.25em;
+}
+.about-h {
+    font-size: 3em;
+}
+.about-list {
+    list-style-type: circle;
+    padding-inline-start: 1.2rem;
+}
+.about-list-heading {
+    font-size: 2.25em;
+}
+.notes {
+    font-size: .75em;
+}
+.get-gain {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+}
+.get-attention {
+    font-size: 2.25em;
+}
+.instruction {
+    font-size: 1.3em;
+}

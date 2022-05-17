@@ -1,3 +1,5 @@
 env
-mysite/static/images
+mysite/static/assets
 mysite/db.sqlite3
+mysite/user_app/config.py
+mysite/static/fonts

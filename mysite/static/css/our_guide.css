@@ -1,0 +1,16 @@
+@import "my_common.css";
+
+
+.guide {
+    background-color: var(--content-block-background-color);
+    font-size: 1.2em;
+}
+.image-container {
+    max-width: 100%;
+}
+.image-container img {
+    max-width: 100%;
+}
+.notes {
+    font-size: .75em;
+}

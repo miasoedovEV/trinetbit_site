@@ -1,0 +1,163 @@
+@import "my_common.css";
+
+@media (max-width: 575.98px) {
+    body {
+        font-size: 80%;
+    }
+    .count-gain {
+        max-width: 100% !important;
+    }
+    .registration-button {
+        width: 100% !important;
+        font-size: 1em !important;
+        padding: 15px 25px !important;
+    }
+}
+@media (max-width: 767.98px) {
+    .input-container {
+        margin-bottom: 1rem;
+    }
+
+}
+@media (max-width: 1199.98px) {
+    .count-gain {
+        max-width: 90% !important;
+    }
+    .right-back, .left-back {
+        max-width: 70% !important;
+    }
+}
+
+
+
+.main {
+    background: #1D202A;
+    position: relative;
+}
+.main h1 {
+    color: #AEAFC1;
+}
+.info-item {
+    color: #FCB700;
+    background: #30353A;
+    height: 100%;
+    padding: .9rem;
+    border-radius: 24px;
+}
+.amount-descr {
+    font-size: 1.875em;
+}
+.amount {
+    font-size: 3em;
+    line-height: 72px;
+}
+
+.more-about {
+    font-size: 36px;
+    line-height: 42px;
+    color: #AEAFC1;
+}
+.more-about-a {
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+.count-gain {
+    max-width: 57%;
+}
+.count-gain-heading {
+    font-size: 3em;
+    line-height: 56px;
+    color: #AEAFC1;
+    opacity: 0.64;
+    text-align: center;
+}
+.registration-button-container {
+    max-width: 356px;
+    margin-bottom: 4rem;
+}
+.count-gain input {
+    padding: 18px 30px;
+    border-radius: .5rem;
+    text-align: center;
+}
+.with-dot:after {
+    content: "*";
+    color: #AEAFC1;
+    font-size: 15px;
+    line-height: 24px;
+    position: absolute;
+    right: 15px;
+    top: -6px
+}
+.dot-description {
+    margin-top: .5rem;
+    color: #AEAFC1;
+    font-size: 12px;
+    line-height: 19px;
+}
+.start-gain {
+    font-size: 3em;
+    color:#AEAFC1;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+.instruction {
+    font-size: 1.2em;
+    line-height: 30px;
+    font-family: 'Roboto', sans-serif;
+    color:#AEAFC1;
+}
+.instruction a {
+    text-decoration: none;
+    color: #FCB700;
+}
+
+.right-back, .left-back {
+    position: absolute;
+    max-width: 50%;
+    z-index: 1 !important;
+    text-align: center;
+}
+.right-back {
+    right: 0;
+    bottom: 0;
+}
+.left-back {
+    left: 0;
+    top: 0;
+}
+.right-back img, .left-back img {
+    width: 100%;
+    height: 100%;
+}
+
+.main div {
+    z-index: 10;
+}
+.heading-text {
+    z-index: 10;
+}
+.trinetbit {
+    font-size: 3.25em;
+}
+.trinetbit-descr {
+    font-size: 3em;
+}
+input {
+    font-size: .9em;
+}
+
+.bt-on {
+    background: #FCB700;
+    color: #30353A;
+}
+
+.bt-off {
+    color: #AEAFC1;
+    background: #1D202A;
+}
+

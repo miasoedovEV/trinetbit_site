@@ -1,0 +1,132 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(".../static/fonts/Montserrat.ttf") format("opentype");
+}
+@media (max-width: 575.98px) {
+    body {
+        font-size: 80% !important;
+    }
+    .navbar .container-fluid {
+        justify-content: center;
+    }
+}
+@media (max-width: 767.98px) {
+    .agreement, .confident {
+        text-align: center!important;
+    }
+}
+@media (max-width: 991.98px) {
+    .registration-button {
+        font-size: 90% !important;
+        padding: 15px 25px !important;
+
+    }
+}
+@media (max-width: 1199.98px) {
+    .navbar-nav li {
+        text-align: center;
+    }
+}
+:root {
+    --accordion-button-font-size: 2.25em;
+    --link-color: #FCB700;
+    --content-block-background-color: #1D202A;
+    --font-color: #AEAFC1;
+}
+.link {
+    color: var(--link-color);
+    text-decoration: none;
+}
+h1 {
+    color: #AEAFC1;
+
+}
+h1, h2, button {
+    z-index: 15;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: var(--font-color);
+}
+.wrapper {
+    background: #30353A;
+    display: flex;
+    flex-direction: column;
+}
+.logo {
+    height: 85px;
+    width: 74px;
+    margin-right: 1rem;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand-text {
+    color: #FCB700;
+    font-size: 36px;
+    line-height: 54px;
+}
+.nav-item a{
+    color: #AEAFC1;
+    font-size: 20px;
+    line-height: 30px;
+}
+.btn-outline-primary {
+    color: #AEAFC1;
+    border: 0;
+    background: #1D202A;
+}
+.btn-outline-primary:hover {
+    background: #FCB700;
+    color: #30353A;
+}
+.btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.25rem #FCB700; /*box shadow*/
+}
+.btn-check:active+.btn-outline-primary, .btn-check:checked+.btn-outline-primary, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show, .btn-outline-primary:active {
+    border: 0;
+    background: #FCB700;
+    color: #30353A;
+}
+.btn-group {
+    margin-left: 1.5rem;
+}
+footer {
+    color: #AEAFC1;
+    padding: 2.5rem 1rem;
+}
+.footer-site {
+    font-size: 1.5em;
+    font-style: normal;
+    line-height: 36px;
+}
+footer a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #AEAFC1;
+    font-size: 1.2em;
+    font-style: normal;
+    line-height: 27px;
+}
+.agreement {
+    text-align: end;
+}
+.registration-button {
+    padding: 30px 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #30353A;
+    background: #FCB700;
+    border-radius: 8px;
+    width: 100%;
+}
