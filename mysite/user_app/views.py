@@ -1,3 +1,4 @@
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
@@ -111,7 +112,7 @@ def generate_password():
 
 
 class MyLoginView(LoginView):
-    template_name = 'login.html'
+    template_name = 'login_user.html'
 
     def get_context_data(self, **kwargs):
         context = super(MyLoginView, self).get_context_data()
@@ -120,6 +121,7 @@ class MyLoginView(LoginView):
         return context
 
     def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
         if request.POST.get('reautification') is not None:
             username = request.POST.get('username')
             if request.POST.get('username') is not None:
@@ -136,6 +138,19 @@ class MyLoginView(LoginView):
                     user.save()
                     send_mail(email, MESSAGE_PASS.format(username=username, password=password),
                               new_password_subject)
+                    message = _('На почту привязанную к введенному имени отправлен новый пароль!')
+                else:
+                    message = _('Введённого имени пользователя нет!')
+            else:
+                message = _('Введите имя пользователя!')
+            form = form_class()
+            return render(request, self.template_name,
+                          {'form': form, 'error_message': message})
+        form = form_class(request=request, data=request.POST)
+        if form.is_valid() is not True:
+            message = [mes for mes in dict(form.errors).values()][0][0]
+            return render(request, self.template_name,
+                          {'form': form, 'error_message': message})
         return super(MyLoginView, self).post(request)
 
 
@@ -177,16 +192,16 @@ class RegisterView(FormView):
             cache.set('code', code)
             send_mail(email, MESSAGE_CODE.format(username=username, code=code), verification_code_subject)
             return HttpResponseRedirect(reverse('verification'))
-        messages = [mes for mes in dict(form.errors).values()]
+        message = [mes for mes in dict(form.errors).values()][0][0]
         return render(request, self.template_name,
-                      {'form': form, 'title': 'Register', 'error_message': messages[0]})
+                      {'form': form, 'title': 'Register', 'error_message': message})
 
 
 # Create your views here.
 
 class ProfileView(LoginRequiredMixin, UpdateView):
     model = Profile
-    template_name = 'profile.html'
+    template_name = 'account.html'
     fields = ['wallet_address', 'api_key', 'api_secret']
 
     def get_object(self, queryset=None):
@@ -216,16 +231,17 @@ class ProfileView(LoginRequiredMixin, UpdateView):
             context["status"] = profile.subscription_status
             context['status_code'] = '0'
         wallet_address = profile.wallet_address
-        context["wallet"] = wallet_address[0:3] + '...' + wallet_address[-3::]
+        context["wallet"] = wallet_address[0] + '***' + wallet_address[-1]
         context["id_wallet"] = wallet_address
         context["form_pass"] = PasswordForm()
         context["form_wall"] = WalletForm()
         context["form_api"] = ApiForm()
-        context["password"] = '*' * 9
-        context['result'] = 'none'
-        context['message'] = 'Data updated successfully!'
+        context["password1"] = '*' * 5
+        context['message'] = _('Данные проверяются!')
         context['api_key'] = profile.api_key
-        context['api_secret'] = profile.api_secret
+        api_secret = profile.api_secret
+        context['api_secret'] = api_secret[0:3] + '...' + api_secret[-3::]
+        context['is_checked'] = 'noChecked'
         return context
 
     def get_context_data(self, **kwargs):
@@ -234,7 +250,6 @@ class ProfileView(LoginRequiredMixin, UpdateView):
         return self.create_context(context)
 
     def post(self, request, *args, **kwargs):
-        context = self.create_context(context={})
         old_password = request.POST.get('old_password')
         if request.POST.get('wallet_address') is not None:
             form = WalletForm(request.POST)
@@ -242,8 +257,9 @@ class ProfileView(LoginRequiredMixin, UpdateView):
             if request.user.check_password(old_password):
                 form = PasswordForm(request.POST)
             else:
-                context['result'] = 'error'
-                context['message'] = 'Invalid old password!'
+                context = self.create_context(context={})
+                context['is_checked'] = 'Checked'
+                context['message'] = _('Неверный старый пароль!')
                 return render(request, self.template_name, context)
         else:
             form = ApiForm(request.POST)
@@ -253,8 +269,9 @@ class ProfileView(LoginRequiredMixin, UpdateView):
                 user.set_password(form.cleaned_data['password1'])
                 user.save()
                 login(request, user)
-                context['result'] = 'good'
-                context['message'] = 'Data updated successfully!'
+                context = self.create_context(context={})
+                context['is_checked'] = 'Checked'
+                context['message'] = _('Данные успешно обновлены!')
                 return render(request, self.template_name, context)
             profile = Profile.objects.get(user=request.user)
             if request.POST.get('wallet_address') is not None:
@@ -263,17 +280,19 @@ class ProfileView(LoginRequiredMixin, UpdateView):
                 profile.api_key = form.cleaned_data['api_key']
                 profile.api_secret = form.cleaned_data['api_secret']
             profile.save()
-            context['result'] = 'good'
-            context['message'] = 'Data updated successfully!'
+            context = self.create_context(context={})
+            context['is_checked'] = 'Checked'
+            context['message'] = _('Данные успешно обновлены!')
             return render(request, self.template_name, context)
-        context['result'] = 'error'
+        context = self.create_context(context={})
         messages = [mes for mes in dict(form.errors).values()]
+        context['is_checked'] = 'Checked'
         context['message'] = messages[0][0]
         return render(request, self.template_name, context)
 
 
 class VerificationView(FormView):
-    template_name = 'verification.html'
+    template_name = 'mail_confirmation.html'
     form_class = VerificationForm
 
     def get_context_data(self, **kwargs):
@@ -329,9 +348,9 @@ class VerificationView(FormView):
                 sum_paid=0.0
             )
             date_now = datetime.now()
-            info_trade = [dict(date=date_now.strftime('%d-%m-%Y'), balance_change_percent=0,
-                               balance_change_btc=0,
-                               balance_change_usdt=0)]
+            info_trade = dict(info_trade=[dict(date=date_now.strftime('%d-%m-%Y'), balance_change_percent=0,
+                                               balance_change_btc=0,
+                                               balance_change_usdt=0)])
             TradeResult.objects.create(
                 user=user,
                 result=dumps(info_trade),
@@ -352,4 +371,7 @@ class VerificationView(FormView):
             return HttpResponseRedirect(reverse('verification'))
         cache.set('code', code)
         return render(request, self.template_name, {'form': form, 'title': 'Verification'})
+
+
 # Create your views here.
+

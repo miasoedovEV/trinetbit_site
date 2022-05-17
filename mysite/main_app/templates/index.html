@@ -1,155 +1,201 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
 {% load i18n %}
-{% block content %}
-<body>
-    <main class="main main-index" id="main-index">
-        <div class="container container-main container-index" id="container-index">
-            <p class="index-heading"><spa class="excretion">TRINETBIT</spa> - простой способ получать прибыль.</p>
-            <div class="container-index-cards">
-                <ul class="list-index-cards">
-                    <li class="index-card">
-                        <p class="text-card">2343</p>
-                        <p class="text-card lower-index-text-card">зарегистрированных клиента</p>
-                    </li>
-                    <li class="index-card">
-                        <p class="text-card">12,5%</p>
-                        <p class="text-card lower-index-text-card">средний ежемесячный процент</p>
-                    </li>
-                    <li class="index-card">
-                        <p class="text-card">81,7%</p>
-                        <p class="text-card lower-index-text-card">средний процент закрытых сделок в плюс</p>
-                    </li>
-                </ul>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/css/index_style_page.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+        <title>TRINETBIT</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="container">
+                <header>
+                    <nav class="navbar navbar-expand-xl bg-transparent navbar-dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="{% url 'index' %}">
+                                <img src="../static/assets/logo.png" alt="Логотип" class="d-inline-block align-text-top logo">
+                                <span class="navbar-brand-text">
+                                    TRINETBIT
+                                </span>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" href="{% url 'faq' %}">FAQ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'project' %}">{% trans "О продукте" %}</a>
+                                    </li>
+                                    {% if request.user.is_authenticated %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'personal_account' %}">{% trans "Личный кабинет" %}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'logout' %}">{% trans "Выйти" %}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'login' %}">{% trans "Войти" %}</a>
+                                        </li>
+                                    {% endif %}
+                                    <li class="my-auto mx-0">
+                                        <form action="{% url 'set_language' %}" method="post">
+                                            {% csrf_token %}
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                            {% if LANGUAGE_CODE == 'en' %}
+                                                <input class= "info_lan" name="language" type="hidden" value="ru" />
+                                            {% else %}
+                                                <input class= "info_lan" name="language" type="hidden" value="en" />
+                                            {% endif %}
+                                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                                <label class="btn btn-outline-primary" for="btnradio1">RU</label>
+
+                                                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="btnradio3">EN</label>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </nav>
+                </header>
             </div>
-            <div class="container-index-cards">
-                <ul class="list-index-cards">
-                    <li class="index-card">
-                        <p class="text-card">4235$</p>
-                        <p class="text-card lower-index-text-card">средняя прибыль клиента за месяц</p>
-                    </li>
-                    <li class="index-card">
-                        <p class="text-card">2 154 235$</p>
-                        <p class="text-card lower-index-text-card">суммарная прибыль клиентов за месяц</p>
-                    </li>
-                    <li class="index-card">
-                        <p class="text-card">1 неделя</p>
-                        <p class="text-card lower-index-text-card">среднее время получения первой прибыли</p>
-                    </li>
-                </ul>
-            </div>
-            <p class="text-details-index">Узнать <a href="{% url 'project' %}" class="excretion">подробнее</a> о продукте.</p>
-            <p class="text-details-index text-calculate-index">Рассчитайте <span class="excretion">свой</span> доход сейчас.</p>
-            <div class="container-calc-profit">
-                <ul class="list-input-index">
-                    <li class="item-input-index"><input type="text" maxlength="150" required="" id="start_depo" value="Стартовый депозит" class="label label-index"></li>
-                    <li class="item-input-index"><input type="text" maxlength="150" required="" id="time_month" value="Время в месяцах" class="label label-index"></li>
-                    <li class="item-input-index"><input type="text" maxlength="150" required="" id="profit" value="Ваша прибыль" class="label label-index"></li>
-                </ul>
-                <p class="remark-index">*Прибыль рассчитывается исходя из среднего ежемесячного процента.</p>
-            </div>
-            <p class="bottom-heading-index">Начните получать прибыль.</p>
-            <a href="{% url 'guide' %}" class="link-instruction-index"><p class="text-instruction-index"><span class="excretion">Инструкция</span> с порядком действий</p></a>
-            <a class="link-register-index" href="{% url 'register' %}">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+            <div class="container-fluid main pt-5">
+                <div class="right-back">
+                    <img src="../static/assets/right_back.png">
+                </div>
+                <div class="left-back">
+                    <img src="../static/assets/left_back.png">
+                </div>
+                    <div class="container">
+                        <div class="d-flex justify-content-center">
+                            <p class="heading-text text-center">
+                                <span class="link trinetbit">TRINETBIT</span><span class="trinetbit-descr"> - {% trans "простой способ получать прибыль" %}</span>
+                            </p>
+                        </div>
+                        <div class="row row-cols-3 gy-4 mt-3 mb-3">
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="info-item d-flex flex-column">
+                                    <div class="text-center amount">{{amount_users}}</div>
+                                    <div class="text-center amount-descr">{% trans "зарегистрированных клиента" %}</div>
+                                </div>
+                            </div>
+                            <div class="col-12  col-md-6 col-lg-4">
+                                <div class="info-item d-flex flex-column">
+                                    <div class="text-center amount">12,5%</div>
+                                    <div class="text-center amount-descr">{% trans "средний ежемесячный процент" %}</div>
+                                </div>
+                            </div>
+                            <div class="col-12  col-md-6 col-lg-4">
+                                <div class="info-item d-flex flex-column">
+                                    <div class="text-center amount">81,7%</div>
+                                    <div class="text-center amount-descr">{% trans "средний процент закрытых сделок в плюс" %}</div>
+                                </div>
+                            </div>
+                            <div class="col-12  col-md-6 col-lg-4">
+                                <div class="info-item d-flex flex-column">
+                                    <div class="text-center amount">{{average_customer_profit}}$</div>
+                                    <div class="text-center amount-descr">{% trans "средняя прибыль клиента за месяц" %}</div>
+                                </div>
+                            </div>
+                            <div class="col-12  col-md-6 col-lg-4" >
+                                <div class="info-item d-flex flex-column">
+                                    <div class="text-center amount">{{total_profit}}$</div>
+                                    <div class="text-center amount-descr">{% trans "суммарная прибыль клиентов за месяц" %}</div>
+                                </div>
+                            </div>
+                            <div class="col-12  col-md-6 col-lg-4">
+                                <div class="info-item d-flex flex-column">
+                                    <div class="text-center amount">1 {% trans "неделя" %}</div>
+                                    <div class="text-center amount-descr">{% trans "среднее время получения первой прибыли" %}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-5 ">
+                            <div class="col more-about">
+                                {% trans "Узнать" %} <a href="{% url 'project' %}" class="navbar-brand-text more-about-a" >{% trans "подробнее" %}</a> {% trans "о продукте" %}
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="d-flex flex-column count-gain">
+                                <div class="count-gain-heading mb-3">{% trans "Рассчитайте свой доход сейчас" %}</div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-12 col-sm-6 col-md-4 input-container">
+                                        <input id="start_depo" class="w-100" placeholder="{% trans 'Стартовый депозит'%}" />
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-4 input-container">
+                                        <input id="time_month" class="w-100" placeholder="{% trans 'Время в месяцах' %}"/>
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-md-4 with-dot position-relative input-container">
+                                        <input id="profit" class="w-100 with-dot" placeholder="{% trans 'Ваша прибыль' %}"/>
+                                    </div>
+                                </div>
+                                <div class="dot-description">
+                                    *{% trans "Прибыль рассчитывается исходя из среднего ежемесячного процента" %}.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-5">
+                            <h2 class="start-gain">{% trans "Начните получать прибыль" %}</h2>
+                        </div>
+                        <div class="d-flex justify-content-center mt-3">
+                            <div class="instruction">
+                                <a href="{% url 'guide' %}">
+                                    {% trans "Инструкция" %}
+                                </a>
+                                {% trans "с порядком действий" %}
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-5 mb-5">
+                            <div class="registration-button-container">
+                                <a href="{% url 'register' %}">
+                                    <button class="registration-button" >
+                                        {% trans "ЗАРЕГИСТРИРОВАТЬСЯ" %}
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <footer class="container">
+                <div class="d-flex flex-column">
+                    <div class="row mb-2">
+                        <div class="col text-center footer-site">
+                            © trinetbit.com
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 agreement">
+                            <a href="{% url 'eula' %}">
+                                {% trans "Пользовательское соглашение" %}
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 confident">
+                            <a href="{% url 'private_policity' %}">
+                                {% trans "Политика конфиденциальности" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-        <div class="elipse"></div>
-        <div class="elipse elipse-top"></div>
-    </main>
-    <script type="text/javascript">
-        const screenWidth = window.innerWidth
-
-        if (screenWidth < 1800) {
-            document.getElementById('main-index').style.width = String(screenWidth) + "px";
-            if (window.innerHeight > 900) {
-                document.getElementById('container-index').style.transform = "scale(0.97, 0.97)";
-                document.getElementById('header').style.height = String(window.innerHeight * 0.076) + "px";
-                document.getElementById('header').style.padding = String(window.innerHeight * 0.015) + "px 0 0 0";
-                let screenHeight= window.innerHeight + window.innerHeight * 0.1
-                document.getElementById('main-index').style.height = String(screenHeight) + "px";
-                document.getElementById('container-index').style.width = String(screenWidth) + 'px';
-                let padding_index_container = screenHeight * 0.2
-                document.getElementById('container-index').style.padding = padding_index_container + "px 0 0 0";
-                document.getElementById('main-index').style.width = String(screenWidth) + "px";
-
-            } 
-            else {
-                document.getElementById('container-index').style.transform = "scale(0.8, 0.8)";
-                let screenHeight= window.innerHeight +  0.7 * window.innerHeight
-                document.getElementById('main-index').style.height = String(screenHeight) + "px";
-                document.getElementById('container-index').style.width = String(screenWidth) + 'px';
-                let padding_index_container = screenHeight * 0.08
-                document.getElementById('container-index').style.padding = padding_index_container + "px 0 0 0";
-                document.getElementById('main-index').style.width = String(screenWidth) + "px";
-
-            }
-        }
-
-        let  start_depo = document.getElementById('start_depo');
-            time_month = document.getElementById('time_month');
-            profit = document.getElementById('profit');
-
-        function removePlaceholderDepo(start_depo)  {
-            if (start_depo.value == "Стартовый депозит") {
-                start_depo.value = "";
-            }
-        }
-
-        function replacePlaceholderDepo(start_depo)  {
-            if (start_depo.value == "") {
-                start_depo.value = "Стартовый депозит";
-            }
-        }
-
-        function removePlaceholderTime(time_month)  {
-            if (time_month.value == "Время в месяцах") {
-                time_month.value = "";
-            }
-        }
-
-        function replacePlaceholderTime(time_month)  {
-            if (time_month.value == "") {
-                time_month.value = "Время в месяцах";
-            }
-        }
-
-        function removePlaceholderProfit(profit)  {
-            if (profit.value == "Ваша прибыль") {
-                profit.value = "";
-            }
-        }
-
-        function replacePlaceholderProfit(profit)  {
-            if (profit.value == "" ) {
-                profit.value = "Ваша прибыль";
-            }
-        }
-
-        function getProfit()  {
-            let start_depo = document.getElementById('start_depo');
-                time_month = document.getElementById('time_month');
-                profit = document.getElementById('profit');
-            if (time_month.value != "Время в месяцах" && start_depo.value != "Стартовый депозит") {
-                let profit_month = 0
-                    month = Number(time_month.value)
-                    start_depo_value = Number(start_depo.value)
-                    depo = Number(start_depo.value)
-                for (let i = 0; i < month; i++) {
-                    depo = depo * 1.125
-                    }
-                profit.value = Math.round((depo - start_depo_value) * 100) / 100
-            }
-            if (profit.value == "0" || profit.value == "0") {
-                profit.value = "Ваша прибыль";
-            }
-        }
-        
-        setInterval(getProfit, 2000);
-        start_depo.setAttribute('onBlur', "replacePlaceholderDepo(this)");
-        start_depo.setAttribute('onFocus', "removePlaceholderDepo(this)");
-        time_month.setAttribute('onBlur', "replacePlaceholderTime(this)");
-        time_month.setAttribute('onFocus', "removePlaceholderTime(this)");
-        profit.setAttribute('onBlur', "replacePlaceholderProfit(this)");
-        profit.setAttribute('onFocus', "removePlaceholderProfit(this)");
-    </script>
-</body>
-{% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="../static/js/index_scripts.js"></script>
+        <script src="../static/js/settings_lang.js"></script>
+    </body>
+</html>

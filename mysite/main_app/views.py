@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from django.template import RequestContext
 from django.template.context_processors import csrf
+from user_app.models import Profile, Profit
+
+ADD_CLIENTS = 117
+BALANCE_ADD_CLIENTS = 1000
+PROFIT_PERCENT = 12.5
 
 
 def about_project_view(request):
@@ -21,6 +26,14 @@ def index_view(request):
     context = dict()
     context['title'] = 'Trinetbit'
     context.update(csrf(request))
+    amount_users = Profile.objects.count()
+    context['amount_users'] = amount_users + ADD_CLIENTS
+    if context['amount_users'] == ADD_CLIENTS:
+        context['total_profit'] = int(BALANCE_ADD_CLIENTS * PROFIT_PERCENT / 100 * 117)
+    else:
+        profit_users = sum([profit.month for profit in Profit.objects.all()])
+        context['total_profit'] = int(BALANCE_ADD_CLIENTS * PROFIT_PERCENT / 100 * 117) + profit_users
+    context['average_customer_profit'] = int(context['total_profit'] / context['amount_users'])
     return render(request, 'index.html', context)
 
 

@@ -1,153 +1,275 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
 {% load i18n %}
-{% block content %}
-    <body>
-        <main class="main main-project" id="main-project">
-            <div class="container container-project zoom-item" id="container-project">
-                <h2 class="heating-project">О продукте</h2>
-                <p class="paragraph-project"><span class="excretion big-word-project">Trinetbit</span> - веб приложение, позволяющее получать стабильный пассивный доход.</p>
-                <p class="paragraph-project paragraph-project-no-indentation">
-                    Мы разработали продукт, идейно близкий хеджфондам, но доступный для всех. 
-                </p>
-                <p class="paragraph-project">
-                    Наша миссия - дать миллионам людей возможность реализовывать их планы и мечты, максимизируя один из главных ресурсов - финансы.
-                </p>
-                <p class="paragraph-project paragraph-project-big-margin">
-                    <span class="excretion">Качеcтво</span> - фундамент любых решений, принимаемых в компании. Оно же стало краеугольным камнем Trinetbit.
-                </p>
-                <h2 class="heating-project">Из чего формируется качество?</h2>
-                <ul class="list-quality-project">
-                    <li class="item-quality-project">
-                        <div class="first-item-quality-project">
-                            <span class="heating-cause">Защищенность.</span>
-                            <ul class="list-evidence">
-                                <li class="item-evidence">Доступ к Вашему аккаунту биржи есть только у Вас.</li>
-                                <li class="item-evidence">Возможность отключения аккаунта от системы в 1 клик.</li>
-                                <li class="item-evidence"> Вся информация про торгам дублируется в личном кабинете.</li>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/about_us.css">
+    <link rel="shortcut icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>TRINETBIT</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <header>
+                <nav class="navbar navbar-expand-xl bg-transparent navbar-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="{% url 'index' %}">
+                            <img src="../static/assets/logo.png" alt="Логотип" class="d-inline-block align-text-top logo">
+                            <span class="navbar-brand-text">
+                                        TRINETBIT
+                                    </span>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="{% url 'faq' %}">FAQ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'project' %}">{% trans "О продукте" %}</a>
+                                </li>
+                                {% if request.user.is_authenticated %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'personal_account' %}">{% trans "Личный кабинет" %}</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'logout' %}">{% trans "Выйти" %}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'login' %}">{% trans "Войти" %}</a>
+                                    </li>
+                                {% endif %}
+                                <li class="my-auto mx-0">
+                                    <form action="{% url 'set_language' %}" method="post">
+                                        {% csrf_token %}
+                                        {% get_current_language as LANGUAGE_CODE %}
+                                        <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                        {% if LANGUAGE_CODE == 'en' %}
+                                            <input class= "info_lan" name="language" type="hidden" value="ru" />
+                                        {% else %}
+                                            <input class= "info_lan" name="language" type="hidden" value="en" />
+                                        {% endif %}
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                            <label class="btn btn-outline-primary" for="btnradio1">RU</label>
+
+                                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                            <label class="btn btn-outline-primary" for="btnradio3">EN</label>
+                                        </div>
+                                    </form>
+                                </li>
                             </ul>
+
                         </div>
-                        <div class="second-item-quality-project">
-                            <span class="heating-cause">Стабильность.</span>
-                            <ul class="list-evidence">
-                                <li class="item-evidence">Многолетний опыт.</li>
-                                <li class="item-evidence">Современные технические и технологические решения.</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="item-quality-project">
-                        <div class="first-item-quality-project">
-                            <span class="heating-cause">Доступность.</span>
-                            <ul class="list-evidence">
-                                <li class="item-evidence">Не нужно быть проффесионалом.</li>
-                                <li class="item-evidence">Финансово низкий порог входа.</li>
-                            </ul>
-                        </div>
-                        <div class="second-item-quality-project">
-                            <span class="heating-cause">Удобство.</span>
-                            <ul class="list-evidence">
-                                <li class="item-evidence">Доступ к приложению в любое время, в любом месте.</li>
-                                <li class="item-evidence">Простая и понятная система мониторинга.</li>
-                                <li class="item-evidence"> Пассивынй доход.</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="item-quality-project">
-                        <div class="first-item-quality-project">
-                            <span class="heating-cause">Открытость.</span>
-                            <ul class="list-evidence">
-                                <li class="item-evidence item-evidence-back-img">Мы честны перед клиентом, потому что уверены в качестве своего продукта.</li>
-                                <li class="item-evidence">Клиент для нас - человек, а не статистика.</li>
-                            </ul>
-                        </div>
-                        <div class="second-item-quality-project">
-                            <span class="heating-cause">Доверительность.</span>
-                            <ul class="list-evidence">
-                                <li class="item-evidence">Опытная команда.</li>
-                                <li class="item-evidence">Прозрачные условия.</li>
-                                <li class="item-evidence">Перевод выполняется клиентом.</li>
-                                <li class="item-evidence">Используйте сразу - платите потом.</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="item-quality-project">
-                        <div class="first-item-quality-project">
-                            <span class="heating-cause">Скорость.</span>
-                            <ul class="list-evidence">
-                                <li class="item-evidence">Более быстрый и высокий %, чем по вкладам.</li>
-                                <li class="item-evidence">Прибыль с первой недели.</li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-                <h2 class="heating-project">Как это работает?</h2>
-                <p class="paragraph-project">После регистрации на бирже Вы создаете уникальный ключ доступа. Он состоит из двух элементов: API key и API secret.</p>
-                <p class="paragraph-project">
-                    Этот функционал предусмотрен самой биржей и создан для того, что бы Вы могли автоматизировать торговые операции. Передав ключ и секрет API, 
-                    Вы позволяете площадке Trinetbit торговать на бирже от Вашего лица. <span class="excretion">API не позволяет</span> управлять такими операциями 
-                    с кошельком, <span class="excretion">как снятие, перевод или пополнение</span>. Функционал биржи не предусматривает p2p* торговлю, что исключает возможность входа в заведомо 
-                    невыгодную для Вас сделку. 
-                </p>
-                <p class="paragraph-project paragraph-project-midlle-margin">
-                    Наша торговая стратегия основана на <span class="excretion">риске от 1 до 3%</span> - это значит, что сумма ни одной сделки не превысит указанный процент от депозита.
-                </p>
-                <p class="paragraph-project paragraph-project-no-indentation">
-                    Подробнее об API Bybit можно прочитать <a href="{% url 'guide' %}" class="excretion" href="">тут</a>**.
-                </p>
-                <p class="paragraph-project">
-                    С подробной интрукцией можно ознакомиться <a href="{% url 'guide' %}" class="excretion" href="">тут</a>. 
-                </p>
-                <p class="paragraph-project paragraph-project-little paragraph-project-no-indentation">*PeerToPeer. Торговая операция, проведенная с конкретным лицом.</p>
-                <p class="paragraph-project paragraph-project-little paragraph-project-big-margin">**Оффициальный сайт Bybit.</p>
-                <h2 class="heating-project">В чем наша выгода?</h2>
-                <p class="paragraph-project">
-                    В конце каждого рассчетного периода* клиент самостоятельно переводит фиксированный процент от полученной прибыли на наш 
-                    счет для продолжения использования системы.
-                </p>
-                <p class="paragraph-project paragraph-project-no-indentation">
-                    При прибыли <span class="excretion">до 10%</span> клиент возвращает 20% и <span class="excretion">оcтавляет 80%</span> себе.
-                </p>
-                <p class="paragraph-project paragraph-project-no-indentation">
-                    При прибыли <span class="excretion">от 10% до 15%</span>, клиент возвращает 30% и <span class="excretion">оставляет 70%</span> себе.
-                </p>
-                <p class="paragraph-project paragraph-project-midlle-margin">
-                    При прибыли <span class="excretion">от 15%</span> клиент возвращает 40% и <span class="excretion">оставляет 60%</span> себе.
-                </p>
-                <p class="paragraph-project paragraph-project-midlle-margin">
-                    Подобная прогрессивная система вознаграждений мотивирует нас показывать более высокие результаты.
-                </p>
-                <p class="paragraph-project paragraph-project-midlle-margin">
-                    Помимо этого клиент регистрирует аккаунт, как партнерский**, что позволяет нам получать вознаграждение от самой биржи.
-                </p>
-                <p class="paragraph-project paragraph-project-little paragraph-project-no-indentation">*Рассчетным периодом является календарный месяц.</p>
-                <p class="paragraph-project paragraph-project-little paragraph-project-big-margin">**Подробнее о партнерской системе читайте на сайте bybit.</p>
-                <p class="paragraph-project paragraph-project-midlle-margin paragraph-project-middle">Ознакомьтесь с нашим разделом <a class="heating-project excretion-faq" href="{% url 'faq' %}">FAQ</a></p>
-                <p class="paragraph-project paragraph-project-midlle-margin paragraph-project-big">Начните получать прибыль.</p>
-                <p class="paragraph-project">
-                    <a class="excretion" href="{% url 'guide' %}">Инструкция</a> с порядком действий.
-                </p>
-                
+                    </div>
+                </nav>
+            </header>
+        </div>
+        <div class="container-fluid about">
+            <div class="container">
+                <div class="row flex-column mt-5 mb-5">
+                    <div class="col">
+                        <h2 class="about-h">{% trans "О продукте" %}</h2>
+                    </div>
+                    <div class="col">
+                        <p>
+                            <span class="link about-product">Trinetbit</span> {% trans "-веб приложение, позволяющее получать стабильный пассивный доход" %}.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>
+                            {% blocktrans %} Мы разработали продукт, идейно близкий хеджфондам, но доступный для всех.
+                            Наша миссия - дать миллионам людей возможность реализовывать их планы и мечты, максимизируя один из главных ресурсов - финансы.{% endblocktrans %}
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>
+                            <span class="link">{% trans "Качеcтво" %}</span> {% trans "- фундамент любых решений, принимаемых в компании. Оно же стало краеугольным камнем Trinetbit" %}.
+                        </p>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <h2 class="about-h">{% trans "Из чего формируется качество" %}?</h2>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p class="about-list-heading link">{% trans "Защищенность" %}.</p>
+                        <ul class="about-list">
+                            <li>{% trans "Доступ к Вашему аккаунту биржи есть только у Вас" %}.</li>
+                            <li>{% trans "Возможность отключения аккаунта от системы в 1 клик" %}.</li>
+                            <li>{% trans "Вся информация по торгам дублируется в личном кабинете" %}.</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p class="about-list-heading link">{% trans "Стабильность" %}.</p>
+                        <ul class="about-list">
+                            <li>{% trans "Многолетний опыт" %}.</li>
+                            <li>{% trans "Современные технические и технологические решения" %}.</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p class="about-list-heading link">{% trans "Доступность" %}.</p>
+                        <ul class="about-list">
+                            <li>{% trans "Не нужно быть проффесионалом" %}.</li>
+                            <li>{% trans "Финансово низкий порог входа" %}.</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p class="about-list-heading link">{% trans "Удобство" %}.</p>
+                        <ul class="about-list">
+                            <li>{% trans "Доступ к приложению в любое время, в любом месте" %}.</li>
+                            <li>{% trans "Простая и понятная система мониторинга" %}.</li>
+                            <li>{% trans "Пассивный доход" %}.</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p class="about-list-heading link">{% trans "Открытость" %}.</p>
+                        <ul class="about-list">
+                            <li>{% trans "Мы честны перед клиентом, потому что уверены в качестве своего продукта" %}.</li>
+                            <li>{% trans "Клиент для нас - человек, а не статистика" %}.</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p class="about-list-heading link">{% trans "Доверительность" %}.</p>
+                        <ul class="about-list">
+                            <li>{% trans "Опытная команда" %}.</li>
+                            <li>{% trans "Прозрачные условия" %}.</li>
+                            <li>{% trans "Перевод выполняется клиентом" %}.</li>
+                            <li>{% trans "Используйте сразу - платите потом" %}.</li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p class="about-list-heading link">{% trans "Скорость" %}.</p>
+                        <ul class="about-list">
+                            <li>{% trans "Более быстрый и высокий процент, чем по вкладам" %}.</li>
+                            <li>{% trans "Прибыль с первой недели" %}.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row flex-column mb-5">
+                    <div class="col">
+                        <h2 class="about-h">{% trans "Как это работает" %}?</h2>
+                    </div>
+                    <div class="col">
+                        <p>
+                            {% trans "После регистрации на бирже Вы создаете уникальный ключ доступа. Он состоит из двух элементов: API key и API secret" %}.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>
+                            {% blocktrans %}Этот функционал предусмотрен самой биржей и создан для того, что бы Вы могли автоматизировать
+                            торговые операции. Передав ключ и секрет API, Вы позволяете площадке Trinetbit торговать на бирже от Вашего лица.{% endblocktrans %}
+                            <span class="link">{% trans "API не позволяет" %}</span> {% trans "управлять такими операциями с кошельком, как" %}  <span class="link">{% trans "снятие, перевод или пополнение" %}</span>.
+                            {% blocktrans %}Функционал API биржи не предусматривает p2p* торговлю, что исключает возможность входа в заведомо
+                            невыгодную для Вас сделку{% endblocktrans %}.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>
+                            {% trans "Наша торговая стратегия основана на" %}  <span class="link">{% trans "риске от 1 до 3%" %}</span> - {% trans "это значит, что сумма ни одной сделки не превысит указанный процент от депозита" %}.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>
+                            {% trans "Подробнее об API Bybit можно прочитать" %}  <a href="https://bybit-exchange.github.io/docs/inverse/" class="link">{% trans "тут" %}</a>**.</br>
+                            {% trans "С подробной интрукцией можно ознакомиться" %}  <a href="{% url 'guide' %}" class="link">{% trans "тут" %}</a>.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p class="notes">
+                            *PeerToPeer. {% trans "Торговая операция, проведенная с конкретным лицом" %}.</br>
+                            **{% trans "Оффициальный сайт Bybit" %}.
+                        </p>
+                    </div>
+                </div>
+                <div class="row flex-column mb-5">
+                    <div class="col">
+                        <h2 class="about-h">{% trans "В чем наша выгода" %}?</h2>
+                    </div>
+                    <div class="col">
+                        <p>
+                            {% trans "В конце каждого рассчетного периода* клиент самостоятельно переводит фиксированный процент от полученной прибыли на наш счет для продолжения использования системы" %}.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>
+                            {% trans "При прибыли" %} <span class="link">{% trans "до 10%" %}</span> {% trans "клиент возвращает 20% и" %} <span class="link">{% trans "оcтавляет 80%" %}</span> {% trans "себе" %}.</br>
+                            {% trans "При прибыли" %} <span class="link">{% trans "от 10% до 15%" %}</span> {% trans "клиент возвращает 30% и" %} <span class="link">{% trans "оставляет 70%" %}</span> {% trans "себе" %},</br>
+                            {% trans "При прибыли" %} <span class="link">{% trans "от 15%" %}</span> {% trans "клиент возвращает 40% и" %}  <span class="link">{% trans "оставляет 60%" %}</span> {% trans "себе" %}.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>
+                            {% trans "Подобная прогрессивная система вознаграждений мотивирует нас показывать более высокие результаты" %}.                       
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>
+                            {% trans "Помимо этого, клиент регистрирует аккаунт, как партнерский**, что позволяет нам получать вознаграждение от самой биржи" %}.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p class="notes">
+                            *{% trans "Один календарный месяц" %}.</br>
+                            **{% trans "Подробнее о партнерской системе читайте на сайте bybit" %}.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="get-attention">
+                            {% trans "Ознакомьтесь с нашим разделом" %} <a href="{% url 'faq' %}" class="link">FAQ</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="get-gain">
+                            {% trans "Начните получать прибыль" %}.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="instruction">
+                            <a class="link" href="{% url 'guide' %}" >{% trans "Инструкция" %}</a> {% trans "с порядком действий" %}.
+                        </p>
+                    </div>
+                </div>
             </div>
-        </main>
-        <script type="text/javascript">
-            const screenWidth = window.innerWidth
-    
-            if (screenWidth > 1000 && screenWidth < 1800) {
-                document.getElementById('main-project').style.width = String(screenWidth) + "px";
-                if (window.innerHeight > 900) {
-                    let screenHeight= window.innerHeight + window.innerHeight * 0.3
-                    document.getElementById('container-project').style.width = String(screenWidth) + 'px';
-                    document.getElementById('main-project').style.height = String(screenHeight) + "px";
-                    document.getElementById('container-project').style.padding = String(screenHeight * 0.1) + "px 0 0 0";
-                } 
-                else {
-                    let screenHeight= window.innerHeight + window.innerHeight * 2.5
-                    document.getElementById('container-project').style.width = String(screenWidth) + 'px';
-                    document.getElementById('main-project').style.height = String(screenHeight) + "px";
-                    document.getElementById('container-project').style.padding = "0";
-                }
-                
-            }
-        </script>
-    </body>
-{% endblock %}
+        </div>
+        <footer class="container">
+            <div class="d-flex flex-column">
+                <div class="row mb-2">
+                    <div class="col text-center footer-site">
+                        © trinetbit.com
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 agreement">
+                        <a href="{% url 'eula' %}">
+                            {% trans "Пользовательское соглашение" %}
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 confident">
+                        <a href="{% url 'private_policity' %}">
+                            {% trans "Политика конфиденциальности" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../static/js/settings_lang.js"></script>
+</body>
+</html>

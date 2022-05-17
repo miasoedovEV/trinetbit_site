@@ -1,383 +1,486 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
 {% load i18n %}
-{% block content %}
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/private_policity_page.css">
+        <link rel="shortcut icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <title>TRINETBIT</title>
+    </head>
     <body>
-        <main class="main main-eula" id="main-eula">
-            <div class="container container-eula zoom-item" id="container-eula">
-                <h2 class="heating-private paragraph-eula-no-indentation">
-                    Пользовательское соглашение портала Trinetbit.com
-                </h2>
-                <h2 class="heating-private normal-margin-private alignment-eula">Версия от 5 октября 2021 года</h2>
-                <p class="paragraph-private heating-item-private normal-margin-private alignment-eula">    
-                    1. Термины и определения
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    В настоящем Пользовательском соглашении (далее также — Соглашение) используются следующие термины и определения:
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    1.1. Сайт, Портал, Площадка – информационный портал Trinetbit.com, расположенный в сети Интернет по адресу https://trinetbit.com.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    1.2. Администрация — высший менеджмент trinetbit, а так же лица временно исполняющие обязанности членов правления, лица с делигированными 
-                    обязанностями. 
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    1.3. Пользователь – физическое лицо или юридическое лицо, зарегистрированное на Сайте в соответствии с установленными Соглашением условиями, 
-                    обладающее гражданской право- и дееспособностью, способное в соответствии с законодательством Российской Федерации приобретать гражданские права 
-                    и нести обязанности от своего имени и выступать стороной Соглашения.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    1.4. Пользовательское соглашение, Соглашение — соглашение, заключаемое при регистрации на Сайте между Пользователем и Администрацией.
-                </p> 
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    1.5. Рассчетный период — составляет  1 (один) календарный месяц.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    1.6. Биржевой аккаунт — аккаунт Пользователя на площадке bybit.com
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    1.7. Партнерская программа — мотивационная программа биржи для привлечения новых участников.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    1.8. Вознаграждение - согласно пункту 5.2.1 процент от прибыли, полученой Пользователем, которую он обязуется перевести Площадке в конце Рассчетного 
-                    периода.
-                </p>
-                <p class="paragraph-private heating-item-private normal-margin-private alignment-eula">    
-                    2. Общие положения
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">    
-                    2.1. Площадка предлагает Пользователям свои сервисы (службы) на условиях, изложенных в Соглашении. Соглашение может быть изменено Администрацией 
-                    без специального уведомления. Новая редакция Соглашения вступает в силу с момента ее размещения на Сайте, если иное не предусмотрено новой редакцией 
-                    Соглашения. Действующая редакция Соглашения всегда находится на странице по адресу <a href="" class="excretion">https://www.trinetbit.com/EULA</a>. Пользовательское соглашение 
-                    начинает применяться к отношениям между Администрацией и Пользователем с момента выражения Пользователем согласия с его условиями путем регистрации 
-                    на Сайте.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    2.2. К Соглашению и отношениям между Пользователем и Администрацией, возникающими в связи с использованием сервисов, применяется право Российской
-                    Федерации. Везде по тексту Соглашения, если явно не указано иное, под термином «законодательство» понимается как законодательство РФ, так и 
-                    законодательство места пребывания Пользователя.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    2.3. Зарегистрировавшись на Сайте, а также используя любой из сервисов Портала или воспользовавшись любой функциональной возможностью, 
-                    Пользователь выражает свое безоговорочное согласие со всеми условиями Соглашения и обязуется их соблюдать или прекратить использование сервисов 
-                    Портала.
-                </p>
-                <p class="paragraph-private heating-item-private normal-margin-private alignment-eula">
-                    3. Описание услуг
-                </p>
-                <p class="paragraph-private paragraph-eula-no-indentation alignment-eula">
-                    3.1. Администрация предлагает Пользователю доступ к спектру онлайновых служб, включая средства мониторинга и подключение Биржевого аккаунта к 
-                    системе ведения удаленной торговли в следующих случаях:
-                </p>
-                <p class="paragraph-private paragraph-eula-no-indentation paragraph-eula-indentation-normal alignment-eula"> 
-                    Cтатус учетной записи «Активна», согласно пункту 4.7.1 настоящего Соглашения.
-                </p>
-                <p class="paragraph-private paragraph-eula-no-indentation paragraph-eula-indentation-middle alignment-eula">
-                    ИЛИ
-                </p>
-                <p class="paragraph-private normal-margin-private paragraph-eula-indentation-normal alignment-eula">
-                    Статус учетной записи «Активна», согласно пункту 5.2.1 настоящего Соглашения.
-                </p> 
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    3.2 Все существующие на данный момент службы, а также любое развитие их и/или добавление новых является предметом Соглашения.
-                </p>
-                <p class="paragraph-private heating-item-private normal-margin-private alignment-eula">
-                    4. Регистрация на Сайте и статус Пользователя
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.1. Регистрация Пользователя на Сайте является бесплатной, добровольной и производится по адресу в сети Интернет 
-                    <a class="excretion" href="{% url 'register' %}">https://www.trinetbit.com/users/registration</a>
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.2. При регистрации на Сайте Пользователь обязан предоставить Администрации Сайта необходимую достоверную и актуальную информацию для 
-                    формирования персональной страницы Пользователя, включая уникальное для каждого Пользователя сочетание логина (адрес электронной почты) и пароля 
-                    для доступа к Сайту, номер своего BTC кошелька, с которого предполагается перевод Возаграждения для верификации Площадкой, данные API ключа и 
-                    секрета, полученные Пользователем после регистрации на бирже Bybit, для получения доступа Площадкой к проводению торговых операции от лица 
-                    Пользователя. Регистрационная форма Сайта может запрашивать у Пользователя дополнительную информацию.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.3. Пользователь несет ответственность за достоверность, актуальность, полноту и соответствие законодательству Российской Федерации
-                    предоставленной при регистрации информации и ее чистоту от прав третьих лиц.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.4. После предоставления информации, указанной в пункте 4.2 Соглашения, Пользователю необходимо пройти удостоверительную процедуру, а именно, 
-                    подтвердить свою регистрацию путем ввода специального кода, полученного через сообщение, отправленного Администрацией или автоматизированной 
-                    системой на электронную почту Пользователя. В случае верного выполнения всех регистрационных действий на Сайте создается персональная страница 
-                    Пользователя, имеющая сетевой адрес вида https://trinetbit.com/{username}. Пользователь вправе зарегистрировать не более одной персональной 
-                    страницы на Сайте.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.5. При регистрации Пользователь соглашается с условиями Соглашения и принимает на себя указанные в нем права и обязанности, связанные с 
-                    использованием и функционированием Сайта.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.6. После успешной регистрации Пользователя на Сайте Администрация принимает на себя права и обязанности перед Пользователем, указанные в 
-                    Соглашении.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.7. Особые статусы учетной записи Пользователей.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.7.1. После регистрации на Сайте Пользователь получает статус учетной записи «Активна» до конца текущего Рассчетного периода.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.7.2. В случае не исполнения Пользователем обязанностей, указанных в пункте 5.2.1 настоящего Соглашения, статус учетной записи изменяется на 
-                    «Не Активна» до момента исполнения Пользователем указанной выше обязанности.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.8. Принимая условия Соглашения путем регистрации на Сайте, Пользователь, являющийся физическим лицом, подтверждает свое согласие на обработку 
-                    Администрацией его персональных данных, предоставленных при регистрации. Обработка персональных данных Пользователя осуществляется в соответствии с 
-                    законодательством Российской Федерации. Портал обрабатывает персональные данные Пользователя в целях предоставления Пользователю услуг, 
-                    проверки, исследования и анализа таких данных, позволяющих поддерживать и улучшать сервисы и разделы Сайта, а также разрабатывать новые сервисы и 
-                    разделы Сайта. Администрация Сайта принимает все необходимые меры для защиты персональных данных Пользователя от неправомерного доступа, изменения, 
-                    раскрытия или уничтожения. Администрация предоставляет доступ к персональным данным Пользователя только тем работникам, подрядчикам и агентам 
-                    Администрации, которым эта информация необходима для обеспечения функционирования Сайта и предоставления услуг Пользователю. Администрация Сайта 
-                    вправе использовать предоставленную Пользователем информацию, в том числе персональные данные, в целях обеспечения соблюдения требований 
-                    действующего законодательства Российской Федерации (в том числе в целях предупреждения и/или пресечения незаконных и/или противоправных действий 
-                    Пользователей). Раскрытие предоставленной Пользователем информации может быть произведено лишь в соответствии с действующим законодательством 
-                    Российской Федерации по требованию суда, правоохранительных органов, а равно в иных предусмотренных законодательством Российской Федерации случаях.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.9. Выбранные Пользователем логин и пароль являются необходимой и достаточной информацией для доступа Пользователя на Сайт. Пользователь не имеет 
-                    права передавать свои логин и пароль третьим лицам, несет полную ответственность за их сохранность, самостоятельно выбирая способ их хранения. 
-                    Пользователь на используемом им аппаратно-программном обеспечении может разрешить хранение логина и пароля (с использованием файлов cookies) для 
-                    последующей автоматической авторизации на Сайте.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.10. Если Пользователем не доказано обратное, любые действия, совершенные с использованием его логина и пароля, считаются совершенными 
-                    соответствующим Пользователем. В случае несанкционированного доступа к логину и паролю и/или персональной странице Пользователя, или распространения
-                    логина и пароля Пользователь обязан незамедлительно сообщить об этом Администрации по адресу  <span class="excretion">support@trinetbit.com</span> с пометкой “Получение доступа 
-                    третьими лицами”.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.11. Пользователь как обладатель информации, размещенной в личном кабинете, осознает, что за исключением случаев, установленных Соглашением и
-                    законодательством Российской Федерации, Администрация не принимает участие в формировании и использовании содержания и контроле доступа других
-                    пользователей к персональной странице Пользователя.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.12. Пользователь соглашается с тем, что Администрация оставляет за собой право заблокировать или удалить учетную запись Пользователя, либо 
-                    прекратить действие его учетной записи в отношении любых служб (сервисов) без объяснения причин, в том числе при нарушении Соглашения или 
-                    неиспользовании соответствующего сервиса.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    4.13. Администрация может в любой момент закрыть любую из своих служб (сервисов) с предварительным уведомлением или без него. Администрация в 
-                    этом случае не несет никакой ответственности за прекращение доступа к службам Сайта.
-                </p>
-                <p class="paragraph-private heating-item-private normal-margin-private alignment-eula">
-                    5. Обязанности Пользователя
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.1. При пользовании сервисами (службами) Сайта Пользователь обязан:
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.1.1. соблюдать положения действующего законодательства Российской Федерации, Соглашения и иных специальных документов Администрации;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.1.2. предоставлять при регистрации достоверные, полные и актуальные данные, следить за их актуализацией;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.1.3. информировать Администрацию о несанкционированном доступе к личному кабинету и/или о несанкционированном доступе и/или использовании пароля 
-                    и логина Пользователя;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.1.4. не предоставлять доступ другим Пользователям к собственному личному кабинету или к отдельной содержащейся в нем информации в случае, если 
-                    это может привести к нарушению законодательства Российской Федерации и/или Соглашения, специальных документов Администрации;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.1.5. хранить в тайне и не предоставлять другим Пользователям и третьим лицам ставшие ему известными в результате общения с другими Пользователями 
-                    и иного использования Сайта персональные данные (включая домашние адреса, номера телефонов, адреса электронной почты, паспортные данные, банковскую 
-                    информацию) и информацию о частной жизни других Пользователей и третьих лиц без получения соответствующего предварительного разрешения последних;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.1.6. осуществлять резервное копирование важной для Пользователя хранящейся на его персональной странице информации.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.2. В случае сомнений в отношении законности осуществления тех или иных действий, в том числе по размещению информации или предоставлению 
-                    доступа, Администрация рекомендует воздержаться от осуществления последних.
-                </p>
-                <p class="paragraph-private paragraph-eula-no-indentation alignment-eula">
-                    5.2.1 выполнять перевод вознаграждения в течении 24 часов, после появления в личном кабинете сообщения о необходимости перевода вознаграждения для 
-                    продолжения использования Площадки. Сообщение появляется в последний день Рассчетного периода, независимо от даты регистрации пользователя. Сумма 
-                    вознаграждения формируется автоматически при следующих зависимостях:
-                </p>
-                <p class="paragraph-private paragraph-eula-no-indentation paragraph-eula-indentation-normal alignment-eula">
-                    При увеличении депозита Биржевого аккаунта Пользователя до 10% процентов, 
-                    Пользователь гарантирует перевод 20% от суммы на которую был увеличен депозит Биржевого аккаунта.
-                </p>
-                <p class="paragraph-private paragraph-eula-no-indentation paragraph-eula-indentation-normal alignment-eula">
-                    При увеличении депозита Биржевого аккаунта Пользователя от 10% процентов до 15% процентов, Пользователь гарантирует перевод 30% процентов от суммы 
-                    на которую был увеличен депозит Биржевого аккаунта.
-                </p>
-                <p class="paragraph-private normal-margin-private paragraph-eula-indentation-normal alignment-eula">
-                    При увеличении депозита Биржевого аккаунта Пользователя от 15% процентов, Пользователь гарантирует перевод 40% процентов от суммы на которую был 
-                    увеличен депозит Биржевого аккаунта.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.2.1.1 выполнять перевод с указанного при регистрации кошелька, либо кошелька, номер которого был указан и подтвержден при измении данных 
-                    Пользователя в личном кабинете. В противном случае перевод считается добровольным пожертвованием и возвращению не подлежит.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3. Пользователю при использовании Портала запрещается:
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3.1. регистрироваться в качестве Пользователя от имени или вместо другого лица («фальшивый аккаунт») или регистрировать группу (объединение) лиц 
-                    в качестве Пользователя, при этом возможна регистрация от имени и поручению другого физического лица или юридического лица при условии получения 
-                    необходимых полномочий в порядке и форме, предусмотренных законодательством Российской Федерации;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3.2. вводить Площадку в заблуждение относительно своей личности или организации, используя логин и пароль другого зарегистрированного 
-                    Пользователя;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3.3. загружать, хранить, публиковать, распространять и предоставлять доступ или иным образом использовать любую информацию, которая:
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    a) содержит угрозы, дискредитирует, оскорбляет, порочит честь и достоинство или деловую репутацию или нарушает неприкосновенность частной жизни 
-                    других Пользователей или третьих лиц;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    b) нарушает права несовершеннолетних лиц;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    c) является вульгарной или непристойной, содержит нецензурную лексику, содержит порнографические изображения и тексты или сцены сексуального 
-                    характера с участием несовершеннолетних;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    d) содержит сцены насилия, либо бесчеловечного обращения с животными;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    e) содержит описание средств и способов суицида, любое подстрекательство к его совершению;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    f) пропагандирует и/или способствует разжиганию расовой, религиозной, этнической ненависти или вражды, пропагандирует фашизм или идеологию 
-                    расового превосходства;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    g) содержит экстремистские материалы;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    h) пропагандирует преступную деятельность или содержит советы, инструкции или руководства по совершению преступных действий,
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    i) содержит информацию ограниченного доступа, включая государственную и коммерческую тайну, информацию о частной жизни третьих лиц;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    j) содержит рекламу или описывает привлекательность употребления наркотических веществ, в том числе «цифровых наркотиков» 
-                    (звуковых файлов, оказывающих воздействие на мозг человека за счет бинауральных ритмов), информацию о распространении наркотиков, 
-                    рецепты их изготовления и советы по употреблению;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    k) носит мошеннический характер; а также
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    l) нарушает иные права и интересы граждан и юридических лиц или требования законодательства Российской Федерации.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3.5. незаконно загружать, хранить, публиковать, распространять и предоставлять доступ или иным образом использовать интеллектуальную собственность
-                    Пользователей и третьих лиц;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3.6. использовать программное обеспечение и осуществлять действия, направленные на нарушение нормального функционирования Сайта и его сервисов или 
-                    персональных страниц Пользователей;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3.7. загружать, хранить, публиковать, распространять и предоставлять доступ или иным образом использовать вирусы, трояны и другие вредоносные 
-                    программы;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3.8. использовать без специального на то разрешения Администрации автоматизированные скрипты (программы) для сбора информации на Сайте и (или) 
-                    взаимодействия с Сайтом и его сервисами;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3.9. любым способом, в том числе путем обмана, злоупотребления доверием, взлома, пытаться получить доступ к логину и паролю другого 
-                    Пользователя;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3.10. осуществлять (пытаться получить) доступ к каким-либо Услугам иным способом, кроме как через интерфейс, предоставленный Администрацией, 
-                    за исключением случаев, когда такие действия были прямо разрешены Пользователю в соответствии с отдельным соглашением с Администрацией;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.3.11. воспроизводить, дублировать, копировать, продавать, осуществлять торговые операции и перепродавать Услуги для каких-либо целей, за 
-                    исключением случаев, когда такие действия были прямо разрешены Пользователю в соответствии с условиями отдельного соглашения с Администрацией;
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.4 В случае несогласия Пользователя с условиями Соглашения или их обновлениями, Пользователь обязан отказаться от его использования, 
-                    проинформировав об этом Администрацию в установленном порядке.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    5.5 вручную проводить операции по торговле на привязанном к Порталу Биржевом аккаунте. В случае вмешательства в сделку или в 
-                    случае ручного открытия/закрытия сделки Портал приостанавливает работу с Биржевым аккаунтом пользователя до установления деталей.
-                </p>
-                <p class="paragraph-private heating-item-private normal-margin-private alignment-eula">
-                    6. Ограничение ответственности
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    6.1. Все службы Сайта предоставляются «как есть» и Администрация не несет ответственности ни за какие задержки, сбои, неверную или 
-                    несвоевременную доставку, удаление или несохранность какой-либо пользовательской персональной информации.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    6.2. Службы Сайта могут содержать ссылки на другие ресурсы. Пользователь соглашается с тем, что Администрация не несет никакой ответственности 
-                    за доступность этих ресурсов и за их контент, а также за любые последствия, связанные с использованием контента этих ресурсов.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    6.3. Пользователю следует соблюдать меры предосторожности при скачивании с Сайта или по размещенным на нем ссылкам, и использовании любых файлов, 
-                    в том числе программного обеспечения. Администрация рекомендует использовать только лицензионное, в том числе антивирусное, программное обеспечение.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    6.4. Ни при каких обстоятельствах Администрация или ее представители не несут ответственность перед Пользователем или перед любыми третьими 
-                    лицами за любой косвенный, случайный, неумышленный ущерб, включая упущенную выгоду или потерянные данные, вред чести, достоинству или деловой 
-                    репутации, вызванный в связи с использованием Сайта, содержимого Сайта или иных материалов, к которым Пользователь или иные лица получили доступ 
-                    с помощью Сайта, даже если Администрация предупреждала или указывала на возможность такого вреда.
-                </p>
-                <p class="paragraph-private heating-item-private normal-margin-private alignment-eula">
-                    7. Права на результаты интеллектуальной деятельности и приравненные к ним объекты
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    7.1. Пользователь признает и соглашается с тем, что службы Сайта и все необходимые программы, связанные с ними, содержат конфиденциальную информацию,
-                    которая защищена законами об интеллектуальной собственности и прочими российскими законами и нормами международного права, а контент, предоставляемый
-                    в процессе использования служб, защищен авторскими правами. Кроме случаев, специально оговоренных Администрацией, Пользователь обязуется не
-                    модифицировать, не продавать, не распространять этот контент и программы, целиком либо по частям.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    7.2. Администрация предоставляет Пользователю личное неисключительное и непередаваемое право использовать программное обеспечение, предоставляемое 
-                    в службах, на одном компьютере, при условии, что ни сам Пользователь, ни любые иные лица при содействии с его стороны не будут копировать или 
-                    изменять программное обеспечение; создавать программы, производные от программного обеспечения; проникать в программное обеспечение с целью получения
-                    кодов программ; осуществлять продажу, уступку, сдачу в аренду, передачу третьим лицам в любой иной форме прав в отношении программного обеспечения
-                    служб, предоставленных Пользователю по Соглашению, а также модифицировать службы, в том числе с целью получения несанкционированного доступа к ним.
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    7.3. Администрация оставляет за собой право взять и оставить под своим управлением любой субдомен, входящий в домены, управляемые Администрацией. Администрация имеет право по своему усмотрению и без предварительного предупреждения использовать полномочия «домена верхнего уровня» в отношении всех субдоменов, и в этом случае Пользователь должен будет передать свой субдомен под управление Администрации.
-                </p>
-                <p class="paragraph-private heating-item-private normal-margin-private alignment-eula">
-                    8. Конфиденциальность
-                </p>
-                <p class="paragraph-private normal-margin-private alignment-eula">
-                    Условия конфиденциальности информации, получаемой Администрацией от Пользователей, правила обработки персональных данных Пользователей 
-                    располагаются по адресу: <a href="{% url 'private_policity' %}" class="excretion">https://trinetbit.com/Confidentiality</a>.
-                </p>
-            </div>
-            <script type="text/javascript">
-                const screenWidth = window.innerWidth
+        <div class="wrapper">
+            <div class="container">
+                <header>
+                    <nav class="navbar navbar-expand-xl bg-transparent navbar-dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="{% url 'index' %}">
+                                <img src="../static/assets/logo.png" alt="Логотип" class="d-inline-block align-text-top logo">
+                                <span class="navbar-brand-text">
+                                    TRINETBIT
+                                </span>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" href="{% url 'faq' %}">FAQ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'project' %}">{% trans "О продукте" %}</a>
+                                    </li>
+                                    {% if request.user.is_authenticated %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'personal_account' %}">{% trans "Личный кабинет" %}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'logout' %}">{% trans "Выйти" %}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'login' %}">{% trans "Войти" %}</a>
+                                        </li>
+                                    {% endif %}
+                                    <li class="my-auto mx-0">
+                                        <form action="{% url 'set_language' %}" method="post">
+                                            {% csrf_token %}
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                            {% if LANGUAGE_CODE == 'en' %}
+                                                <input class= "info_lan" name="language" type="hidden" value="ru" />
+                                            {% else %}
+                                                <input class= "info_lan" name="language" type="hidden" value="en" />
+                                            {% endif %}
+                                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                                <label class="btn btn-outline-primary" for="btnradio1">RU</label>
 
-                if (screenWidth < 1800) {
-                    document.getElementById('main-eula').style.width = String(screenWidth) + "px";
-                    if (window.innerHeight > 900) {
-                        let screenHeight= window.innerHeight +  2.9 * window.innerHeight
-                        document.getElementById('container-eula').style.width = String(screenWidth * 0.75) + 'px';
-                        document.getElementById('main-eula').style.height = String(screenHeight) + "px";
-                        document.getElementById('container-eula').style.padding = String(screenHeight * 0.03) + "px 0 0 0";
-                        document.getElementById('container-eula').style.margin = "-600px 0 0 20px";
-                    } 
-                    else {
-                        let screenHeight= window.innerHeight +  9.9 * window.innerHeight
-                        document.getElementById('container-eula').style.width = String(screenWidth * 0.75) + 'px';
-                        document.getElementById('main-eula').style.height = String(screenHeight) + "px";
-                        document.getElementById('container-eula').style.padding = "0";
-                        document.getElementById('container-eula').style.margin = "-600px 0 0 20px";
-                    }
-                }
-            </script>
-        </main>
+                                                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="btnradio3">EN</label>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+            <div class="container-fluid eula">
+                <div class="container">
+                    <p class="term mt-5">
+                        {% trans "Пользовательское соглашение портала Trinetbit.com" %}
+                    </p>
+                    <p class="term">
+                        {% trans "Версия от 5 октября 2021 года" %}
+                    </p>
+                    <div class="d-flex flex-column article-item">
+                        <p class="mt-4 mb-4">
+                            1. {% trans "Термины и определения" %}
+                        </p>
+                        <p>
+                            {% blocktrans %}В настоящем Пользовательском соглашении (далее также — Соглашение) используются следующие термины и определения:{% endblocktrans %}
+                        </p>
+                        <p>
+                            1.1. {% blocktrans %}Сайт, Портал, Площадка – информационный портал Trinetbit.com, расположенный в сети Интернет по адресу https://trinetbit.com.{% endblocktrans %}
+                        </p>
+                        <p>
+                            1.2. {% blocktrans %}Администрация — высший менеджмент trinetbit, а так же лица временно исполняющие обязанности членов правления, лица с делигированными обязанностями.{% endblocktrans %}
+                        </p>
+                        <p>
+                            1.3. {% blocktrans %}Пользователь – физическое лицо или юридическое лицо, зарегистрированное на Сайте в соответствии с
+                            установленными Соглашением условиями, обладающее гражданской право- и дееспособностью, способное в соответствии
+                            с законодательством Российской Федерации приобретать гражданские права и нести обязанности от своего имени и выступать стороной Соглашения.{% endblocktrans %}
+                        </p>
+                        <p>
+                            1.4. {% blocktrans %}Пользовательское соглашение, Соглашение — соглашение, заключаемое при регистрации на Сайте между Пользователем и Администрацией.{% endblocktrans %}
+                        </p>
+                        <p>
+                            1.5. {% trans "Рассчетный период — составляет 1 (один) календарный месяц" %}.
+                        </p>
+                        <p>
+                            1.6 {% trans "Биржевой аккаунт — аккаунт Пользователя на площадке bybit.com" %}
+                        </p>
+                        <p>
+                            1.7 {% trans "Партнерская программа — мотивационная программа биржи для привлечения новых участников" %}.
+                        </p>
+                        <p>
+                            1.8 {% blocktrans %}Вознаграждение — согласно пункту 5.2.1 процент от прибыли, полученой Пользователем, который он
+                            обязуется перевести Площадке в конце Рассчетного периода.{% endblocktrans %}
+                        </p>
+                    </div>
+                    <div class="d-flex flex-column article-item">
+                        <p>
+                            2. {% trans "Общие положения" %}
+                        </p>
+                        <p>
+                            2.1. {% blocktrans %}Площадка предлагает Пользователям свои сервисы (службы) на условиях, изложенных в Соглашении.
+                            Соглашение может быть изменено Администрацией без специального уведомления. Новая редакция Соглашения
+                            вступает в силу с момента ее размещения на Сайте, если иное не предусмотрено новой редакцией Соглашения.
+                            Действующая редакция Соглашения всегда находится на странице по адресу{% endblocktrans %}
+                            <a href="{% url 'eula' %}" class="link">https://www.trinetbit.com/EULA.</a>
+                            {% blocktrans %}Пользовательское соглашение начинает применяться к отношениям между Администрацией и Пользователем с
+                            момента выражения Пользователем согласия с его условиями путем регистрации на Сайте.{% endblocktrans %}
+                        </p>
+                        <p>
+                            2.2. {% blocktrans %}К Соглашению и отношениям между Пользователем и Администрацией, возникающими в связи с
+                            использованием сервисов, применяется право Российской Федерации. Везде по тексту Соглашения,
+                            если явно не указано иное, под термином «законодательство» понимается как законодательство РФ,
+                            так и законодательство места пребывания Пользователя.{% endblocktrans %}
+                        </p>
+                        <p>
+                            2.3. {% blocktrans %}Зарегистрировавшись на Сайте, а также используя любой из сервисов Портала или воспользовавшись
+                            любой функциональной возможностью, Пользователь выражает свое безоговорочное согласие со всеми условиями
+                            Соглашения и обязуется их соблюдать или прекратить использование сервисов Портала.{% endblocktrans %}
+                        </p>
+                    </div>
+                    <div class="d-flex flex-column article-item">
+                        <p>
+                            3.{% trans "Описание услуг" %}
+                        </p>
+                        <p>
+                            3.1. {% blocktrans %}Администрация предлагает Пользователю доступ к спектру онлайновых служб, включая средства
+                            мониторинга и подключение Биржевого аккаунта к системе ведения удаленной торговли в следующих случаях:
+                            Cтатус учетной записи «Активна», согласно пункту 4.7.1 настоящего Соглашения. ИЛИ Статус учетной записи
+                            «Активна», согласно пункту 5.2.1 настоящего Соглашения.{% endblocktrans %}
+                        </p>
+                        <p>
+                            3.2 {% blocktrans %}Все существующие на данный момент службы, а также любое развитие их и/или добавление новых является предметом Соглашения.{% endblocktrans %}
+                        </p>
+                    </div>
+                    <div class="d-flex flex-column article-item">
+                        <p>
+                            4. {% trans "Регистрация на Сайте и статус Пользователя" %}
+                        </p>
+                        <p>
+                            4.1. {% blocktrans %}Регистрация Пользователя на Сайте является бесплатной, добровольной и производится по адресу в сети Интернет{% endblocktrans %}
+                            <a href="{% url 'register' %}">https://trinetbit.com/users/registration</a>
+                        </p>
+                        <p>
+                            4.2. {% blocktrans %}При регистрации на Сайте Пользователь обязан предоставить Администрации Сайта необходимую
+                            достоверную и актуальную информацию для формирования персональной страницы Пользователя, включая
+                            уникальное для каждого Пользователя сочетание логина (адрес электронной почты) и пароля для доступа
+                            к Сайту, номер своего BTC кошелька, с которого предполагается перевод Возаграждения для верификации
+                            Площадкой, данные API ключа и секрета, полученные Пользователем после регистрации на бирже Bybit,
+                            для получения доступа Площадкой к проводению торговых операции от лица Пользователя. Регистрационная
+                            форма Сайта может запрашивать у Пользователя дополнительную информацию.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.3. {% blocktrans %}Пользователь несет ответственность за достоверность, актуальность, полноту и соответствие
+                            законодательству Российской Федерации предоставленной при регистрации информации и ее чистоту от прав третьих лиц.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.4. {% blocktrans %}После предоставления информации, указанной в пункте 4.2 Соглашения, Пользователю необходимо
+                            пройти удостоверительную процедуру, а именно, подтвердить свою регистрацию путем ввода специального
+                            кода, полученного через сообщение, отправленного Администрацией или автоматизированной системой на
+                            электронную почту Пользователя. В случае верного выполнения всех регистрационных действий на Сайте
+                            создается персональная страница Пользователя, имеющая сетевой адрес вида https://trinetbit.com/{username}.
+                            Пользователь вправе зарегистрировать не более одной персональной страницы на Сайте.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.5. {% blocktrans %}При регистрации Пользователь соглашается с условиями Соглашения и принимает на себя указанные
+                            в нем права и обязанности, связанные с использованием и функционированием Сайта.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.6. {% blocktrans %}После успешной регистрации Пользователя на Сайте Администрация принимает на себя права и
+                            обязанности перед Пользователем, указанные в Соглашении.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.7. {% trans "Особые статусы учетной записи Пользователей" %}.
+                        </p>
+                        <p>
+                            4.7.1. {% blocktrans %}После регистрации на Сайте Пользователь получает статус учетной записи «Активна» до конца текущего Рассчетного периода.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.7.2. {% blocktrans %}В случае не исполнения Пользователем обязанностей, указанных в пункте 5.2.1 настоящего
+                            Соглашения, статус учетной записи изменяется на «Не Активна» до момента исполнения Пользователем указанной выше обязанности.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.8. {% blocktrans %}Принимая условия Соглашения путем регистрации на Сайте, Пользователь, являющийся физическим лицом,
+                            подтверждает свое согласие на обработку Администрацией его персональных данных, предоставленных при регистрации.
+                            Обработка персональных данных Пользователя осуществляется в соответствии с законодательством Российской Федерации.
+                            Портал обрабатывает персональные данные Пользователя в целях предоставления Пользователю услуг, проверки,
+                            исследования и анализа таких данных, позволяющих поддерживать и улучшать сервисы и разделы Сайта,
+                            а также разрабатывать новые сервисы и разделы Сайта. Администрация Сайта принимает все необходимые
+                            меры для защиты персональных данных Пользователя от неправомерного доступа, изменения, раскрытия или
+                            уничтожения. Администрация предоставляет доступ к персональным данным Пользователя только тем работникам,
+                            подрядчикам и агентам Администрации, которым эта информация необходима для обеспечения функционирования
+                            Сайта и предоставления услуг Пользователю. Администрация Сайта вправе использовать предоставленную Пользователем
+                            информацию, в том числе персональные данные, в целях обеспечения соблюдения требований действующего
+                            законодательства Российской Федерации (в том числе в целях предупреждения и/или пресечения незаконных
+                            и/или противоправных действий Пользователей). Раскрытие предоставленной Пользователем информации может
+                            быть произведено лишь в соответствии с действующим законодательством Российской Федерации по требованию
+                            суда, правоохранительных органов, а равно в иных предусмотренных законодательством Российской Федерации случаях.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.9. {% blocktrans %}Выбранные Пользователем логин и пароль являются необходимой и достаточной информацией для доступа
+                            Пользователя на Сайт. Пользователь не имеет права передавать свои логин и пароль третьим лицам, несет
+                            полную ответственность за их сохранность, самостоятельно выбирая способ их хранения. Пользователь на
+                            используемом им аппаратно-программном обеспечении может разрешить хранение логина и пароля (с использованием
+                            файлов cookies) для последующей автоматической авторизации на Сайте.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.10. {% blocktrans %}Если Пользователем не доказано обратное, любые действия, совершенные с использованием его логина
+                            и пароля, считаются совершенными соответствующим Пользователем. В случае несанкционированного доступа к
+                            логину и паролю и/или персональной странице Пользователя, или распространения логина и пароля Пользователь
+                            обязан незамедлительно сообщить об этом Администрации по адресу{% endblocktrans %} <span class="link">support@trinetbit.com</span> {% trans "с пометкой “Получение доступа третьими лицами”" %}.
+                        </p>
+                        <p>
+                            4.11. {% blocktrans %}Пользователь как обладатель информации, размещенной в личном кабинете, осознает, что за
+                            исключением случаев, установленных Соглашением и законодательством Российской Федерации, Администрация
+                            не принимает участие в формировании и использовании содержания и контроле доступа других пользователей
+                            к персональной странице Пользователя.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.12. {% blocktrans %}Пользователь соглашается с тем, что Администрация оставляет за собой право заблокировать или
+                            удалить учетную запись Пользователя, либо прекратить действие его учетной записи в отношении любых
+                            служб (сервисов) без объяснения причин, в том числе при нарушении Соглашения или неиспользовании соответствующего сервиса.{% endblocktrans %}
+                        </p>
+                        <p>
+                            4.13. {% blocktrans %}Администрация может в любой момент закрыть любую из своих служб (сервисов) с предварительным
+                            уведомлением или без него. Администрация в этом случае не несет никакой ответственности за прекращение
+                            доступа к службам Сайта.{% endblocktrans %}
+                        </p>
+                    </div>
+                    <div class="d-flex flex-column article-item">
+                        <p>
+                            5. {% trans "Обязанности Пользователя" %}
+                        </p>
+                        <p>
+                            5.1. {% blocktrans %}При пользовании сервисами (службами) Сайта Пользователь обязан:{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.1.1. {% blocktrans %}соблюдать положения действующего законодательства Российской Федерации, Соглашения и иных специальных документов Администрации;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.1.2. {% blocktrans %}предоставлять при регистрации достоверные, полные и актуальные данные, следить за их актуализацией;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.1.3. {% blocktrans %}информировать Администрацию о несанкционированном доступе к личному кабинету и/или о несанкционированном доступе и/или использовании пароля и логина Пользователя;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.1.4. {% blocktrans %}не предоставлять доступ другим Пользователям к собственному личному кабинету или к отдельной
+                            содержащейся в нем информации в случае, если это может привести к нарушению законодательства Российской Федерации
+                            и/или Соглашения, специальных документов Администрации;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.1.5. {% blocktrans %}хранить в тайне и не предоставлять другим Пользователям и третьим лицам ставшие ему известными
+                            в результате общения с другими Пользователями и иного использования Сайта персональные данные (включая
+                            домашние адреса, номера телефонов, адреса электронной почты, паспортные данные, банковскую информацию)
+                            и информацию о частной жизни других Пользователей и третьих лиц без получения соответствующего предварительного разрешения последних;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.1.6. {% blocktrans %}осуществлять резервное копирование важной для Пользователя хранящейся на его персональной странице информации.{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.2. {% blocktrans %}В случае сомнений в отношении законности осуществления тех или иных действий, в том числе по размещению
+                            информации или предоставлению доступа, Администрация рекомендует воздержаться от осуществления последних.{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.2.1 {% blocktrans %}выполнять перевод вознаграждения в течении 24 часов, после появления в личном кабинете сообщения
+                            о необходимости перевода вознаграждения для продолжения использования Площадки. Сообщение появляется в
+                            последний день Рассчетного периода, независимо от даты регистрации пользователя. Сумма вознаграждения
+                            формируется автоматически при следующих зависимостях{% endblocktrans %}: {% blocktrans %}При увеличении депозита Биржевого аккаунта
+                            Пользователя до 10 процентов, Пользователь гарантирует перевод 20 процентов от суммы на которую был увеличен
+                            депозит Биржевого аккаунта.{% endblocktrans %} {% blocktrans %}При увеличении депозита Биржевого аккаунта Пользователя от 10 процентов
+                            до 15 процентов, Пользователь гарантирует перевод 30 процентов от суммы на которую был увеличен депозит
+                            Биржевого аккаунта.{% endblocktrans %} {% trans "При увеличении депозита Биржевого аккаунта" %} {% trans "Пользователя от 15 процентов," %} 
+                            {% blocktrans %}Пользователь гарантирует перевод 40 процентов от суммы на которую был увеличен депозит Биржевого аккаунта.{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.2.1.1 {% blocktrans %}выполнять перевод с указанного при регистрации кошелька, либо кошелька, номер которого был указан
+                            и подтвержден при измении данных Пользователя в личном кабинете. В противном случае перевод считается
+                            добровольным пожертвованием и возвращению не подлежит.{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.3. {% trans "Пользователю при использовании Портала запрещается" %}:
+                        </p>
+                        <p>
+                            5.3.1. {% blocktrans %}регистрироваться в качестве Пользователя от имени или вместо другого лица («фальшивый аккаунт»)
+                            или регистрировать группу (объединение) лиц в качестве Пользователя, при этом возможна регистрация от
+                            имени и поручению другого физического лица или юридического лица при условии получения необходимых полномочий
+                            в порядке и форме, предусмотренных законодательством Российской Федерации;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.3.2. {% blocktrans %}вводить Площадку в заблуждение относительно своей личности или организации, используя логин и пароль другого зарегистрированного Пользователя;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.3.3. {% blocktrans %}загружать, хранить, публиковать, распространять и предоставлять доступ или иным образом использовать любую информацию, которая:{% endblocktrans %}
+                        </p>
+                        <p>
+                            a) {% blocktrans %}содержит угрозы, дискредитирует, оскорбляет, порочит честь и достоинство или деловую репутацию или нарушает
+                            неприкосновенность частной жизни других Пользователей или третьих лиц;{% endblocktrans %}
+                        </p>
+                        <p>
+                            b) {% blocktrans %}нарушает права несовершеннолетних лиц;{% endblocktrans %}
+                        </p>
+                        <p>
+                            c) {% blocktrans %}является вульгарной или непристойной, содержит нецензурную лексику, содержит порнографические
+                            изображения и тексты или сцены сексуального характера с участием несовершеннолетних;{% endblocktrans %}
+                        </p>
+                        <p>
+                            d) {% blocktrans %}содержит сцены насилия, либо бесчеловечного обращения с животными;{% endblocktrans %}
+                        </p>
+                        <p>
+                            e) {% blocktrans %}содержит описание средств и способов суицида, любое подстрекательство к его совершению;{% endblocktrans %}
+                        </p>
+                        <p>
+                            f) {% blocktrans %}пропагандирует и/или способствует разжиганию расовой, религиозной, этнической ненависти или вражды, пропагандирует фашизм или идеологию расового превосходства;{% endblocktrans %}
+                        </p>
+                        <p>
+                            g) {% trans "содержит экстремистские материалы" %};
+                        </p>
+                        <p>
+                            h) {% blocktrans %}пропагандирует преступную деятельность или содержит советы, инструкции или руководства по совершению преступных действий,{% endblocktrans %}
+                        </p>
+                        <p>
+                            i) {% blocktrans %}содержит информацию ограниченного доступа, включая государственную и коммерческую тайну, информацию о частной жизни третьих лиц;{% endblocktrans %}
+                        </p>
+                        <p>
+                            j) {% blocktrans %}содержит рекламу или описывает привлекательность употребления наркотических веществ, в том числе
+                            «цифровых наркотиков» (звуковых файлов, оказывающих воздействие на мозг человека за счет бинауральных ритмов),
+                            информацию о распространении наркотиков, рецепты их изготовления и советы по употреблению;{% endblocktrans %}
+                        </p>
+                        <p>
+                            k) {% trans "носит мошеннический характер" %};
+                        </p>
+                        <p>
+                            l) {% blocktrans %}а также нарушает иные права и интересы граждан и юридических лиц или требования законодательства Российской Федерации.{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.3.4. {% blocktrans %}незаконно загружать, хранить, публиковать, распространять и предоставлять доступ или иным образом
+                            использовать интеллектуальную собственность Пользователей и третьих лиц;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.3.5. {% blocktrans %}использовать программное обеспечение и осуществлять действия, направленные на нарушение
+                            нормального функционирования Сайта и его сервисов или персональных страниц Пользователей;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.3.6. {% blocktrans %}загружать, хранить, публиковать, распространять и предоставлять доступ или иным образом использовать вирусы, трояны и другие вредоносные программы;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.3.7. {% blocktrans %}использовать без специального на то разрешения Администрации автоматизированные скрипты (программы)
+                            для сбора информации на Сайте и (или) взаимодействия с Сайтом и его сервисами;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.3.8. {% blocktrans %}любым способом, в том числе путем обмана, злоупотребления доверием, взлома, пытаться получить доступ к логину и паролю другого Пользователя;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.3.9. {% blocktrans %}осуществлять (пытаться получить) доступ к каким-либо Услугам иным способом, кроме как через интерфейс,
+                            предоставленный Администрацией, за исключением случаев, когда такие действия были прямо разрешены Пользователю
+                            в соответствии с отдельным соглашением с Администрацией;{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.4. {% blocktrans %}В случае несогласия Пользователя с условиями Соглашения или их обновлениями, Пользователь обязан
+                            отказаться от его использования, проинформировав об этом Администрацию в установленном порядке.{% endblocktrans %}
+                        </p>
+                        <p>
+                            5.5 {% blocktrans %}вручную проводить операции по торговле на привязанном к Порталу Биржевом аккаунте.
+                            В случае вмешательства в сделку или в случае ручного открытия/закрытия сделки Портал приостанавливает
+                            работу с Биржевым аккаунтом пользователя до установления деталей.{% endblocktrans %}
+                        </p>
+                    </div>
+                    <div class="d-flex flex-column article-item">
+                        <p>
+                            6. {% trans "Ограничение ответственности" %}
+                        </p>
+                        <p>
+                            6.1. {% blocktrans %}Все службы Сайта предоставляются «как есть» и Администрация не несет ответственности ни за какие
+                            задержки, сбои, неверную или несвоевременную доставку, удаление или несохранность какой-либо
+                            пользовательской персональной информации.{% endblocktrans %}
+                        </p>
+                        <p>
+                            6.2. {% blocktrans %}Службы Сайта могут содержать ссылки на другие ресурсы. Пользователь соглашается с тем, что
+                            Администрация не несет никакой ответственности за доступность этих ресурсов и за их контент,
+                            а также за любые последствия, связанные с использованием контента этих ресурсов.{% endblocktrans %}
+                        </p>
+                        <p>
+                            6.3. {% blocktrans %}Пользователю следует соблюдать меры предосторожности при скачивании с Сайта или по размещенным
+                            на нем ссылкам, и использовании любых файлов, в том числе программного обеспечения. Администрация
+                            рекомендует использовать только лицензионное, в том числе антивирусное, программное обеспечение.{% endblocktrans %}
+                        </p>
+                        <p>
+                            6.4. {% blocktrans %}Ни при каких обстоятельствах Администрация или ее представители не несут ответственность перед
+                            Пользователем или перед любыми третьими лицами за любой косвенный, случайный, неумышленный ущерб,
+                            включая упущенную выгоду или потерянные данные, вред чести, достоинству или деловой репутации,
+                            вызванный в связи с использованием Сайта, содержимого Сайта или иных материалов, к которым Пользователь
+                            или иные лица получили доступ с помощью Сайта, даже если Администрация предупреждала или указывала на возможность такого вреда.{% endblocktrans %}
+                        </p>
+                    </div>
+                    <div class="d-flex flex-column article-item">
+                        <p>
+                            7. {% blocktrans %}Права на результаты интеллектуальной деятельности и приравненные к ним объекты{% endblocktrans %}
+                        </p>
+                        <p>
+                            7.1. {% blocktrans %}Пользователь признает и соглашается с тем, что службы Сайта и все необходимые программы, связанные
+                            с ними, содержат конфиденциальную информацию, которая защищена законами об интеллектуальной собственности
+                            и прочими российскими законами и нормами международного права, а контент, предоставляемый в процессе
+                            использования служб, защищен авторскими правами. Кроме случаев, специально оговоренных Администрацией,
+                            Пользователь обязуется не модифицировать, не продавать, не распространять этот контент и программы, целиком либо по частям.{% endblocktrans %}
+                        </p>
+                        <p>
+                            7.2. {% blocktrans %}Администрация предоставляет Пользователю личное неисключительное и непередаваемое право использовать
+                            программное обеспечение, предоставляемое в службах, на одном компьютере, при условии, что ни сам Пользователь,
+                            ни любые иные лица при содействии с его стороны не будут копировать или изменять программное обеспечение; создавать
+                            программы, производные от программного обеспечения; проникать в программное обеспечение с целью получения кодов программ;
+                            осуществлять продажу, уступку, сдачу в аренду, передачу третьим лицам в любой иной форме прав в отношении программного обеспечения служб,
+                            предоставленных Пользователю по Соглашению, а также модифицировать службы, в том числе с целью получения несанкционированного доступа к ним.{% endblocktrans %}
+                        </p>
+                        <p>
+                            7.3. {% blocktrans %}Администрация оставляет за собой право взять и оставить под своим управлением любой субдомен,
+                            входящий в домены, управляемые Администрацией. Администрация имеет право по своему усмотрению и
+                            без предварительного предупреждения использовать полномочия «домена верхнего уровня» в отношении всех субдоменов,
+                            и в этом случае Пользователь должен будет передать свой субдомен под управление Администрации.{% endblocktrans %}
+                        </p>
+                    </div>
+                    <div class="d-flex flex-column article-item">
+                        <p>
+                            8. {% trans "Конфиденциальность" %}
+                        </p>
+                        <p>
+                            {% blocktrans %}Условия конфиденциальности информации, получаемой Администрацией от Пользователей, правила обработки
+                            персональных данных Пользователей располагаются по адресу:{% endblocktrans %}
+                            <a class="link" href="{% url 'private_policity' %}">https://trinetbit.com/Confidentiality</a>
+                        </p>
+                    </div>
+                    <div class="d-flex flex-column article-item"></div>
+                    <div class="d-flex flex-column article-item"></div>
+                    <div class="d-flex flex-column article-item"></div>
+                    <div class="d-flex flex-column article-item"></div>
+                    </div>
+
+            </div>
+            <footer class="container">
+                <div class="d-flex flex-column">
+                    <div class="row mb-2">
+                        <div class="col text-center footer-site">
+                            © trinetbit.com
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 agreement">
+                            <a href="{% url 'eula' %}">
+                                {% trans "Пользовательское соглашение" %}
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 confident">
+                            <a href="{% url 'private_policity' %}">
+                                {% trans "Политика конфиденциальности" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="../static/js/settings_lang.js"></script>
     </body>
-{% endblock %}
+</html>

@@ -1,324 +1,219 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
 {% load i18n %}
-{% block content %}
-<body>
-    <main class="main" id="main-register">
-        <div class="container container-main" id="container-register">
-            <form class="form" id="main-form" method="post">
-                {% csrf_token %}
-                <ul class="list-label">
-                    <li class="item-label-list">{{ form.api_key }}</li>
-                    <li class="item-label-list">{{ form.api_secret }}</li>
-                    <li class="item-label-list">{{ form.username }}</li>
-                    <li class="item-label-list">{{ form.email }}</li>
-                    <li class="item-label-list">{{ form.wallet_address }}</li>
-                    <li class="item-label-list item-label-list-password1-register">
-                        <img type="image" src="/static/images/cl_eye.svg" class="shower-pass open-pass login-pass" id="open-regpass1" alt="show">
-                        <img type="image" src="/static/images/eye.svg" class="shower-pass close-pass login-pass" id="close-regpass1" alt="hide">
-                        {{ form.password1 }}
-                    </li>
-                    <li class="item-label-list item-label-list-password2-register">
-                        {{ form.password2 }}
-                        <img type="image" src="/static/images/cl_eye.svg" class="shower-pass open-pass login-pass" id="open-regpass2" alt="show">
-                        <img type="image" src="/static/images/eye.svg" class="shower-pass close-pass login-pass" id="close-regpass2" alt="hide">
-                    </li>
-                    {% if error_message %}
-                        {{ error_message }}
-                    {% endif %}
-                </ul>
-                <button type="submit" class="bt-site bt-reg">{% trans "ЗАРЕГИСТРИРОВАТЬСЯ" %}</button>
-                <div class="check-box-contaner check-box-contaner-agreement">
-                    <label class="check">
-                        {{ form.agreement }}
-                        <span class="check_box"></span>                         
-                        Я принимаю условия <a href="{% url 'eula' %}" class="excretion">Пользовательского соглашения</a> и даю 
-                        своё согласие TRINETBIT на обработку моей персональной информации на условиях, определенных <a href="{% url 'private_policity' %}" class="excretion">Политикой конфиденциальности</a>.
-                    </label>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/register_users.css">
+        <link rel="shortcut icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+        <title>TRINETBIT</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="container">
+                <header>
+                    <nav class="navbar navbar-expand-xl bg-transparent navbar-dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="{% url 'index' %}">
+                                <img src="../static/assets/logo.png" alt="Логотип" class="d-inline-block align-text-top logo">
+                                <span class="navbar-brand-text">
+                                    TRINETBIT
+                                </span>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" href="{% url 'faq' %}">FAQ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'project' %}">{% trans "О продукте" %}</a>
+                                    </li>
+                                    {% if request.user.is_authenticated %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'personal_account' %}">{% trans "Личный кабинет" %}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'logout' %}">{% trans "Выйти" %}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'login' %}">{% trans "Войти" %}</a>
+                                        </li>
+                                    {% endif %}
+                                    <li class="my-auto mx-0">
+                                        <form action="{% url 'set_language' %}" method="post">
+                                            {% csrf_token %}
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                            {% if LANGUAGE_CODE == 'en' %}
+                                                <input class= "info_lan" name="language" type="hidden" value="ru" />
+                                            {% else %}
+                                                <input class= "info_lan" name="language" type="hidden" value="en" />
+                                            {% endif %}
+                                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                                <label class="btn btn-outline-primary" for="btnradio1">RU</label>
+
+                                                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="btnradio3">EN</label>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+            <div class="container-fluid register">
+                <div class="bg-img">
+                    <img src="../static/assets/right_back.png" />
                 </div>
-                <div class="check-box-contaner check-box-contaner-mailing">
-                    <label class="check">
-                        {{ form.mailing }}
-                        <span class="check_box"></span> 
-                        Я <span class="excretion">НЕ хочу</span> получать информационную рассылку данного сервиса.
-                    </label>
-                </div>
-            </form>
-            <div id="keys" class="hint hint-keys">
-                <div class="container-line">
-                    <img src="/static/images/line_1_keys.svg" class="line-keys">
-                    <img src="/static/images/line_2_keys.svg">
-                </div>
-                <div class="text-hint text-hint-keys">
-                    <span class="excretion">API key</span> и <span class="excretion">API secret</span> неооходимы для того, что бы открывать и закрывать сделки на бирже. Подробнее о том, как это работает читайте в разделе “Как это работает” на странице “<span class="excretion">О продукте</span>”. Подробнее о самой самом API читайте на <span class="excretion">сайте</span> Bybit.
+                <div class="container">
+                    <form class="form-register" method="post">
+                        {% csrf_token %}
+                        <div class="d-flex flex-column align-items-center mt-5 ">
+                            <div class="register-form">
+                                <div class="input-container api-key">
+                                    <img src="../static/assets/top_line.png" class="group1-desc"/>
+                                    {{ form.api_key }}
+                                    <div class="description group1-desc">
+                                        <span class="link">API key</span>{% trans " и " %}<span class="link">API secret</span> {% trans "неооходимы для того, что бы открывать и закрывать сделки на бирже" %}.
+                                        {% trans "Подробнее о том, как это работает читайте в разделе “Как это работает” на странице" %} “<a href="{% url 'project' %}" class="link">{% trans "О продукте" %}</a>”.
+                                        {% trans "Подробнее о самой самом API читайте на сайте" %}<a href="https://bybit-exchange.github.io/docs/linear/#t-introduction" class="link">Bybit</a>.
+                                    </div>
+                                </div>
+                                <div class="input-container api-secret">
+                                    <img src="../static/assets/bottom_line.png"  class="group1-desc"/>
+                                    {{ form.api_secret }}
+                                    <div class="description-mobile group1-mobile mt-2">
+                                        <span class="link">API key</span> {% trans " и " %} <span class="link">API secret</span> {% trans "неооходимы для того, что бы открывать и закрывать сделки на бирже" %}.
+                                        {% trans "Подробнее о том, как это работает читайте в разделе “Как это работает” на странице" %} “<a href="{% url 'project' %}" class="link">{% trans "О продукте" %}</a>”.
+                                        {% trans "Подробнее о самой самом API читайте на сайте" %} <a href="https://bybit-exchange.github.io/docs/linear/#t-introduction" class="link">Bybit</a>.
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <img src="../static/assets/line.png" class="group2-desc left-line">
+                                    {{ form.username }}
+                                    <div class="description-container group2-desc left-block">
+                                        {% trans "Имя пользователя должно содержать" %} <span class="link">{% trans "от 3 до 20" %}</span> {% blocktrans %}символов, и не должно противоречить нормам
+                                        и действующему законодательству страны клиента.{% endblocktrans %}
+                                    </div>
+                                    <div class="description-mobile group2-mobile mt-2">
+                                        {% trans "Имя пользователя должно содержать" %} <span class="link">{% trans "от 3 до 20" %}</span> {% blocktrans %}символов, и не должно противоречить нормам
+                                        и действующему законодательству страны клиента.{% endblocktrans %}
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <img src="../static/assets/line.png" class="group3-desc right-line">
+                                    {{ form.email }}
+                                    <div class="description-container group3-desc right-block">
+                                        {% trans "Пожалуйста, вводите" %} <span class="link">{% trans "действительный" %}</span> {%blocktrans %}адрес электронной почты. На него придет код подтверждения.
+                                        Так же с помощью него можно будет сбросить пароль от личного кабинета.{% endblocktrans %}
+                                    </div>
+                                    <div class="description-mobile group3-mobile mt-2">
+                                        {% trans "Пожалуйста, вводите" %} <span class="link">{% trans "действительный" %}</span> {%blocktrans %}адрес электронной почты. На него придет код подтверждения.
+                                        Так же с помощью него можно будет сбросить пароль от личного кабинета.{% endblocktrans %}
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <img src="../static/assets/line.png" class="group4-desc left-line">
+                                    {{ form.wallet_address }}
+                                    <div class="description-container group4-desc left-block">
+                                        {% blocktrans %}Номер BTC кошелька, с которого будут выполнятся переводы вознаграждения.
+                                        Он необходим для сверки поступающих средств и продления доступа к площадке.{% endblocktrans %}
+                                    </div>
+                                    <div class="description-mobile group4-mobile mt-2">
+                                        {% blocktrans %}Номер BTC кошелька, с которого будут выполнятся переводы вознаграждения.
+                                        Он необходим для сверки поступающих средств и продления доступа к площадке.{% endblocktrans %}
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <img src="../static/assets/line.png" class="group5-desc right-line">
+                                    {{ form.password1 }}
+                                    <div class="description-container group5-desc right-block">
+                                        {% trans "Обратите внимание, пароль должен состоять" %} <span class="link">{% trans "не менее" %}</span>, {% trans "чем из" %} <span class="link">8</span> {% trans "символов" %}.
+                                        {% trans "Содержать цифру, один из спецсимволов, строчные и заглавные буквы" %}.
+                                    </div>
+                                    <div class="description-mobile group5-mobile mt-2">
+                                        {% trans "Обратите внимание, пароль должен состоять" %} <span class="link">{% trans "не менее" %}</span>, {% trans "чем из" %} <span class="link">8</span> {% trans "символов" %}.
+                                        {% trans "Содержать цифру, один из спецсимволов, строчные и заглавные буквы" %}.
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <img src="../static/assets/line.png" class="group6-desc left-line">
+                                    {{ form.password2 }}
+                                    <div class="description-container group6-desc left-block">
+                                        {% trans "Пожалуйста, повторите пароль" %}.
+                                    </div>
+                                    <div class="description-mobile group6-mobile mt-2">
+                                        {% trans "Пожалуйста, повторите пароль" %}.
+                                    </div>
+                                </div>
+                                {% if error_message %}
+                                    <div class="input-container">
+                                        <p>{{ error_message }}</p>
+                                    </div>
+                                {% endif %}
+                                <div class="input-container mb-5">
+                                    <button type="submit" class="registration-button">
+                                        {% trans "ЗАРЕГИСТРИРОВАТЬСЯ" %}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="check-agreement mb-5">
+                                <div class="form-check">
+                                    {{ form.agreement }}
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        {% trans "Я принимаю условия" %} <a href="{% url 'eula' %}" class="link">{% trans "Пользовательского соглашения" %}</a> {% blocktrans %}и даю
+                                        своё согласие TRINETBIT на обработку моей персональной информации на условиях, определенных{% endblocktrans %} <a href="{% url 'private_policity' %}" class="link">{% trans "Политикой конфиденциальности" %}</a>.
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3">
+                                    {{ form.mailing }}
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        {% blocktrans %}Я <span class="link">НЕ хочу</span> получать информационную рассылку данного сервиса.{% endblocktrans %}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div id="name" class="hint hint-name">
-                <div class="text-hint text-hint-name">
-                    Имя пользователя должно содержать <span class="excretion">от 3 до 20</span> символов, и не должно противоречить нормам и действующему законодательству страны клиента.
+            <footer class="container">
+                <div class="d-flex flex-column">
+                    <div class="row mb-2">
+                        <div class="col text-center footer-site">
+                            © trinetbit.com
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 agreement">
+                            <a href="{% url 'eula' %}">
+                                {% trans "Пользовательское соглашение" %}
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 confident">
+                            <a href="{% url 'private_policity' %}">
+                                {% trans "Политика конфиденциальности" %}
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="container-line">
-                    <img src="/static/images/line.svg" class="line-name">
-                </div>
-            </div>
-            <div id="email" class="hint hint-email">
-                <div class="container-line">
-                    <img src="/static/images/line.svg" class="line-email">
-                </div>
-                <div class="text-hint text-hint-email">
-                    Пожалуйста, вводите <span class="excretion">действительный</span> адрес электронной почты. На него придет код подтверждения. Так же с помощью него можно будет сбросить пароль от личного кабинета.
-                </div>
-            </div>
-            <div id="wallet" class="hint hint-wallet">
-                <div class="text-hint text-hint-wallet">
-                    Номер BTC кошелька, с которого будут выполнятся переводы вознаграждения. Он необходим для сверки поступающих средств и продления доступа к площадке.
-                </div>
-                <div class="container-line">
-                    <img src="/static/images/line.svg" class="line-wallet">
-                </div>
-            </div>
-            <div id="pass1" class="hint hint-pass1">
-                <div class="container-line">
-                    <img src="/static/images/line.svg" class="line-pass1">
-                </div>
-                <div class="text-hint text-hint-pass1">
-                    Обратите внимание, пароль должен состоять <span class="excretion">не менее</span>, чем из <span class="excretion">8</span> символов. Содержать цифру, один из спецсимволов, строчные и заглавные буквы.
-                </div>
-            </div>
-            <div id="pass2" class="hint hint-pass2">
-                <div class="text-hint text-hint-pass2">
-                    Пожалуйста, повторите пароль.
-                </div>
-                <div class="container-line container-line-pass2">
-                    <img src="/static/images/line.svg" class="line-pass2">
-                </div>
-            </div>
+            </footer>
         </div>
-        <div class="elipse"></div>
-    </main>
-    <script type="text/javascript">
-        const screenWidth = window.innerWidth
-
-        if (screenWidth < 1800) {
-            document.getElementById('main-register').style.width = String(screenWidth) + "px";
-            if (window.innerHeight > 900) {
-                let screenHeight= window.innerHeight
-                document.getElementById('container-register').style.padding = String(screenHeight * 0.25) + "px 0 0 0";
-                document.getElementById('main-register').style.height = String(screenHeight) + "px";
-                margin_register = screenWidth * -0.045
-                document.getElementById('container-register').style.margin = "0 0 0" + String(margin_register) + "px";
-            } 
-            else {
-                let screenHeight= window.innerHeight + window.innerHeight * 0.5
-                document.getElementById('container-register').style.transform = "scale(0.9, 0.9)";
-                document.getElementById('container-register').style.padding = "0";
-                document.getElementById('main-register').style.height = String(screenHeight) + "px";
-                margin_register = screenWidth * -0.045
-                document.getElementById('container-register').style.margin = "0 0 0" + String(margin_register) + "px";
-            }
-        }
-
-        var input_name = document.getElementById('id_username'),
-            input_address = document.getElementById('id_wallet_address'),
-            input_pass1 = document.getElementById('id_password1'),
-            input_pass2 = document.getElementById('id_password2'),
-            input_key = document.getElementById('id_api_key'),
-            input_secret = document.getElementById('id_api_secret'),
-            input_mail = document.getElementById('id_email');
-            agreement = document.getElementById('id_agreement');
-            mailing = document.getElementById('id_mailing');
-            form = document.getElementById('main-form');
-            keys = document.getElementById('keys');
-            my_name = document.getElementById('name');
-            email = document.getElementById('email');
-            wallet = document.getElementById('wallet');
-            pass_hid_1 = document.getElementById('pass1');
-            pass_hid_2 = document.getElementById('pass2');
-            bt_open_reg_pass1 = document.getElementById('open-regpass1');
-            bt_close_reg_pass1 = document.getElementById('close-regpass1');
-            bt_open_reg_pass2 = document.getElementById('open-regpass2');
-            bt_close_reg_pass2 = document.getElementById('close-regpass2');
-
-        function removePlaceholderName(input_name)  {
-            if (input_name.value == "Имя пользователя") {
-                input_name.value = "";
-                my_name.style.display = 'flex';
-            }
-        }
-
-        function replacePlaceholderName(input_name)  {
-            if (input_name.value == "") {
-                input_name.value = "Имя пользователя";
-                my_name.style.display = 'none';
-
-            }
-        }
-
-        function removePlaceholderAddres(addres)  {
-            if (addres.value == "Адрес кошелька") {
-                addres.value = "";
-                wallet.style.display = 'flex';
-            }
-        }
-
-        function replacePlaceholderAddres(addres)  {
-            if (addres.value == "") {
-                addres.value = "Адрес кошелька";
-                wallet.style.display = 'none';
-            }
-        }
-
-        function removePlaceholderPass1(pass1)  {
-            if (pass1.value == "Пароль") {
-                pass1.value = ""
-                pass1.type = "password";
-                pass_hid_1.style.display = "flex";
-            }
-        }
-
-        function replacePlaceholderPass1(pass1)  {
-            if (pass1.value == "") {
-                pass1.value = "Пароль";
-                pass1.type = "text";
-                pass_hid_1.style.display = "none";
-                document.getElementById('open-regpass1').style.display = "inline";
-                document.getElementById('close-regpass1').style.display = "none";   
-            }
-        }
-
-        function removePlaceholderPass2(pass2)  {
-            if (pass2.value == "Повторите пароль") {
-                pass2.value = ""
-                pass2.type = "password";
-                pass_hid_2.style.display = "flex";
-            }
-        }
-
-        function replacePlaceholderPass2(pass2)  {
-            if (pass2.value == "") {
-                pass2.value = "Повторите пароль";
-                pass2.type = "text";
-                pass_hid_2.style.display = "none";
-                document.getElementById('open-regpass2').style.display = "inline";
-                document.getElementById('close-regpass2').style.display = "none"; 
-            }
-        }
-
-        function removePlaceholderKey(key)  {
-            if (key.value == "Api key") {
-                key.value = "";
-                keys.style.display = 'flex';
-
-            }
-        }
-
-        function replacePlaceholderKey(key)  {
-            if (key.value == "") {
-                key.value = "Api key";
-                keys.style.display = 'none'; 
-            }
-        }
-
-        function removePlaceholderSecret(secret)  {
-            if (secret.value == "Api secret") {
-                secret.value = "";
-                keys.style.display = 'flex'; 
-            }
-        }
-
-        function replacePlaceholderSecret(secret)  {
-            if (secret.value == "") {
-                secret.value = "Api secret";
-                keys.style.display = 'none'; 
-            }
-        }
-
-        function removePlaceholderEmail(mail)  {
-            if (mail.value == "Email") {
-                mail.type = 'email';
-                mail.value = "";
-                email.style.display = 'flex';
-            }
-        }
-
-        function replacePlaceholderEmail(mail)  {
-            if (mail.value == "") {
-                mail.type = 'text';
-                mail.value = "Email";
-                email.style.display = 'none';
-            }
-        }
-
-        function open_pass1_reg() {  
-            edit = document.getElementById('id_password1')
-            if (edit.value != "Пароль") {
-                edit.type = "text";
-                document.getElementById('open-regpass1').style.display = "none";
-                document.getElementById('close-regpass1').style.display = "inline";
-            }        
-
-        }
-
-        function close_pass1_reg() {
-            document.getElementById('id_password1').type = "password";
-            document.getElementById('open-regpass1').style.display = "inline";
-            document.getElementById('close-regpass1').style.display = "none";        
-
-        }
-
-        function open_pass2_reg() {  
-            edit = document.getElementById('id_password2')
-            if (edit.value != "Повторите пароль") {
-                edit.type = "text";
-                document.getElementById('open-regpass2').style.display = "none";
-                document.getElementById('close-regpass2').style.display = "inline";
-            }        
-
-        }
-
-        function close_pass2_reg() {
-            document.getElementById('id_password2').type = "password";
-            document.getElementById('open-regpass2').style.display = "inline";
-            document.getElementById('close-regpass2').style.display = "none";        
-
-        }
-
-        bt_open_reg_pass1.addEventListener("click", open_pass1_reg);
-        bt_close_reg_pass1.addEventListener("click", close_pass1_reg);
-        bt_open_reg_pass2.addEventListener("click", open_pass2_reg);
-        bt_close_reg_pass2.addEventListener("click", close_pass2_reg);
-        keys.style.display = 'none'; 
-        keys.style.display = 'none';
-        my_name.style.display = 'none';
-        email.style.display = 'none';
-        wallet.style.display = 'none';
-        pass_hid_1.style.display = 'none';
-        pass_hid_2.style.display = 'none';
-        input_name.setAttribute('value', "Имя пользователя");
-        input_name.blur();
-        input_name.setAttribute('onBlur', "replacePlaceholderName(this)");
-        input_name.setAttribute('onFocus', "removePlaceholderName(this)");
-        input_address.setAttribute('value', "Адрес кошелька");
-        input_address.setAttribute('onBlur', "replacePlaceholderAddres(this)");
-        input_address.setAttribute('onFocus', "removePlaceholderAddres(this)");
-        input_pass1.setAttribute('value', "Пароль");
-        input_pass1.setAttribute('type', 'text');
-        input_pass1.setAttribute('onBlur', "replacePlaceholderPass1(this)");
-        input_pass1.setAttribute('onFocus', "removePlaceholderPass1(this)");
-        input_pass2.setAttribute('value', "Повторите пароль");
-        input_pass2.setAttribute('type', 'text')
-        input_pass2.setAttribute('onBlur', "replacePlaceholderPass2(this)");
-        input_pass2.setAttribute('onFocus', "removePlaceholderPass2(this)");
-        input_key.setAttribute('value', "Api key");
-        input_key.setAttribute('onBlur', "replacePlaceholderKey(this)");
-        input_key.setAttribute('onFocus', "removePlaceholderKey(this)");
-        input_secret.setAttribute('value', "Api secret");
-        input_secret.setAttribute('onBlur', "replacePlaceholderSecret(this)");
-        input_secret.setAttribute('onFocus', "removePlaceholderSecret(this)");
-        input_mail.setAttribute('type', 'text');
-        input_mail.setAttribute('value', "Email");
-        input_mail.setAttribute('onBlur', "replacePlaceholderEmail(this)");
-        input_mail.setAttribute('onFocus', "removePlaceholderEmail(this)");
-    </script>
-</body>
-{% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="../static/js/register_notes.js"></script>
+        <script src="../static/js/settings_lang.js"></script>
+    </body>
+</html>

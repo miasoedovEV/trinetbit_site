@@ -1,147 +1,276 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
 {% load i18n %}
-{% block content %}
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/our_guide.css">
+        <link rel="shortcut icon" href="{% static 'assets/logo.png' %}" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta charset="UTF-8">
+        <title>TRINETBIT</title>
+    </head>
     <body>
-        <main class="main main-guide" id="main-guide">
-            <div class="container container-guide zoom-item" id="container-guide">
-                <ul class="list-guide">
-                    <li class="item-list-guide item-list-guide-first normal-margin-private">
-                        <span class="number-step-guide paragraph-private">1.</span>
-                        <p class="step-guide-first paragraph-private">
-                            Перейдите по <a class="excretion" href="https://www.bybit.com/ru-RU/register?affiliate_id=24364&group_id=0&group_type=1">ссылке</a> или вставьте в строчку запроса 
-                            “https://www.bybit.com/ru-RU/register?affiliate_id=24364&group_id=0&group_type=1” и 
-                            зарегистрируйте аккаунт на бирже Bybit.
+        <div class="wrapper">
+            <div class="container">
+                <header>
+                    <nav class="navbar navbar-expand-xl bg-transparent navbar-dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="{% url 'index' %}">
+                                <img src="../static/assets/logo.png" alt="Логотип" class="d-inline-block align-text-top logo">
+                                <span class="navbar-brand-text">
+                                    TRINETBIT
+                                </span>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" href="{% url 'faq' %}">FAQ</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'project' %}">{% trans "О продукте" %}</a>
+                                    </li>
+                                    {% if request.user.is_authenticated %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'personal_account' %}">{% trans "Личный кабинет" %}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'logout' %}">{% trans "Выйти" %}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'login' %}">{% trans "Войти" %}</a>
+                                        </li>
+                                    {% endif %}
+                                    <li class="my-auto mx-0">
+                                        <form action="{% url 'set_language' %}" method="post">
+                                            {% csrf_token %}
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                            {% if LANGUAGE_CODE == 'en' %}
+                                                <input class= "info_lan" name="language" type="hidden" value="ru" />
+                                            {% else %}
+                                                <input class= "info_lan" name="language" type="hidden" value="en" />
+                                            {% endif %}
+                                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                                <label class="btn btn-outline-primary" for="btnradio1">RU</label>
+
+                                                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                                                <label class="btn btn-outline-primary" for="btnradio3">EN</label>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+            <div class="container-fluid guide">
+                <div class="container">
+                    <p class="mt-5">
+                        1. {% trans "Перейдите по" %} <a href="https://www.bybit.com/ru-RU/register?affiliate_id=31341&group_id=0&group_type=1" class="link">{% trans "ссылке" %}</a> {% blocktrans %}или вставьте в строчку запроса
+                        “https://www.bybit.com/ru-RU/register?affiliate_id=31341&group_id=0&group_type=1” и зарегистрируйте
+                        аккаунт на бирже Bybit.{% endblocktrans %}
+                    </p>
+                    <p>
+                        1.1 {% blocktrans %}Обратите внимание, приведен пример интерфейса десктопного веб приложения. Если Вы используете мобильное
+                        устройство - ищите вкладку "активы" в левом  выпадающем меню "купить криптовалюту".{% endblocktrans %}  
+                    </p>
+                    <p>
+                        2. {% blocktrans %}Следуйте инструкциям биржи для регистрации аккаунта.{% endblocktrans %}
+                        <div class="d-flex justify-content-center image-container mt-5 mb-5">
+                            {% if LANGUAGE_CODE == 'en' %}
+                                <img class="main-reg" src="../static/assets/main_reg_en.png">
+                            {% else %}
+                                <img class="main-reg" src="../static/assets/main_reg.png">
+                            {% endif %}
+                        </div>
+                    </p>
+                    <p>
+                        3. {% blocktrans %}После успешного создания и подтверждения аккаунта - подключите 2FA для своего аккаунта.
+                        Это дополнительсная степень защиты, интегрированная биржей, необходимая для создания API ключа и секрета.{% endblocktrans %}
+                    <div class="d-flex justify-content-center image-container mt-5 mb-5">
+                        {% if LANGUAGE_CODE == 'en' %}
+                            <img class="main-reg" src="../static/assets/navbar_en.png">
+                        {% else %}
+                            <img class="main-reg" src="../static/assets/navbar.png">
+                        {% endif %}
+                    </div>
+                    </p>
+                    <div class="px-5">
+                        <p>
+                            3.1 {% trans "Нажмите на иконку" %}
+                            <div class="d-flex justify-content-center image-container mt-5 mb-5">
+                                {% if LANGUAGE_CODE == 'en' %}
+                                    <img class="main-reg" src="../static/assets/navbar_active_en.png">
+                                {% else %}
+                                    <img class="main-reg" src="../static/assets/navbar_active.png">
+                                {% endif%}
+                            </div>
                         </p>
-                    </li>
-                    <li class="item-list-guide item-list-guide-second normal-margin-private">
-                        <p class="step-guide-second paragraph-private">
-                            2. Следуйте инструкциям биржи для регистрации аккаунта.
+                        <p>
+                            3.3 {% trans "Нажмите кнопку настройки" %}.
+                        <div class="d-flex justify-content-center image-container mt-5 mb-3">
+                                {% if LANGUAGE_CODE == 'en' %}
+                                    <img class="main-reg" src="../static/assets/2FA_img_en.png">
+                                {% else %}
+                                    <img class="main-reg" src="../static/assets/2FA_img.png">
+                                {% endif %}
+                            </div>
                         </p>
-                        <img src="/static/images/main_reg.jpg" alt="picture of the entrance to the site Bybit">
-                    </li>
-                </ul>
-                <p class="paragraph-private guide-margin-paragraph">
-                    3. После успешного создания и подтверждения аккаунта - подключите 2FA для своего аккаунта. Это дополнительсная степень защиты, 
-                    интегрированная биржей, необходимая для создания API ключа и секрета.
-                </p>
-                <div class="container-guide-header-bybit">
-                    <img class="img-guide-header" src="/static/images/navbar_bybit.jpg" alt="Bybit's site header">
-                </div>
-                <p class="paragraph-private guide-margin-paragraph paragraph-guide-put-bt">
-                    3.1 Нажмите на иконку
-                </p>
-                <div class="container-guide-security-bybit">
-                    <p class="paragraph-guide-security">3.2 Выберите в выпаввшем меню “Аккаунт и безопасность”</p>
-                    <img class="arrow arrow-security" src="/static/images/arrow_left.svg" alt="arrow">
-                </div>
-                <p class="paragraph-private guide-margin-paragraph paragraph-guide-put-bt">
-                    3.2 Нажмите кнопку настройки. 
-                </p>
-                <div class="container-guide-settings-bybit">
-                    <img class="arrow arrow-settings" src="/static/images/arrow_right.svg" alt="arrow">
-                </div>
-                <p class="paragraph-guide-note guide-margin-paragraph">
-                    Примечание: для работы с площадкой TRINETBIT настраивать SMS аутентификацию не обязательно, но мы рекомендуем Вам настроить и ее. 
-                    Это дополнительная степень защиты Вашего аккаунта.
-                </p>
-                <p class="paragraph-private guide-margin-paragraph paragraph-guide-put-bt">
-                    3.3 Следуйте дальнейшим инструкциям на сайте.  
-                </p>
-                <p class="paragraph-private guide-margin-paragraph">
-                    4. Создание API.
-                </p>
-                <div class="container-guide-api-enter-bybit">
-                    <img class="arrow arrow-enter-api" src="/static/images/arrow_right.svg" alt="arrow">
-                </div>
-                <div class="container-guide-api-create-bybit">
-                    <img class="arrow arrow-api-create" src="/static/images/arrow_right.svg" alt="arrow">
-                    <p class="paragraph-guide-api-create">4.1 Создайте новый API ключ.</p>
-                </div>
-                <div class="container-guide-api-create-bybit container-guide-api-bot">
-                    <p class="paragraph-guide-api-bot-first">4.1 Выберите указанное поле.</p>
-                    <p class="paragraph-guide-api-bot-second">4.2 Название может быть любым.</p>
-                    <p class="paragraph-guide-api-bot-third">4.3 Поставте галки в те же поля, что и на картинке.</p>
-                    <img class="arrow arrow-api-create-first" src="/static/images/arrow_right.svg" alt="arrow">
-                    <img class="arrow arrow-api-create-second" src="/static/images/arrow_left.svg" alt="arrow">
-                    <img class="arrow arrow-api-create-third" src="/static/images/arrow_right.svg" alt="arrow">
-                </div>
-                <div class="container-guide-api-create-bybit container-guide-api-2fa">
-                    <p class="paragraph-guide-api-2fa">4.4 Подвердите создание API через настроенную ранее 2FA.</p>
-                </div>
-                <div class="container-guide-api-create-bybit container-guide-api-keys">
-                    <p class="paragraph-guide-api-keys-first">4.4 <span class="excretion">ОБРАТИТЕ ВНИМАНИЕ</span>: После нажатия “Подтвержаю” Вы не сможете посмотреть секрет!Скопируйте и 
-                        вставьте его сразу в поле регистрации или запишите в недоступном для третьих лиц месте, что бы скопировать позже.
+                        <p class="notes">
+                            {% blocktrans %}Примечание: для работы с площадкой TRINETBIT настраивать SMS аутентификацию не обязательно,
+                            но мы рекомендуем Вам настроить и ее. Это дополнительная степень защиты Вашего аккаунта.{% endblocktrans %}
+                        </p>
+                        <p>
+                            3.4 {% trans "Следуйте дальнейшим инструкциям на сайте" %}.
+                        </p>
+                    </div>
+                    <p>
+                        4. {% trans "Создание API" %}.
+                        <div class="d-flex justify-content-center image-container mb-5">
+                            {% if LANGUAGE_CODE == 'en' %}
+                                <img class="main-reg" src="../static/assets/navbar_on_en.png">
+                            {% else %}
+                                <img class="main-reg" src="../static/assets/navbar_on.png">
+                            {% endif %}
+                        </div>
+                        <div class="d-flex justify-content-center image-container mb-5">
+                            {% if LANGUAGE_CODE == 'en' %}
+                                <img class="main-reg" src="../static/assets/api_create_en.png">
+                            {% else %}
+                                <img class="main-reg" src="../static/assets/api_create.png">
+                            {% endif %}
+                        </div>
+                        <div class="d-flex justify-content-center image-container mb-5">
+                            {% if LANGUAGE_CODE == 'en' %}
+                                <img class="main-reg" src="../static/assets/api_en.png">
+                            {% else %}
+                                <img class="main-reg" src="../static/assets/api.png">
+                            {% endif %}
+                        </div>
+                        <div class="d-flex justify-content-center image-container mb-5">
+                            {% if LANGUAGE_CODE == 'en' %}
+                                <img class="main-reg" src="../static/assets/2fa_code_en.png">
+                            {% else %}
+                                <img class="main-reg" src="../static/assets/2fa_code.png">
+                            {% endif %}
+                        </div>
+                    </p>
+                    <p>
+                        4.6 <span class="link">{% trans "ОБРАТИТЕ ВНИМАНИЕ" %}</span>: {% blocktrans %}После нажатия “Подтвержаю” Вы не сможете посмотреть секрет! Скопируйте и
+                        вставьте его сразу в поле регистрации или запишите в недоступном для третьих лиц месте, что бы
+                        скопировать позже.{% endblocktrans %}
+                        <div class="d-flex justify-content-center image-container mb-5">
+                            {% if LANGUAGE_CODE == 'en' %}
+                                <img class="main-reg" src="../static/assets/users_key_en.png">
+                            {% else %}
+                                <img class="main-reg" src="../static/assets/users_key.png">
+                            {% endif %}
+                        </div>
+                    </p>
+                    <p>
+                        5. {% blocktrans %}Вы успешно зарегистрировались на бирже и создали API. Для подлючения к платформе почти все готово.
+                        Осталась пара шагов.{% endblocktrans %}
+                    </p>
+                    <p>
+                        6. {% trans "Пополните" %} <span class="link">{% trans "свой" %}</span> {% trans "биржевой счет на сумму от" %} <span class="link">200</span> {% blocktrans %}долларов. Чтобы не терять комиссию на обменниках, при конвертации 
+                        фиатной валюты в криптовалюту (USDT, BTC и другие), мы рекомендуем использовать P2P обмен (напрямую между покупателем и 
+                        продавцом). Данный сервис представлен на бирже{% endblocktrans %} <a href="https://www.bybit.com/ru-RU" class="link">Bybit.com</a>. {% blocktrans %}Вы можете использовать услуги любых удобных Вам сервисов, но 
+                        если Вы никогда этого не делали раньше - мы рекомендуем обменник биржи Binance.{% endblocktrans %}
+                    </p>
+                    <p>
+                        <span class="link">{% trans "БУДЬТЕ ВНИМАТЕЛЬНЫ ПРИ ОБМЕНЕ" %}</span>
+                    </p>
+                    <p>
+                        {% blocktrans %}После совершения обмена на USDT, необходимо перевести средства на Ваш счет на бирже bybit, на которой
+                        мы ведем торговлю. Для удобства и скорости, рекомендуем использовать монету USDT сеть TRX (TRC 20){% endblocktrans %}
+                    </p>
+                    <p>
+                        7. {% blocktrans %}Теперь переведите средства с спотового счета на деривативный.{% endblocktrans %}
+                    </p>
+                    <div class="px-5">
+                        <p>
+                            7.1 {% trans "Перейдите во вкладки “активы” и выберите “Спот Аккаунт”" %}.
+                            <div class="d-flex justify-content-center image-container mb-5">
+                                {% if LANGUAGE_CODE == 'en' %}
+                                    <img class="main-reg" src="../static/assets/actives_en.png">
+                                {% else %}
+                                    <img class="main-reg" src="../static/assets/actives.png">
+                                {% endif %}
+                            </div>
+                        </p>
+                        <p>
+                            7.2 {% trans "Нажмите на кнопку “перевод” в левой верхней части страницы" %}.
+                            <div class="d-flex justify-content-center image-container mb-5">
+                                {% if LANGUAGE_CODE == 'en' %}
+                                    <img class="main-reg" src="../static/assets/send_en.png">
+                                {% else %}
+                                    <img class="main-reg" src="../static/assets/send.png">
+                                {% endif %}
+                            </div>
+                        </p>
+                        <p>
+                            7.3 {% trans "Переведите средства в деривативный аккаунт" %}.
+                            <div class="d-flex justify-content-center image-container mb-5">
+                                {% if LANGUAGE_CODE == 'en' %}
+                                    <img class="main-reg" src="../static/assets/deriv_acc_en.png">
+                                {% else %}
+                                    <img class="main-reg" src="../static/assets/deriv_acc.png">
+                                {% endif %}
+                            </div>
+                        </p>
+                    </div>
+                    <p class="mb-5">
+                        8. <span class="link">{% trans "ПОЗДРАВЛЯЕМ" %}!</span> {% blocktrans %}Все необходимое для работы с площадкой TRINEBIT готово.
+                        Регистрируйтесь по кнопке внизу и начинайте получать прибыль!{% endblocktrans %}
+                    </p>
+                    <div class="d-flex justify-content-center image-container mb-5">
+                        <a href="{% url 'register' %}">
+                            <div>
+                                <button class="registration-button">{% trans " ЗАРЕГИСТРИРОВАТЬСЯ " %}</button>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="mb-5">
+                        {% trans "Если у Вас остались вопросы касательно регистрации, пожалуста, напишите нам на почту" %}
+                        <a href="mailto:support@tribetbit.com" class="link">support@trinetbit.com</a> {% trans "с пометкой “помощь с регистрацией”, и мы постараемся Вам помочь" %}!
                     </p>
                 </div>
-                <p class="paragraph-private guide-margin-paragraph">
-                    5. Вы успешно зарегистрировались на бирже и создали API. Для подлючения к платформе почти все готово. Осталась пара шагов.
-                </p>
-                <p class="paragraph-private guide-margin-paragraph">
-                    6. Пополните <span class="excretion">свой биржевой</span> счет на сумму <span class="excretion">от 200 долларов</span>. Для конвертации фиатной валюты в криптовалюту (USDT, BTC и другие). Чтобы не терять комиссию на обменниках, мы рекомендуем использовать P2P обмен (напрямую между покупателем и продавцом). 
-                    Данный сервис представлен на бирже <span class="excretion">Binance.com</span>. Вы можете использовать услуги любых сервисов, но мы рекомендуем обменник биржи Binance.
-                </p>
-                <p class="paragraph-private guide-margin-paragraph">
-                    <span class="excretion">БУДЬТЕ ВНИМАТЕЛЬНЫ ПРИ ОБМЕНЕ</span>
-                </p>
-                <p class="paragraph-private guide-margin-paragraph">
-                    После совершения обмена на USDT, необходимо перевести средства на Ваш счет на бирже bybit, на которой мы ведем торговлю. Для удобства и скорости, рекомендуем использовать монету USDT сеть TRX (TRC 20).
-                </p>
-                <p class="paragraph-private guide-margin-paragraph">
-                    7. Теперь переведите средства с спотового счета на деривативный.
-                </p>
-                <p class="paragraph-private guide-margin-paragraph">
-                    7.1 Перейдите во вкладки “активы” и выберите “Спот Аккаунт”.
-                </p>
-                <img class="just-img-guide assets-img margin-need-guide-long" src="/static/images/assets.jpg" alt="assets">
-                <p class="paragraph-private guide-margin-paragraph">
-                    7.2 Нажмите на кнопку “перевод” в левой верхней части страницы.
-                </p>
-                <img class="just-img-guide translation-page-img margin-need-guide-long" src="/static/images/translation_page.jpg" alt="translation page">
-                <p class="paragraph-private guide-margin-paragraph">
-                    7.3 Переведите средства в деривативный аккаунт.   
-                </p>
-                <img class="just-img-guide translation-menu-img" id="margin-need-guide-square" src="/static/images/translation_menu.jpg" alt="translation menu">
-                <p class="paragraph-private guide-margin-paragraph">
-                    8. <span class="excretion">ПОЗДРАВЛЯЕМ!</span> Все необходимое для работы с площадкой TRINEBIT готово.  Регистрируйтесь по кнопке внизу и начинайте получать прибыль!   
-                </p>
-                <a class="link-register-index link-register-guide" href="{% url 'register' %}" id="margin-need-guide-link">ЗАРЕГИСТРИРОВАТЬСЯ</a>
-                <p class="paragraph-private guide-margin-paragraph">
-                    Если у Вас остались вопросы касательно регистрации, пожалуста, напишите нам на почту <span class="excretion">support@trinetbit.com</span> с пометкой “помощь с регистрацией”, и мы постараемся Вам помочь!
-                </p>
             </div>
-            <script type="text/javascript">
-                const screenWidth = window.innerWidth
-                document.getElementById('main-guide').style.width = String(screenWidth) + "px";
-                if (screenWidth > 1000 && screenWidth < 1800) {
-                    if (window.innerHeight > 900) {
-                        let screenHeight= window.innerHeight +  3.2 * window.innerHeight
-                        document.getElementById('container-guide').style.width = String(screenWidth * 0.75) + 'px';
-                        document.getElementById('main-guide').style.height = String(screenHeight) + "px";
-                        document.getElementById('container-guide').style.padding = "0";
-                        document.getElementById('container-guide').style.margin = String(-screenHeight * 0.04) + "px 0 0 20px";
-                        margin_need = document.getElementsByClassName('margin-need-guide-long');
-                        for (var i = 0; i < margin_need.length; i++) {
-                            margin_need[i].style.margin = '0 0 96px 210px';
-                        }
-                        document.getElementById('margin-need-guide-square').style.margin = '0 0 96px 440px';
-                        document.getElementById('margin-need-guide-link').style.margin = '0 0 235px 470px';
-                    } 
-                    else {
-                        let screenHeight= window.innerHeight +  11.5 * window.innerHeight
-                        document.getElementById('container-guide').style.width = String(screenWidth * 0.75) + 'px';
-                        document.getElementById('main-guide').style.height = String(screenHeight) + "px";
-                        document.getElementById('container-guide').style.padding = "0";
-                        document.getElementById('container-guide').style.margin = "-700px 0 0 20px";
-                        margin_need = document.getElementsByClassName('margin-need-guide-long');
-                        for (var i = 0; i < margin_need.length; i++) {
-                            margin_need[i].style.margin = '0 0 96px 210px';
-                        }
-                        document.getElementById('margin-need-guide-square').style.margin = '0 0 96px 440px';
-                        document.getElementById('margin-need-guide-link').style.margin = '0 0 235px 470px';
-                    }
-                }
-            </script>
-        </main>
+            <footer class="container">
+                <div class="d-flex flex-column">
+                    <div class="row mb-2">
+                        <div class="col text-center footer-site">
+                            © trinetbit.com
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 agreement">
+                            <a href="{% url 'eula' %}">
+                               {% trans "Пользовательское соглашение" %}
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 confident">
+                            <a href="{% url 'private_policity' %}">
+                                {% trans "Политика конфиденциальности" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="../static/js/settings_lang.js"></script>
     </body>
-{% endblock %}
+</html>

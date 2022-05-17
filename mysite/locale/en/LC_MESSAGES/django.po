@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 08:20+0300\n"
+"POT-Creation-Date: 2022-03-07 11:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,162 +18,2545 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\main_app\templates\about_project.html:6
-#: .\main_app\templates\about_project.html:25
-#: .\user_app\templates\register.html:19
+#: .\main_app\templates\403.html:38 .\main_app\templates\404.html:38
+#: .\main_app\templates\500.html:38 .\main_app\templates\about_project.html:37
+#: .\main_app\templates\about_project.html:81 .\main_app\templates\eula.html:37
+#: .\main_app\templates\faq.html:38 .\main_app\templates\guide.html:38
+#: .\main_app\templates\index.html:37
+#: .\main_app\templates\private_policity.html:37
+#: .\user_app\templates\account.html:168
+#: .\user_app\templates\login_user.html:37
+#: .\user_app\templates\mail_confirmation.html:37
+#: .\user_app\templates\register.html:38 .\user_app\templates\register.html:92
+#: .\user_app\templates\register.html:101
 msgid "О продукте"
-msgstr "About project"
+msgstr "About the product"
 
-#: .\main_app\templates\about_project.html:27
-#: .\user_app\templates\profile.html:9
-msgid "Добро пожаловать на сайт"
-msgstr ""
-
-#: .\main_app\templates\about_project.html:28
-#: .\user_app\templates\register.html:21
+#: .\main_app\templates\403.html:42 .\main_app\templates\404.html:42
+#: .\main_app\templates\500.html:42 .\main_app\templates\about_project.html:41
+#: .\main_app\templates\eula.html:41 .\main_app\templates\faq.html:42
+#: .\main_app\templates\guide.html:42 .\main_app\templates\index.html:41
+#: .\main_app\templates\private_policity.html:41
+#: .\user_app\templates\account.html:172
+#: .\user_app\templates\login_user.html:41
+#: .\user_app\templates\mail_confirmation.html:41
+#: .\user_app\templates\register.html:42
 msgid "Личный кабинет"
 msgstr "Personal account"
 
-#: .\main_app\templates\about_project.html:29
-#: .\user_app\templates\profile.html:11
+#: .\main_app\templates\403.html:45 .\main_app\templates\404.html:45
+#: .\main_app\templates\500.html:45 .\main_app\templates\about_project.html:44
+#: .\main_app\templates\eula.html:44 .\main_app\templates\faq.html:45
+#: .\main_app\templates\guide.html:45 .\main_app\templates\index.html:44
+#: .\main_app\templates\private_policity.html:44
+#: .\user_app\templates\account.html:175
+#: .\user_app\templates\login_user.html:44
+#: .\user_app\templates\mail_confirmation.html:44
+#: .\user_app\templates\register.html:45
 msgid "Выйти"
-msgstr ""
+msgstr "Logout"
 
-#: .\main_app\templates\about_project.html:31
-msgid "Вы не авторизованы"
-msgstr ""
-
-#: .\main_app\templates\about_project.html:32
-#: .\user_app\templates\login.html:13 .\user_app\templates\register.html:22
+#: .\main_app\templates\403.html:49 .\main_app\templates\404.html:49
+#: .\main_app\templates\500.html:49 .\main_app\templates\about_project.html:48
+#: .\main_app\templates\eula.html:48 .\main_app\templates\faq.html:49
+#: .\main_app\templates\guide.html:49 .\main_app\templates\index.html:48
+#: .\main_app\templates\private_policity.html:48
+#: .\user_app\templates\account.html:179
+#: .\user_app\templates\login_user.html:48
+#: .\user_app\templates\login_user.html:96
+#: .\user_app\templates\mail_confirmation.html:48
+#: .\user_app\templates\register.html:49
 msgid "Войти"
-msgstr "Login"
+msgstr "Sign in"
 
-#: .\main_app\templates\about_project.html:33
-msgid "Если вы не зарегистрированы, зарегистрируйтесь"
+#: .\main_app\templates\403.html:110 .\main_app\templates\404.html:111
+#: .\main_app\templates\500.html:111
+#: .\main_app\templates\about_project.html:260
+#: .\main_app\templates\eula.html:471 .\main_app\templates\faq.html:308
+#: .\main_app\templates\guide.html:261 .\main_app\templates\index.html:185
+#: .\main_app\templates\private_policity.html:190
+#: .\user_app\templates\account.html:384
+#: .\user_app\templates\login_user.html:117
+#: .\user_app\templates\mail_confirmation.html:111
+#: .\user_app\templates\register.html:203
+msgid "Пользовательское соглашение"
+msgstr "End User License Agreement"
+
+#: .\main_app\templates\403.html:115 .\main_app\templates\404.html:116
+#: .\main_app\templates\500.html:116
+#: .\main_app\templates\about_project.html:265
+#: .\main_app\templates\eula.html:476 .\main_app\templates\faq.html:313
+#: .\main_app\templates\guide.html:266 .\main_app\templates\index.html:190
+#: .\main_app\templates\private_policity.html:195
+#: .\user_app\templates\account.html:389
+#: .\user_app\templates\login_user.html:122
+#: .\user_app\templates\mail_confirmation.html:116
+#: .\user_app\templates\register.html:208
+msgid "Политика конфиденциальности"
+msgstr "Confidentiality Policy"
+
+#: .\main_app\templates\about_project.html:85
+msgid "-веб приложение, позволяющее получать стабильный пассивный доход"
+msgstr "is a web application which allows you to receive stable passive income"
+
+#: .\main_app\templates\about_project.html:90
+msgid ""
+" Мы разработали продукт, идейно близкий хеджфондам, но доступный для всех.\n"
+"                            Наша миссия - дать миллионам людей возможность "
+"реализовывать их планы и мечты, максимизируя один из главных ресурсов - "
+"финансы."
 msgstr ""
+"We have developed this product that is ideologically close to hedge funds, "
+"but accessible to everyone. Our mission is to enable millions of people to "
+"fulfill their plans and dreams, increasing one of the main resources, which "
+"is finances."
 
-#: .\main_app\templates\about_project.html:34
-#: .\user_app\templates\register.html:7 .\user_app\templates\register.html:42
-msgid "Регистрация"
+#: .\main_app\templates\about_project.html:96
+msgid "Качеcтво"
+msgstr "Quality"
+
+#: .\main_app\templates\about_project.html:96
+msgid ""
+"- фундамент любых решений, принимаемых в компании. Оно же стало краеугольным "
+"камнем Trinetbit"
+msgstr ""
+"is the foundation of any decisions made in the company. It has also become "
+"the cornerstone of Trinetbit"
+
+#: .\main_app\templates\about_project.html:102
+msgid "Из чего формируется качество"
+msgstr "What are the components of quality"
+
+#: .\main_app\templates\about_project.html:105
+msgid "Защищенность"
+msgstr "Security"
+
+#: .\main_app\templates\about_project.html:107
+msgid "Доступ к Вашему аккаунту биржи есть только у Вас"
+msgstr "Only you have access to your exchange account"
+
+#: .\main_app\templates\about_project.html:108
+msgid "Возможность отключения аккаунта от системы в 1 клик"
+msgstr "The ability to disconnect the account from the system in 1 click"
+
+#: .\main_app\templates\about_project.html:109
+msgid "Вся информация по торгам дублируется в личном кабинете"
+msgstr "All information about trading is copied in your account"
+
+#: .\main_app\templates\about_project.html:113
+msgid "Стабильность"
+msgstr "Stability"
+
+#: .\main_app\templates\about_project.html:115
+msgid "Многолетний опыт"
+msgstr "Many years of experience"
+
+#: .\main_app\templates\about_project.html:116
+msgid "Современные технические и технологические решения"
+msgstr "Modern technical and technological solutions"
+
+#: .\main_app\templates\about_project.html:120
+msgid "Доступность"
+msgstr "Availability"
+
+#: .\main_app\templates\about_project.html:122
+msgid "Не нужно быть проффесионалом"
+msgstr "No need to be a professional"
+
+#: .\main_app\templates\about_project.html:123
+msgid "Финансово низкий порог входа"
+msgstr "Financially low entry threshold"
+
+#: .\main_app\templates\about_project.html:127
+msgid "Удобство"
+msgstr "Convenience"
+
+#: .\main_app\templates\about_project.html:129
+msgid "Доступ к приложению в любое время, в любом месте"
+msgstr "Access to the app anytime and anywhere"
+
+#: .\main_app\templates\about_project.html:130
+msgid "Простая и понятная система мониторинга"
+msgstr "Simple and straightforward monitoring system"
+
+#: .\main_app\templates\about_project.html:131
+msgid "Пассивный доход"
+msgstr "Passive income"
+
+#: .\main_app\templates\about_project.html:135
+msgid "Открытость"
+msgstr "Openness"
+
+#: .\main_app\templates\about_project.html:137
+msgid "Мы честны перед клиентом, потому что уверены в качестве своего продукта"
+msgstr ""
+"We are honest with our customers, because we are confident in the quality of "
+"our product"
+
+#: .\main_app\templates\about_project.html:138
+msgid "Клиент для нас - человек, а не статистика"
+msgstr "A customer for us is a person, not statistics"
+
+#: .\main_app\templates\about_project.html:142
+msgid "Доверительность"
+msgstr "Confidence"
+
+#: .\main_app\templates\about_project.html:144
+msgid "Опытная команда"
+msgstr "Experienced team"
+
+#: .\main_app\templates\about_project.html:145
+msgid "Прозрачные условия"
+msgstr "Transparent terms"
+
+#: .\main_app\templates\about_project.html:146
+msgid "Перевод выполняется клиентом"
+msgstr "The translation is performed by the customer"
+
+#: .\main_app\templates\about_project.html:147
+msgid "Используйте сразу - платите потом"
+msgstr "Use now - pay later"
+
+#: .\main_app\templates\about_project.html:151
+msgid "Скорость"
+msgstr "Speed"
+
+#: .\main_app\templates\about_project.html:153
+msgid "Более быстрый и высокий процент, чем по вкладам"
+msgstr "Faster and higher interest than on deposits"
+
+#: .\main_app\templates\about_project.html:154
+msgid "Прибыль с первой недели"
+msgstr "Profit from the first week"
+
+#: .\main_app\templates\about_project.html:160
+msgid "Как это работает"
+msgstr "How it works"
+
+#: .\main_app\templates\about_project.html:164
+msgid ""
+"После регистрации на бирже Вы создаете уникальный ключ доступа. Он состоит "
+"из двух элементов: API key и API secret"
+msgstr ""
+"After signing up on the exchange, you create a unique access key. It "
+"consists of two elements: API key and API secret"
+
+#: .\main_app\templates\about_project.html:169
+msgid ""
+"Этот функционал предусмотрен самой биржей и создан для того, что бы Вы могли "
+"автоматизировать\n"
+"                            торговые операции. Передав ключ и секрет API, Вы "
+"позволяете площадке Trinetbit торговать на бирже от Вашего лица."
+msgstr ""
+"This feature is provided by the exchange itself and was created so that you "
+"could automate your trades. By transferring the API key and API secret, you "
+"allow Trinetbit to trade on the exchange on your behalf. "
+
+#: .\main_app\templates\about_project.html:171
+msgid "API не позволяет"
+msgstr "The API does not allow"
+
+#: .\main_app\templates\about_project.html:171
+msgid "управлять такими операциями с кошельком, как"
+msgstr "you to manage operations with"
+
+#: .\main_app\templates\about_project.html:171
+msgid "снятие, перевод или пополнение"
+msgstr "the wallet such as withdrawals, transfers or deposits"
+
+#: .\main_app\templates\about_project.html:172
+msgid ""
+"Функционал API биржи не предусматривает p2p* торговлю, что исключает "
+"возможность входа в заведомо\n"
+"                            невыгодную для Вас сделку"
+msgstr ""
+"The functionality of the exchange does not provide p2p * trading, which "
+"excludes the possibility of opening a trade that is not good for you"
+
+#: .\main_app\templates\about_project.html:178
+msgid "Наша торговая стратегия основана на"
+msgstr "Our trading strategy is based on a"
+
+#: .\main_app\templates\about_project.html:178
+#, python-format
+msgid "риске от 1 до 3%%"
+msgstr "risk of 1 to 3%%"
+
+#: .\main_app\templates\about_project.html:178
+msgid ""
+"это значит, что сумма ни одной сделки не превысит указанный процент от "
+"депозита"
+msgstr ""
+"which means that the amount of any trade will never exceed the indicated "
+"percentage of the deposit"
+
+#: .\main_app\templates\about_project.html:183
+msgid "Подробнее об API Bybit можно прочитать"
+msgstr "You can read more about the Bybit API"
+
+#: .\main_app\templates\about_project.html:183
+#: .\main_app\templates\about_project.html:184
+msgid "тут"
+msgstr "here"
+
+#: .\main_app\templates\about_project.html:184
+msgid "С подробной интрукцией можно ознакомиться"
+msgstr "Detailed instructions can be found"
+
+#: .\main_app\templates\about_project.html:189
+msgid "Торговая операция, проведенная с конкретным лицом"
+msgstr "A trade transaction conducted with a specific person"
+
+#: .\main_app\templates\about_project.html:190
+msgid "Оффициальный сайт Bybit"
+msgstr "Official site of Bybit"
+
+#: .\main_app\templates\about_project.html:196
+msgid "В чем наша выгода"
+msgstr "What is our interest"
+
+#: .\main_app\templates\about_project.html:200
+msgid ""
+"В конце каждого рассчетного периода* клиент самостоятельно переводит "
+"фиксированный процент от полученной прибыли на наш счет для продолжения "
+"использования системы"
+msgstr ""
+"At the end of each billing period *, the customer transfers on their own a "
+"fixed interest of the profit to our account, in order to continue using the "
+"system"
+
+#: .\main_app\templates\about_project.html:205
+#: .\main_app\templates\about_project.html:206
+#: .\main_app\templates\about_project.html:207
+msgid "При прибыли"
+msgstr "If the profit is"
+
+#: .\main_app\templates\about_project.html:205
+#, python-format
+msgid "до 10%%"
+msgstr "up to 10%%,"
+
+#: .\main_app\templates\about_project.html:205
+#, python-format
+msgid "клиент возвращает 20%% и"
+msgstr "the customer returns 20%% and"
+
+#: .\main_app\templates\about_project.html:205
+#, python-format
+msgid "оcтавляет 80%%"
+msgstr "keeps 80%%"
+
+#: .\main_app\templates\about_project.html:205
+#: .\main_app\templates\about_project.html:206
+#: .\main_app\templates\about_project.html:207
+msgid "себе"
+msgstr "for themselves"
+
+#: .\main_app\templates\about_project.html:206
+#, python-format
+msgid "от 10%% до 15%%"
+msgstr "from 10%% to 15%%"
+
+#: .\main_app\templates\about_project.html:206
+#, python-format
+msgid "клиент возвращает 30%% и"
+msgstr "the customer returns 30%% and"
+
+#: .\main_app\templates\about_project.html:206
+#, python-format
+msgid "оставляет 70%%"
+msgstr "keeps 70%%"
+
+#: .\main_app\templates\about_project.html:207
+#, python-format
+msgid "от 15%%"
+msgstr "15%%"
+
+#: .\main_app\templates\about_project.html:207
+#, python-format
+msgid "клиент возвращает 40%% и"
+msgstr "the client returns 40%% and"
+
+#: .\main_app\templates\about_project.html:207
+#, python-format
+msgid "оставляет 60%%"
+msgstr "leaves 60%%"
+
+#: .\main_app\templates\about_project.html:212
+msgid ""
+"Подобная прогрессивная система вознаграждений мотивирует нас показывать "
+"более высокие результаты"
+msgstr ""
+"This progressive reward system motivates us to provide higher profit results"
+
+#: .\main_app\templates\about_project.html:217
+msgid ""
+"Помимо этого, клиент регистрирует аккаунт, как партнерский**, что позволяет "
+"нам получать вознаграждение от самой биржи"
+msgstr ""
+"On top of that, the customer signs up as an affiliate**, which allows us to "
+"receive commision from the exchange"
+
+#: .\main_app\templates\about_project.html:222
+msgid "Один календарный месяц"
+msgstr "The billing period is a calendar month"
+
+#: .\main_app\templates\about_project.html:223
+msgid "Подробнее о партнерской системе читайте на сайте bybit"
+msgstr "Read more about the affiliate system on the bybit website"
+
+#: .\main_app\templates\about_project.html:230
+msgid "Ознакомьтесь с нашим разделом"
+msgstr "Check out our "
+
+#: .\main_app\templates\about_project.html:237
+#: .\main_app\templates\index.html:154
+msgid "Начните получать прибыль"
+msgstr "Start making your profit"
+
+#: .\main_app\templates\about_project.html:244
+#: .\main_app\templates\index.html:159
+msgid "Инструкция"
+msgstr "Click"
+
+#: .\main_app\templates\about_project.html:244
+#: .\main_app\templates\index.html:161
+msgid "с порядком действий"
+msgstr "to check the guide"
+
+#: .\main_app\templates\eula.html:80
+msgid "Пользовательское соглашение портала Trinetbit.com"
+msgstr "End User License Agreement with Trinetbit.com"
+
+#: .\main_app\templates\eula.html:83
+msgid "Версия от 5 октября 2021 года"
+msgstr "Last updated: 5 October, 2021"
+
+#: .\main_app\templates\eula.html:87
+msgid "Термины и определения"
+msgstr "Terms and definitions"
+
+#: .\main_app\templates\eula.html:90
+msgid ""
+"В настоящем Пользовательском соглашении (далее также — Соглашение) "
+"используются следующие термины и определения:"
+msgstr ""
+"This User Agreement (hereinafter also referred to as the Agreement) uses the "
+"following terms and definitions:"
+
+#: .\main_app\templates\eula.html:93
+msgid ""
+"Сайт, Портал, Площадка – информационный портал Trinetbit.com, расположенный "
+"в сети Интернет по адресу https://trinetbit.com."
+msgstr ""
+"Platform: Trinetbit.com information portal located on the Internet at "
+"https://trinetbit.com."
+
+#: .\main_app\templates\eula.html:96
+msgid ""
+"Администрация — высший менеджмент trinetbit, а так же лица временно "
+"исполняющие обязанности членов правления, лица с делигированными "
+"обязанностями."
+msgstr ""
+"Administration: top management of trinetbit, as well as persons acting as "
+"members of the board, persons with delegated responsibilities."
+
+#: .\main_app\templates\eula.html:99
+msgid ""
+"Пользователь – физическое лицо или юридическое лицо, зарегистрированное на "
+"Сайте в соответствии с\n"
+"                            установленными Соглашением условиями, обладающее "
+"гражданской право- и дееспособностью, способное в соответствии\n"
+"                            с законодательством Российской Федерации "
+"приобретать гражданские права и нести обязанности от своего имени и "
+"выступать стороной Соглашения."
+msgstr ""
+"User: an individual or legal entity registered on the Website in accordance "
+"with the conditions established by the Agreement, possessing civil legal "
+"capacity and legal capacity, capable, in accordance with the legislation of "
+"the Russian Federation, to acquire civil rights and bear obligations on its "
+"own behalf and act as a party to the Agreement."
+
+#: .\main_app\templates\eula.html:104
+msgid ""
+"Пользовательское соглашение, Соглашение — соглашение, заключаемое при "
+"регистрации на Сайте между Пользователем и Администрацией."
+msgstr ""
+"User Agreement, Agreement:  an agreement concluded upon registration on the "
+"Webiite between the User and the Administration."
+
+#: .\main_app\templates\eula.html:107
+msgid "Рассчетный период — составляет 1 (один) календарный месяц"
+msgstr "The billing period: accounts for 1 (one) calendar month."
+
+#: .\main_app\templates\eula.html:110
+msgid "Биржевой аккаунт — аккаунт Пользователя на площадке bybit.com"
+msgstr "Exchange account: the User's account on the bybit.com platform"
+
+#: .\main_app\templates\eula.html:113
+msgid ""
+"Партнерская программа — мотивационная программа биржи для привлечения новых "
+"участников"
+msgstr ""
+"Affiliate program: is a motivational program of the exchange to attract new "
+"members"
+
+#: .\main_app\templates\eula.html:116
+msgid ""
+"Вознаграждение — согласно пункту 5.2.1 процент от прибыли, полученой "
+"Пользователем, который он\n"
+"                            обязуется перевести Площадке в конце Рассчетного "
+"периода."
+msgstr ""
+"Remuneration: in accordance with clause 5.2.1, a percentage of the profit "
+"received by the User which they shall transfer to the Website at the end of "
+"the Billing Period."
+
+#: .\main_app\templates\eula.html:122
+msgid "Общие положения"
+msgstr "General terms"
+
+#: .\main_app\templates\eula.html:125
+msgid ""
+"Площадка предлагает Пользователям свои сервисы (службы) на условиях, "
+"изложенных в Соглашении.\n"
+"                            Соглашение может быть изменено Администрацией "
+"без специального уведомления. Новая редакция Соглашения\n"
+"                            вступает в силу с момента ее размещения на "
+"Сайте, если иное не предусмотрено новой редакцией Соглашения.\n"
+"                            Действующая редакция Соглашения всегда находится "
+"на странице по адресу"
+msgstr ""
+"The Website offers the Users services based on the terms and conditions set "
+"forth in the Agreement. The Agreement may be changed by the Administration "
+"without any specific notifications. The new version of the Agreement comes "
+"into force from the moment it is posted on the Website, unless otherwise "
+"provided by the new version of the Agreement. The current version of the "
+"Agreement is always located on the page at"
+
+#: .\main_app\templates\eula.html:130
+msgid ""
+"Пользовательское соглашение начинает применяться к отношениям между "
+"Администрацией и Пользователем с\n"
+"                            момента выражения Пользователем согласия с его "
+"условиями путем регистрации на Сайте."
+msgstr ""
+"The User Agreement shall apply to the relationship between the "
+"Administration and the User from the moment the User agreed to register on "
+"the Website."
+
+#: .\main_app\templates\eula.html:134
+msgid ""
+"К Соглашению и отношениям между Пользователем и Администрацией, возникающими "
+"в связи с\n"
+"                            использованием сервисов, применяется право "
+"Российской Федерации. Везде по тексту Соглашения,\n"
+"                            если явно не указано иное, под термином "
+"«законодательство» понимается как законодательство РФ,\n"
+"                            так и законодательство места пребывания "
+"Пользователя."
+msgstr ""
+"This Agreement shall be governed by and construed in accordance with the "
+"laws of the Russian Federation. Throughout the text of the Agreement, unless "
+"stated otherwise, the term \"legislation\" means both the legislation of the "
+"Russian Federation and the legislation of the User's place of residence."
+
+#: .\main_app\templates\eula.html:140
+msgid ""
+"Зарегистрировавшись на Сайте, а также используя любой из сервисов Портала "
+"или воспользовавшись\n"
+"                            любой функциональной возможностью, Пользователь "
+"выражает свое безоговорочное согласие со всеми условиями\n"
+"                            Соглашения и обязуется их соблюдать или "
+"прекратить использование сервисов Портала."
+msgstr ""
+"By registering on the Website, as well as using any of the services of the "
+"Portal or using any functionality, the User expresses their unconditional "
+"consent to all the terms of the Agreement and shall comply with them or stop "
+"using the services of the Portal."
+
+#: .\main_app\templates\eula.html:147
+msgid "Описание услуг"
+msgstr "Description of services"
+
+#: .\main_app\templates\eula.html:150
+msgid ""
+"Администрация предлагает Пользователю доступ к спектру онлайновых служб, "
+"включая средства\n"
+"                            мониторинга и подключение Биржевого аккаунта к "
+"системе ведения удаленной торговли в следующих случаях:\n"
+"                            Cтатус учетной записи «Активна», согласно пункту "
+"4.7.1 настоящего Соглашения. ИЛИ Статус учетной записи\n"
+"                            «Активна», согласно пункту 5.2.1 настоящего "
+"Соглашения."
+msgstr ""
+"The Administration offers the User access to a range of online services, "
+"including monitoring tools and connecting the Exchange account to the remote "
+"trading system in the following cases: Account status is “Active”, as in "
+"accordance with clause 4.7.1 of this Agreement, or Account status is "
+"“Active”, in accordance with paragraph 5.2.1 of this Agreement."
+
+#: .\main_app\templates\eula.html:156
+msgid ""
+"Все существующие на данный момент службы, а также любое развитие их и/или "
+"добавление новых является предметом Соглашения."
+msgstr ""
+"All currently existing services, as well as any new developed ones, are the "
+"subject of the Agreement."
+
+#: .\main_app\templates\eula.html:161
+msgid "Регистрация на Сайте и статус Пользователя"
+msgstr "Registration on the Website and the User’s status"
+
+#: .\main_app\templates\eula.html:164
+msgid ""
+"Регистрация Пользователя на Сайте является бесплатной, добровольной и "
+"производится по адресу в сети Интернет"
+msgstr ""
+"Registration of the User on the Website is free, voluntary and takes place "
+"at the following address"
+
+#: .\main_app\templates\eula.html:168
+msgid ""
+"При регистрации на Сайте Пользователь обязан предоставить Администрации "
+"Сайта необходимую\n"
+"                            достоверную и актуальную информацию для "
+"формирования персональной страницы Пользователя, включая\n"
+"                            уникальное для каждого Пользователя сочетание "
+"логина (адрес электронной почты) и пароля для доступа\n"
+"                            к Сайту, номер своего BTC кошелька, с которого "
+"предполагается перевод Возаграждения для верификации\n"
+"                            Площадкой, данные API ключа и секрета, "
+"полученные Пользователем после регистрации на бирже Bybit,\n"
+"                            для получения доступа Площадкой к проводению "
+"торговых операции от лица Пользователя. Регистрационная\n"
+"                            форма Сайта может запрашивать у Пользователя "
+"дополнительную информацию."
+msgstr ""
+"When registering on the Website, the User shall provide the Website "
+"Administration reliable and up-to-date information in order to create the "
+"User's personal page, including a combination of login (e-mail address) and "
+"password, unique for each User to access the Website, the BTC address wallet "
+"from which the Remuneration is supposed to be transferred for verification "
+"by the Website, API key and secret data received by the User after "
+"registration on the Bybit exchange, in order to gain access by the Website "
+"to conduct trading operations on behalf of the User. The registration form "
+"of the Website may request additional information from the User."
+
+#: .\main_app\templates\eula.html:177
+msgid ""
+"Пользователь несет ответственность за достоверность, актуальность, полноту и "
+"соответствие\n"
+"                            законодательству Российской Федерации "
+"предоставленной при регистрации информации и ее чистоту от прав третьих лиц."
+msgstr ""
+"The user is responsible for the accuracy, relevance, completeness and "
+"compliance with the legislation of the Russian Federation of the information "
+"provided during registration and that it does not affect the rights of third "
+"parties."
+
+#: .\main_app\templates\eula.html:181
+#, python-brace-format
+msgid ""
+"После предоставления информации, указанной в пункте 4.2 Соглашения, "
+"Пользователю необходимо\n"
+"                            пройти удостоверительную процедуру, а именно, "
+"подтвердить свою регистрацию путем ввода специального\n"
+"                            кода, полученного через сообщение, отправленного "
+"Администрацией или автоматизированной системой на\n"
+"                            электронную почту Пользователя. В случае верного "
+"выполнения всех регистрационных действий на Сайте\n"
+"                            создается персональная страница Пользователя, "
+"имеющая сетевой адрес вида https://trinetbit.com/{username}.\n"
+"                            Пользователь вправе зарегистрировать не более "
+"одной персональной страницы на Сайте."
+msgstr ""
+"After providing the information specified in clause 4.2 of the Agreement, "
+"the User must go through an authentication procedure, namely, confirm his "
+"registration by entering a special code received through a message sent by "
+"the Administration or an automated system to the User's e-mail. In case of "
+"correct completion of all registration actions, the User's personal page is "
+"created on the Website, which has a network address of the form https://"
+"trinetbit.com/{username}. The User has the right to register no more than "
+"one personal webpage on the Website."
+
+#: .\main_app\templates\eula.html:189
+msgid ""
+"При регистрации Пользователь соглашается с условиями Соглашения и принимает "
+"на себя указанные\n"
+"                            в нем права и обязанности, связанные с "
+"использованием и функционированием Сайта."
+msgstr ""
+"When registering, the User agrees to the terms of the Agreement and accepts "
+"the rights and obligations specified therein related to the use and "
+"operation of the Website."
+
+#: .\main_app\templates\eula.html:193
+msgid ""
+"После успешной регистрации Пользователя на Сайте Администрация принимает на "
+"себя права и\n"
+"                            обязанности перед Пользователем, указанные в "
+"Соглашении."
+msgstr ""
+"After the User’s successful registration on the Website, the Administration "
+"accepts the rights and obligations of the User specified in the Agreement."
+
+#: .\main_app\templates\eula.html:197
+msgid "Особые статусы учетной записи Пользователей"
+msgstr "Special statuses of Users’ accounts"
+
+#: .\main_app\templates\eula.html:200
+msgid ""
+"После регистрации на Сайте Пользователь получает статус учетной записи "
+"«Активна» до конца текущего Рассчетного периода."
+msgstr ""
+"After registering on the Website, the User receives the status of the "
+"account \"Active\" until the end of the current Billing period."
+
+#: .\main_app\templates\eula.html:203
+msgid ""
+"В случае не исполнения Пользователем обязанностей, указанных в пункте 5.2.1 "
+"настоящего\n"
+"                            Соглашения, статус учетной записи изменяется на "
+"«Не Активна» до момента исполнения Пользователем указанной выше обязанности."
+msgstr ""
+"If the User fails to fulfill the obligations specified in clause 5.2.1 of "
+"this Agreement, the account status changes to “Inactive” until the User "
+"fulfills the above obligation."
+
+#: .\main_app\templates\eula.html:207
+msgid ""
+"Принимая условия Соглашения путем регистрации на Сайте, Пользователь, "
+"являющийся физическим лицом,\n"
+"                            подтверждает свое согласие на обработку "
+"Администрацией его персональных данных, предоставленных при регистрации.\n"
+"                            Обработка персональных данных Пользователя "
+"осуществляется в соответствии с законодательством Российской Федерации.\n"
+"                            Портал обрабатывает персональные данные "
+"Пользователя в целях предоставления Пользователю услуг, проверки,\n"
+"                            исследования и анализа таких данных, позволяющих "
+"поддерживать и улучшать сервисы и разделы Сайта,\n"
+"                            а также разрабатывать новые сервисы и разделы "
+"Сайта. Администрация Сайта принимает все необходимые\n"
+"                            меры для защиты персональных данных Пользователя "
+"от неправомерного доступа, изменения, раскрытия или\n"
+"                            уничтожения. Администрация предоставляет доступ "
+"к персональным данным Пользователя только тем работникам,\n"
+"                            подрядчикам и агентам Администрации, которым эта "
+"информация необходима для обеспечения функционирования\n"
+"                            Сайта и предоставления услуг Пользователю. "
+"Администрация Сайта вправе использовать предоставленную Пользователем\n"
+"                            информацию, в том числе персональные данные, в "
+"целях обеспечения соблюдения требований действующего\n"
+"                            законодательства Российской Федерации (в том "
+"числе в целях предупреждения и/или пресечения незаконных\n"
+"                            и/или противоправных действий Пользователей). "
+"Раскрытие предоставленной Пользователем информации может\n"
+"                            быть произведено лишь в соответствии с "
+"действующим законодательством Российской Федерации по требованию\n"
+"                            суда, правоохранительных органов, а равно в иных "
+"предусмотренных законодательством Российской Федерации случаях."
+msgstr ""
+"By accepting the terms of the Agreement upon registration on the Website, "
+"the User, being an individual, confirms his consent to the processing by the "
+"Administration of his personal data provided during registration. The "
+"processing of the User's personal data is carried out in accordance with the "
+"legislation of the Russian Federation. The Portal processes the User's "
+"personal data in order to provide the User with services, verify, research "
+"and analyze such data, allowing to maintain and improve the services and "
+"sections of the Website, as well as to develop new services and sections of "
+"the Website. The Website Administration takes all necessary measures to "
+"protect the User's personal data from unauthorized access, modification, "
+"disclosure or destruction. The Administration provides access to the User's "
+"personal data only to those employees, contractors and agents of the "
+"Administration who need this information to ensure the operation of the "
+"Website and the provision of services to the User. The Site Administration "
+"has the right to use the information provided by the User, including "
+"personal data, in order to ensure compliance with the requirements of the "
+"current legislation of the Russian Federation (including for the purpose of "
+"preventing and / or suppressing illegal and / or unlawful actions of Users). "
+"Disclosure of the information provided by the User can be made only in "
+"accordance with the current legislation of the Russian Federation at the "
+"request of the court, law enforcement agencies, as well as in other cases "
+"provided for by the legislation of the Russian Federation."
+
+#: .\main_app\templates\eula.html:224
+msgid ""
+"Выбранные Пользователем логин и пароль являются необходимой и достаточной "
+"информацией для доступа\n"
+"                            Пользователя на Сайт. Пользователь не имеет "
+"права передавать свои логин и пароль третьим лицам, несет\n"
+"                            полную ответственность за их сохранность, "
+"самостоятельно выбирая способ их хранения. Пользователь на\n"
+"                            используемом им аппаратно-программном "
+"обеспечении может разрешить хранение логина и пароля (с использованием\n"
+"                            файлов cookies) для последующей автоматической "
+"авторизации на Сайте."
+msgstr ""
+"The login and password chosen by the User is necessary and sufficient "
+"information for the User to access the Site. The user does not have the "
+"right to pass their login and password to third parties, and is fully "
+"responsible for the safety, independently choosing the method of storage. "
+"The User may save the login and password (using cookies) for subsequent "
+"automatic authorization on the Site."
+
+#: .\main_app\templates\eula.html:231
+msgid ""
+"Если Пользователем не доказано обратное, любые действия, совершенные с "
+"использованием его логина\n"
+"                            и пароля, считаются совершенными соответствующим "
+"Пользователем. В случае несанкционированного доступа к\n"
+"                            логину и паролю и/или персональной странице "
+"Пользователя, или распространения логина и пароля Пользователь\n"
+"                            обязан незамедлительно сообщить об этом "
+"Администрации по адресу"
+msgstr ""
+"Unless proven otherwise by the User, any actions performed using their login "
+"and password are considered to be committed by the User. In case of "
+"unauthorized access to the login and password and/or the User's personal "
+"page, or the distribution of the login and password, the User must "
+"immediately notify the Administration at "
+
+#: .\main_app\templates\eula.html:234
+msgid "с пометкой “Получение доступа третьими лицами”"
+msgstr "with the note \"Access by third parties\""
+
+#: .\main_app\templates\eula.html:237
+msgid ""
+"Пользователь как обладатель информации, размещенной в личном кабинете, "
+"осознает, что за\n"
+"                            исключением случаев, установленных Соглашением и "
+"законодательством Российской Федерации, Администрация\n"
+"                            не принимает участие в формировании и "
+"использовании содержания и контроле доступа других пользователей\n"
+"                            к персональной странице Пользователя."
+msgstr ""
+"The User, as the owner of the information stored in the personal account, is "
+"aware that, with the exception of cases established by the Agreement and the "
+"legislation of the Russian Federation, the Administration does not take part "
+"in the formation and use of the content and control of access of other users "
+"to the User's personal page."
+
+#: .\main_app\templates\eula.html:243
+msgid ""
+"Пользователь соглашается с тем, что Администрация оставляет за собой право "
+"заблокировать или\n"
+"                            удалить учетную запись Пользователя, либо "
+"прекратить действие его учетной записи в отношении любых\n"
+"                            служб (сервисов) без объяснения причин, в том "
+"числе при нарушении Соглашения или неиспользовании соответствующего сервиса."
+msgstr ""
+"The User agrees that the Administration reserves the right to block or "
+"delete the User's account, or terminate his account in relation to any "
+"services without explanation, including situations when the Agreement was "
+"violated or the User do not uses the service."
+
+#: .\main_app\templates\eula.html:248
+msgid ""
+"Администрация может в любой момент закрыть любую из своих служб (сервисов) с "
+"предварительным\n"
+"                            уведомлением или без него. Администрация в этом "
+"случае не несет никакой ответственности за прекращение\n"
+"                            доступа к службам Сайта."
+msgstr ""
+"The Administration may close at any time any of its services with or without "
+"prior notice. The Administration in this case does not bear any "
+"responsibility for the termination of access to the services of the Website."
+
+#: .\main_app\templates\eula.html:255
+msgid "Обязанности Пользователя"
+msgstr "User’s obligations"
+
+#: .\main_app\templates\eula.html:258
+msgid "При пользовании сервисами (службами) Сайта Пользователь обязан:"
+msgstr "When using the services of the Website, the User shall:"
+
+#: .\main_app\templates\eula.html:261
+msgid ""
+"соблюдать положения действующего законодательства Российской Федерации, "
+"Соглашения и иных специальных документов Администрации;"
+msgstr ""
+"comply with the provisions of the current legislation of the Russian "
+"Federation, the Agreement and other special documents of the Administration;"
+
+#: .\main_app\templates\eula.html:264
+msgid ""
+"предоставлять при регистрации достоверные, полные и актуальные данные, "
+"следить за их актуализацией;"
+msgstr ""
+"provide accurate, complete and up-to-date data during registration, and "
+"update it when necessary;"
+
+#: .\main_app\templates\eula.html:267
+msgid ""
+"информировать Администрацию о несанкционированном доступе к личному кабинету "
+"и/или о несанкционированном доступе и/или использовании пароля и логина "
+"Пользователя;"
+msgstr ""
+"inform the Administration about unauthorized access to the personal account "
+"and / or about unauthorized access and / or use of the password and login of "
+"the User;"
+
+#: .\main_app\templates\eula.html:270
+msgid ""
+"не предоставлять доступ другим Пользователям к собственному личному кабинету "
+"или к отдельной\n"
+"                            содержащейся в нем информации в случае, если это "
+"может привести к нарушению законодательства Российской Федерации\n"
+"                            и/или Соглашения, специальных документов "
+"Администрации;"
+msgstr ""
+"not provide other Users with access to their own personal account or to the "
+"individual information contained therein, if this may lead to a violation of "
+"the legislation of the Russian Federation and / or the Agreement, special "
+"documents of the Administration;"
+
+#: .\main_app\templates\eula.html:275
+msgid ""
+"хранить в тайне и не предоставлять другим Пользователям и третьим лицам "
+"ставшие ему известными\n"
+"                            в результате общения с другими Пользователями и "
+"иного использования Сайта персональные данные (включая\n"
+"                            домашние адреса, номера телефонов, адреса "
+"электронной почты, паспортные данные, банковскую информацию)\n"
+"                            и информацию о частной жизни других "
+"Пользователей и третьих лиц без получения соответствующего предварительного "
+"разрешения последних;"
+msgstr ""
+"keep secret and not provide other Users and third parties with personal data "
+"(including home addresses, telephone numbers, e-mail addresses, passport "
+"data, banking information) and information about the private life of others "
+"that became known to them as a result of communication with other Users and "
+"other use of the Website, Users and third parties without obtaining the "
+"respective prior permission of the latter;"
+
+#: .\main_app\templates\eula.html:281
+msgid ""
+"осуществлять резервное копирование важной для Пользователя хранящейся на его "
+"персональной странице информации."
+msgstr ""
+"back up all important for the User information, stored on their personal "
+"page."
+
+#: .\main_app\templates\eula.html:284
+msgid ""
+"В случае сомнений в отношении законности осуществления тех или иных "
+"действий, в том числе по размещению\n"
+"                            информации или предоставлению доступа, "
+"Администрация рекомендует воздержаться от осуществления последних."
+msgstr ""
+"In case of doubt whether it is legal or not to make  certain actions, "
+"including placing the information or providing access, the Administration "
+"recommends refraining from taking these actions."
+
+#: .\main_app\templates\eula.html:288
+msgid ""
+"выполнять перевод вознаграждения в течении 24 часов, после появления в "
+"личном кабинете сообщения\n"
+"                            о необходимости перевода вознаграждения для "
+"продолжения использования Площадки. Сообщение появляется в\n"
+"                            последний день Рассчетного периода, независимо "
+"от даты регистрации пользователя. Сумма вознаграждения\n"
+"                            формируется автоматически при следующих "
+"зависимостях"
+msgstr ""
+"send the remuneration within 24 hours upon receiving a special message in "
+"the personal account about the necessity to send the remuneration in order  "
+"to continue using the Website. The message appears on the last day of the "
+"Billing Period, regardless of the user's registration date. The amount of "
+"remuneration is formed automatically according to the following conditions"
+
+#: .\main_app\templates\eula.html:291
+msgid ""
+"При увеличении депозита Биржевого аккаунта\n"
+"                            Пользователя до 10 процентов, Пользователь "
+"гарантирует перевод 20 процентов от суммы на которую был увеличен\n"
+"                            депозит Биржевого аккаунта."
+msgstr ""
+"If the User’s deposit on the Exchange account is increased by 10 percent, "
+"the User shall transfer 20 percent of the amount by which the deposit of the "
+"Exchange account was increased."
+
+#: .\main_app\templates\eula.html:293
+msgid ""
+"При увеличении депозита Биржевого аккаунта Пользователя от 10 процентов\n"
+"                            до 15 процентов, Пользователь гарантирует "
+"перевод 30 процентов от суммы на которую был увеличен депозит\n"
+"                            Биржевого аккаунта."
+msgstr ""
+"If the User’s deposit on the Exchange account is increased from 10 to 15 "
+"percent, the User shall transfer  30 percent of the amount by which the "
+"deposit of the Exchange account was increased."
+
+#: .\main_app\templates\eula.html:295
+msgid "При увеличении депозита Биржевого аккаунта"
+msgstr "If the User’s deposit on the Exchange account is increased by"
+
+#: .\main_app\templates\eula.html:295
+msgid "Пользователя от 15 процентов,"
+msgstr "over 15% percent,"
+
+#: .\main_app\templates\eula.html:296
+msgid ""
+"Пользователь гарантирует перевод 40 процентов от суммы на которую был "
+"увеличен депозит Биржевого аккаунта."
+msgstr ""
+"the User shall transfer 40 percent of the amount by which the deposit of the "
+"Exchange account was increased."
+
+#: .\main_app\templates\eula.html:299
+msgid ""
+"выполнять перевод с указанного при регистрации кошелька, либо кошелька, "
+"номер которого был указан\n"
+"                            и подтвержден при измении данных Пользователя в "
+"личном кабинете. В противном случае перевод считается\n"
+"                            добровольным пожертвованием и возвращению не "
+"подлежит."
+msgstr ""
+"make a transfer from the wallet indicated during the registration, or the "
+"wallet indicated and confirmed when changing the User's data in the personal "
+"account. Otherwise, the transfer is considered a voluntary donation and is "
+"not subject to return."
+
+#: .\main_app\templates\eula.html:304
+msgid "Пользователю при использовании Портала запрещается"
+msgstr "When using the Portal, the User must not"
+
+#: .\main_app\templates\eula.html:307
+msgid ""
+"регистрироваться в качестве Пользователя от имени или вместо другого лица "
+"(«фальшивый аккаунт»)\n"
+"                            или регистрировать группу (объединение) лиц в "
+"качестве Пользователя, при этом возможна регистрация от\n"
+"                            имени и поручению другого физического лица или "
+"юридического лица при условии получения необходимых полномочий\n"
+"                            в порядке и форме, предусмотренных "
+"законодательством Российской Федерации;"
+msgstr ""
+"register as a User on behalf of or instead of another person (“fake "
+"account”) or register a group (association) of persons as a User, while "
+"registration on behalf and on behalf of another individual or legal entity "
+"is possible, subject to obtaining the necessary powers in the manner and "
+"form provided by the legislation of the Russian Federation;"
+
+#: .\main_app\templates\eula.html:313
+msgid ""
+"вводить Площадку в заблуждение относительно своей личности или организации, "
+"используя логин и пароль другого зарегистрированного Пользователя;"
+msgstr ""
+"mislead the Website about their identity or organization, using the login "
+"and password of another registered User;"
+
+#: .\main_app\templates\eula.html:316
+msgid ""
+"загружать, хранить, публиковать, распространять и предоставлять доступ или "
+"иным образом использовать любую информацию, которая:"
+msgstr ""
+"upload, store, publish, distribute and make available or otherwise use any "
+"information that:"
+
+#: .\main_app\templates\eula.html:319
+msgid ""
+"содержит угрозы, дискредитирует, оскорбляет, порочит честь и достоинство или "
+"деловую репутацию или нарушает\n"
+"                            неприкосновенность частной жизни других "
+"Пользователей или третьих лиц;"
+msgstr ""
+"contains threats, discredits, insults, discredits honor and dignity or "
+"business reputation or violates the privacy of other Users or third parties;"
+
+#: .\main_app\templates\eula.html:323
+msgid "нарушает права несовершеннолетних лиц;"
+msgstr "violates the rights of minors;"
+
+#: .\main_app\templates\eula.html:326
+msgid ""
+"является вульгарной или непристойной, содержит нецензурную лексику, содержит "
+"порнографические\n"
+"                            изображения и тексты или сцены сексуального "
+"характера с участием несовершеннолетних;"
+msgstr ""
+"is vulgar or obscene, contains obscene language, contains pornographic "
+"images and texts or scenes of a sexual nature involving minors;"
+
+#: .\main_app\templates\eula.html:330
+msgid "содержит сцены насилия, либо бесчеловечного обращения с животными;"
+msgstr "contains scenes of violence or inhuman treatment of animals;"
+
+#: .\main_app\templates\eula.html:333
+msgid ""
+"содержит описание средств и способов суицида, любое подстрекательство к его "
+"совершению;"
+msgstr ""
+"contains a description of the means and methods of suicide, any incitement "
+"to commit it;"
+
+#: .\main_app\templates\eula.html:336
+msgid ""
+"пропагандирует и/или способствует разжиганию расовой, религиозной, "
+"этнической ненависти или вражды, пропагандирует фашизм или идеологию "
+"расового превосходства;"
+msgstr ""
+"promotes and/or promotes incitement of racial, religious, ethnic hatred or "
+"enmity, promotes fascism or the ideology of racial superiority;"
+
+#: .\main_app\templates\eula.html:339
+msgid "содержит экстремистские материалы"
+msgstr "contains extremist materials;"
+
+#: .\main_app\templates\eula.html:342
+msgid ""
+"пропагандирует преступную деятельность или содержит советы, инструкции или "
+"руководства по совершению преступных действий,"
+msgstr ""
+"promotes criminal activity or contains advice, instructions or guidelines "
+"for the commission of criminal acts;"
+
+#: .\main_app\templates\eula.html:345
+msgid ""
+"содержит информацию ограниченного доступа, включая государственную и "
+"коммерческую тайну, информацию о частной жизни третьих лиц;"
+msgstr ""
+"contains information of limited access, including state and commercial "
+"secrets, information about the private life of third parties;"
+
+#: .\main_app\templates\eula.html:348
+msgid ""
+"содержит рекламу или описывает привлекательность употребления наркотических "
+"веществ, в том числе\n"
+"                            «цифровых наркотиков» (звуковых файлов, "
+"оказывающих воздействие на мозг человека за счет бинауральных ритмов),\n"
+"                            информацию о распространении наркотиков, рецепты "
+"их изготовления и советы по употреблению;"
+msgstr ""
+"contains advertising or describes the attraction of drug use, including "
+"\"digital drugs\" (sound files that affect the human brain through binaural "
+"beats), information about the distribution of drugs, recipes for their "
+"manufacture and tips for using them;"
+
+#: .\main_app\templates\eula.html:353
+msgid "носит мошеннический характер"
+msgstr "is fraudulent"
+
+#: .\main_app\templates\eula.html:356
+msgid ""
+"а также нарушает иные права и интересы граждан и юридических лиц или "
+"требования законодательства Российской Федерации."
+msgstr ""
+"as well as violates other rights and interests of citizens and legal "
+"entities or the requirements of the legislation of the Russian Federation."
+
+#: .\main_app\templates\eula.html:359
+msgid ""
+"незаконно загружать, хранить, публиковать, распространять и предоставлять "
+"доступ или иным образом\n"
+"                            использовать интеллектуальную собственность "
+"Пользователей и третьих лиц;"
+msgstr ""
+"illegally upload, store, publish, distribute and provide access or otherwise "
+"use the intellectual property of Users and third parties;"
+
+#: .\main_app\templates\eula.html:363
+msgid ""
+"использовать программное обеспечение и осуществлять действия, направленные "
+"на нарушение\n"
+"                            нормального функционирования Сайта и его "
+"сервисов или персональных страниц Пользователей;"
+msgstr ""
+"use the software and carry out actions aimed at disrupting the normal "
+"functioning of the Website and its services or personal pages of Users;"
+
+#: .\main_app\templates\eula.html:367
+msgid ""
+"загружать, хранить, публиковать, распространять и предоставлять доступ или "
+"иным образом использовать вирусы, трояны и другие вредоносные программы;"
+msgstr ""
+"upload, store, publish, distribute and provide access to or otherwise use "
+"viruses, trojans and other malicious programs;"
+
+#: .\main_app\templates\eula.html:370
+msgid ""
+"использовать без специального на то разрешения Администрации "
+"автоматизированные скрипты (программы)\n"
+"                            для сбора информации на Сайте и (или) "
+"взаимодействия с Сайтом и его сервисами;"
+msgstr ""
+"use, without special permission from the Administration, automated scripts "
+"(programs) to collect information on the Website and (or) interact with the "
+"Website and its services;"
+
+#: .\main_app\templates\eula.html:374
+msgid ""
+"любым способом, в том числе путем обмана, злоупотребления доверием, взлома, "
+"пытаться получить доступ к логину и паролю другого Пользователя;"
+msgstr ""
+"in any way, including by deceit, breach of trust, hacking, try to gain "
+"access to the login and password of another User;"
+
+#: .\main_app\templates\eula.html:377
+msgid ""
+"осуществлять (пытаться получить) доступ к каким-либо Услугам иным способом, "
+"кроме как через интерфейс,\n"
+"                            предоставленный Администрацией, за исключением "
+"случаев, когда такие действия были прямо разрешены Пользователю\n"
+"                            в соответствии с отдельным соглашением с "
+"Администрацией;"
+msgstr ""
+"to exercise (try to get) access to any Services otherwise than through the "
+"interface provided by the Administration, unless such actions were expressly "
+"permitted to the User in accordance with a separate agreement with the "
+"Administration;"
+
+#: .\main_app\templates\eula.html:382
+msgid ""
+"В случае несогласия Пользователя с условиями Соглашения или их обновлениями, "
+"Пользователь обязан\n"
+"                            отказаться от его использования, проинформировав "
+"об этом Администрацию в установленном порядке."
+msgstr ""
+"If the User disagrees with the terms of the Agreement or their updates, the "
+"User is obliged to refuse using it, informing the Administration about it in "
+"the prescribed manner."
+
+#: .\main_app\templates\eula.html:386
+msgid ""
+"вручную проводить операции по торговле на привязанном к Порталу Биржевом "
+"аккаунте.\n"
+"                            В случае вмешательства в сделку или в случае "
+"ручного открытия/закрытия сделки Портал приостанавливает\n"
+"                            работу с Биржевым аккаунтом пользователя до "
+"установления деталей."
+msgstr ""
+"manually conduct trading operations on the Exchange account linked to the "
+"Portal. In case of intervention in a transaction or in case of manual "
+"opening/closing of a transaction, the Portal suspends work with the User's "
+"Exchange account until the details are established."
+
+#: .\main_app\templates\eula.html:393
+msgid "Ограничение ответственности"
+msgstr "Limitation of Liability"
+
+#: .\main_app\templates\eula.html:396
+msgid ""
+"Все службы Сайта предоставляются «как есть» и Администрация не несет "
+"ответственности ни за какие\n"
+"                            задержки, сбои, неверную или несвоевременную "
+"доставку, удаление или несохранность какой-либо\n"
+"                            пользовательской персональной информации."
+msgstr ""
+"All services of the Website are provided \"as it is\" and the Administration "
+"is not responsible for any delays, failures, incorrect or untimely delivery, "
+"deletion or failure to store any user’s personal information."
+
+#: .\main_app\templates\eula.html:401
+msgid ""
+"Службы Сайта могут содержать ссылки на другие ресурсы. Пользователь "
+"соглашается с тем, что\n"
+"                            Администрация не несет никакой ответственности "
+"за доступность этих ресурсов и за их контент,\n"
+"                            а также за любые последствия, связанные с "
+"использованием контента этих ресурсов."
+msgstr ""
+"The Website Services may contain links to other resources. The user agrees "
+"that the Administration is not responsible for the availability of these "
+"resources and their content, as well as for any consequences associated with "
+"the use of the content on these resources."
+
+#: .\main_app\templates\eula.html:406
+msgid ""
+"Пользователю следует соблюдать меры предосторожности при скачивании с Сайта "
+"или по размещенным\n"
+"                            на нем ссылкам, и использовании любых файлов, в "
+"том числе программного обеспечения. Администрация\n"
+"                            рекомендует использовать только лицензионное, в "
+"том числе антивирусное, программное обеспечение."
+msgstr ""
+"The User should take precautions when downloading from the Website or using "
+"the links posted on it, as well as using any files, including software. The "
+"administration recommends using only licensed software, including anti-virus."
+
+#: .\main_app\templates\eula.html:411
+msgid ""
+"Ни при каких обстоятельствах Администрация или ее представители не несут "
+"ответственность перед\n"
+"                            Пользователем или перед любыми третьими лицами "
+"за любой косвенный, случайный, неумышленный ущерб,\n"
+"                            включая упущенную выгоду или потерянные данные, "
+"вред чести, достоинству или деловой репутации,\n"
+"                            вызванный в связи с использованием Сайта, "
+"содержимого Сайта или иных материалов, к которым Пользователь\n"
+"                            или иные лица получили доступ с помощью Сайта, "
+"даже если Администрация предупреждала или указывала на возможность такого "
+"вреда."
+msgstr ""
+"Under no circumstances shall the Administration or its representatives be "
+"liable to the User or to any third parties for any indirect, incidental, "
+"unintentional damage, including lost profits or lost data, damage to honor, "
+"dignity or business reputation resulted in connection with the use of the "
+"Website, content of the Website or other materials to which the User or "
+"other persons have accessed through the Website, even if the Administration "
+"warned or indicated the possibility of such harm."
+
+#: .\main_app\templates\eula.html:420
+msgid ""
+"Права на результаты интеллектуальной деятельности и приравненные к ним "
+"объекты"
+msgstr "Rights to the results of intellectual activity and equivalent objects"
+
+#: .\main_app\templates\eula.html:423
+msgid ""
+"Пользователь признает и соглашается с тем, что службы Сайта и все "
+"необходимые программы, связанные\n"
+"                            с ними, содержат конфиденциальную информацию, "
+"которая защищена законами об интеллектуальной собственности\n"
+"                            и прочими российскими законами и нормами "
+"международного права, а контент, предоставляемый в процессе\n"
+"                            использования служб, защищен авторскими правами. "
+"Кроме случаев, специально оговоренных Администрацией,\n"
+"                            Пользователь обязуется не модифицировать, не "
+"продавать, не распространять этот контент и программы, целиком либо по "
+"частям."
+msgstr ""
+"The User acknowledges and agrees that the services of the Website and all "
+"necessary programs associated with them contain confidential information "
+"that is protected by intellectual property laws and both Russian and "
+"international legislation, and the content provided in the process of using "
+"the services is protected by copyright . Except as otherwise specifically "
+"provided by the Administration, the User shall n modify, sell, distribute "
+"this content and programs, in whole or in part."
+
+#: .\main_app\templates\eula.html:430
+msgid ""
+"Администрация предоставляет Пользователю личное неисключительное и "
+"непередаваемое право использовать\n"
+"                            программное обеспечение, предоставляемое в "
+"службах, на одном компьютере, при условии, что ни сам Пользователь,\n"
+"                            ни любые иные лица при содействии с его стороны "
+"не будут копировать или изменять программное обеспечение; создавать\n"
+"                            программы, производные от программного "
+"обеспечения; проникать в программное обеспечение с целью получения кодов "
+"программ;\n"
+"                            осуществлять продажу, уступку, сдачу в аренду, "
+"передачу третьим лицам в любой иной форме прав в отношении программного "
+"обеспечения служб,\n"
+"                            предоставленных Пользователю по Соглашению, а "
+"также модифицировать службы, в том числе с целью получения "
+"несанкционированного доступа к ним."
+msgstr ""
+"The Administration grants the User a personal, non-exclusive and non-"
+"transferable right to use the software provided in the services on one "
+"computer, provided that neither the User nor any other persons, with the "
+"assistance of the User, will copy or modify the software; create programs "
+"derived from the software; break in the software in order to obtain program "
+"codes; sell, assign, lease, transfer to third parties in any other form of "
+"rights in relation to the software of the services provided to the User "
+"under the Agreement, as well as modify the services, including for the "
+"purpose of obtaining unauthorized access to them."
+
+#: .\main_app\templates\eula.html:438
+msgid ""
+"Администрация оставляет за собой право взять и оставить под своим "
+"управлением любой субдомен,\n"
+"                            входящий в домены, управляемые Администрацией. "
+"Администрация имеет право по своему усмотрению и\n"
+"                            без предварительного предупреждения использовать "
+"полномочия «домена верхнего уровня» в отношении всех субдоменов,\n"
+"                            и в этом случае Пользователь должен будет "
+"передать свой субдомен под управление Администрации."
+msgstr ""
+"The Administration reserves the right to take and leave under its control "
+"any subdomain included in the domains managed by the Administration. The "
+"Administration has the right, at its own discretion and without prior "
+"warning, to use the powers of the \"top-level domain\" in relation to all "
+"subdomains, and the User in this case will have to transfer their subdomain "
+"under the control of the Administration."
+
+#: .\main_app\templates\eula.html:446
+msgid "Конфиденциальность"
+msgstr "Privacy"
+
+#: .\main_app\templates\eula.html:449
+msgid ""
+"Условия конфиденциальности информации, получаемой Администрацией от "
+"Пользователей, правила обработки\n"
+"                            персональных данных Пользователей располагаются "
+"по адресу:"
+msgstr ""
+"The terms of confidentiality received by the Administration from Users, the "
+"rules for processing personal data of Users are located at:"
+
+#: .\main_app\templates\faq.html:84
+msgid "У меня"
+msgstr "I"
+
+#: .\main_app\templates\faq.html:84
+msgid "уже есть"
+msgstr "already have"
+
+#: .\main_app\templates\faq.html:84
+msgid "аккаунт на Bybit, могу ли я подключить его"
+msgstr "an account on Bybit. Can I link it"
+
+#: .\main_app\templates\faq.html:89 .\main_app\templates\faq.html:105
+#: .\main_app\templates\faq.html:123 .\main_app\templates\faq.html:139
+#: .\main_app\templates\faq.html:159 .\main_app\templates\faq.html:177
+#: .\main_app\templates\faq.html:194 .\main_app\templates\faq.html:216
+#: .\main_app\templates\faq.html:235 .\main_app\templates\faq.html:252
+#: .\main_app\templates\faq.html:270 .\main_app\templates\faq.html:288
+msgid "Ответ"
+msgstr "Answer"
+
+#: .\main_app\templates\faq.html:89
+msgid ""
+"На данный момент нет. Это связанно с отсутствием фукнционала биржи, "
+"позволяющего подключить Вас в качестве партнера. В случае появления такого "
+"функционала мы пересмотрим пользовательское соглашение"
+msgstr ""
+"It is not possible at the moment. There is no such feature on Bybit as "
+"linking you as a partner. As soon as it appears, we will revise the End User "
+"License Agreement"
+
+#: .\main_app\templates\faq.html:98
+msgid "Почему адрес для регистрации на бирже"
+msgstr ""
+"Why do I see a different address when I try to register on the exchange by "
+"clicking"
+
+#: .\main_app\templates\faq.html:98
+msgid "по кнопке"
+msgstr "the button"
+
+#: .\main_app\templates\faq.html:98
+msgid "и"
+msgstr "and when I get it on the"
+
+#: .\main_app\templates\faq.html:98
+msgid "адрес"
+msgstr " "
+
+#: .\main_app\templates\faq.html:98
+msgid "полученный мной"
+msgstr " "
+
+#: .\main_app\templates\faq.html:98
+msgid "в интернете"
+msgstr "internet"
+
+#: .\main_app\templates\faq.html:98
+msgid "по запросу"
+msgstr "by search"
+
+#: .\main_app\templates\faq.html:98
+msgid ",отличаются"
+msgstr " "
+
+#: .\main_app\templates\faq.html:105
+msgid ""
+"Адрес, на который вы переходите по кнопке уже включает в себя дополнительные "
+"аргументы для регистрации Вас в качестве партнера.\n"
+"                                    Равнозачно вы можете скопировать "
+"следующую строку “?affiliate_id=31341&group_id=0&group_type=1” и вставить "
+"после https://www.bybit.com/ru-RU/register - оффициальной ссылки регистрации."
+msgstr ""
+"The address that you see, when clicking the button, already includes "
+"additional arguments for signing you up as a partner. You can also copy the "
+"following line “?affiliate_id=31341&group_id=0&group_type=1” and paste it "
+"after https://www.bybit.com/ru-RU/register - the official registration link."
+
+#: .\main_app\templates\faq.html:106
+msgid "Мы напоминаем, что"
+msgstr "We remind you that"
+
+#: .\main_app\templates\faq.html:106
+msgid "не просим"
+msgstr "we do not ask you to believe"
+
+#: .\main_app\templates\faq.html:106
+msgid "нам"
+msgstr "us"
+
+#: .\main_app\templates\faq.html:106
+msgid "верить"
+msgstr " "
+
+#: .\main_app\templates\faq.html:107
+msgid "а просим"
+msgstr "but we ask you"
+
+#: .\main_app\templates\faq.html:107
+msgid "сомневаться и проверять"
+msgstr "to doubt and verify"
+
+#: .\main_app\templates\faq.html:107
+msgid ""
+"Зарегистрируйтесь на бирже и задайте вопрос о нашей ссылке в службу "
+"поддержки Bybit"
+msgstr ""
+"Register on the exchange and ask a question about our Bybit support link"
+
+#: .\main_app\templates\faq.html:117
+msgid "У площадки есть"
+msgstr "Does the platform have"
+
+#: .\main_app\templates\faq.html:117
+msgid "прямой"
+msgstr "direct"
+
+#: .\main_app\templates\faq.html:117
+msgid "доступ к управлению кошельком"
+msgstr "access to managing my wallet"
+
+#: .\main_app\templates\faq.html:123
+msgid "Нет"
+msgstr "No"
+
+#: .\main_app\templates\faq.html:123
+msgid "У площадки нет прямого доступа"
+msgstr "The platform does not have direct access"
+
+#: .\main_app\templates\faq.html:123
+msgid ""
+"к управлению Вашим кошельком, потому что функционал Bybit API этого не "
+"предусматривает"
+msgstr ""
+"to managing your wallet, because the Bybit API feature does not provide it"
+
+#: .\main_app\templates\faq.html:133
+msgid "Какие операции"
+msgstr "What can the platform "
+
+#: .\main_app\templates\faq.html:133
+msgid "с моим биржевым аккаунтом"
+msgstr "do with"
+
+#: .\main_app\templates\faq.html:133
+msgid "доступны площадке"
+msgstr "my exchange account"
+
+#: .\main_app\templates\faq.html:139
+msgid ""
+"Для работы мы используем фукнционал запроса информации о депозите. Текущий "
+"баланс, снятие - это нужно нам для \n"
+"                                    проверки возможности работы с площадкой, "
+"суммы ордеров и рассчетов прибыли. Функционал выставления и закрытия "
+"ордеров \n"
+"                                    необходим нам непосредственно для "
+"ведения торговли. Фукнционал запроса данных о проведенных торговых операциях "
+"позволяет \n"
+"                                    нам собирать отображаемую в Вашем личном "
+"кабинете персональную статистику, а так же выводить обезличенные "
+"усредненные \n"
+"                                    цифры на главной странице."
+msgstr ""
+"In our work, we use the feature that can request information about the "
+"deposit. We also need information about the current balance and withdrawal "
+"to check if it is possible to work with the website, the amount of orders "
+"and profit calculations. The feature of placing and closing the orders is "
+"required for trading. The feature of requesting data on the trades conducted "
+"allows us to collect your personal statistics, which is displayed in your "
+"account, as well as to show impersonal averaged figures on the main page."
+
+#: .\main_app\templates\faq.html:153
+msgid "Почему"
+msgstr "Why should"
+
+#: .\main_app\templates\faq.html:153
+msgid "минимальный депозит"
+msgstr "the minimum deposit"
+
+#: .\main_app\templates\faq.html:153
+msgid "должен быть"
+msgstr "be"
+
+#: .\main_app\templates\faq.html:153
+msgid "не менее 200"
+msgstr "at least $ 200"
+
+#: .\main_app\templates\faq.html:153
+msgid "долларов США для работы с площадкой"
+msgstr "to start working with the platform"
+
+#: .\main_app\templates\faq.html:159
+msgid ""
+"Минимальный депозит обусловлен двумя факторами:\n"
+"                                    во-первых, биржа предусматриват "
+"минимальную сумму входа в сделку.\n"
+"                                    Во-вторых, торговля на криптовалютной "
+"бирже связанна с рисками. Мы  смоделировали несколько ситуаций, по "
+"результатам которых пришли к выводам, что это оптимальный минимум. Мы ценим "
+"каждого клиента, поэтому хотим, что бы в случае закрытой сделки в минус, Вы "
+"смогли продолжить пользоваться услугами нашей площадки и открыть для себя "
+"тот потенциал, который мы закладывали в нее."
+msgstr ""
+"The minimum deposit is due to two factors: First, the exchange requires a "
+"minimum amount to every transaction. Second, trading on a crypto exchange is "
+"associated with risks. We have modeled several situations, resulting in the "
+"conclusion that this is the optimal minimum. We value our customers, so we "
+"would like  that in the event of a negative trade, you could continue using "
+"the services of our platform and discover the potential that we have put in "
+"it."
+
+#: .\main_app\templates\faq.html:171
+msgid "Как"
+msgstr "How"
+
+#: .\main_app\templates\faq.html:171
+msgid "мне"
+msgstr "can I"
+
+#: .\main_app\templates\faq.html:171
+msgid "оплатить доступ"
+msgstr "pay for access"
+
+#: .\main_app\templates\faq.html:171
+msgid "к площадке"
+msgstr "to the platform"
+
+#: .\main_app\templates\faq.html:177
+msgid ""
+"Ничего платить сейчас не нужно. В конце рассчетного периода (один "
+"календарный месяц) в Вашем личном кабинете появится информация о том, какая "
+"сумма и\n"
+"                                    на какой BTC кошелек должна быть "
+"переведена."
+msgstr ""
+"You don't need to pay anything now. At the end of the billing period (one "
+"calendar month), you will see the information in your account how much BTC "
+"and to which wallet it should be sent."
+
+#: .\main_app\templates\faq.html:178
+msgid "Сумма зависит от полученной Вами прибыли"
+msgstr "The amount depends on the profit you have made"
+
+#: .\main_app\templates\faq.html:178
+msgid ""
+"и составит 20%% при прибыли до 10%%, 30%% при прибыли от 10%% до 15%% и 40%% "
+"при прибыли свыше 15%%."
+msgstr ""
+"and will be 20% for a profit of up to 10%, 30% for a profit of 10% to 15% "
+"and 40% for a profit of over 15%."
+
+#: .\main_app\templates\faq.html:178
+msgid ""
+"Подобная прогрессивная система мотивирует нас развиваться и улучшать продукт"
+msgstr ""
+"Such a progressive system motivates us to develop and improve the product"
+
+#: .\main_app\templates\faq.html:188
+msgid "Почему доступ к площадке был приостановлен"
+msgstr "Why was my account suspended"
+
+#: .\main_app\templates\faq.html:194
+msgid ""
+"Существует четыре возможных причины приостановки доступа к площадке со "
+"стороны Trinetbit"
+msgstr ""
+"There are four possible reasons for suspending your account from our side"
+
+#: .\main_app\templates\faq.html:196
+msgid "Оплата продления"
+msgstr "You forgot"
+
+#: .\main_app\templates\faq.html:196
+msgid "доступа к площадке"
+msgstr "to extend your access to the platform and"
+
+#: .\main_app\templates\faq.html:196
+msgid "не была произведена"
+msgstr "the payment has not been received"
+
+#: .\main_app\templates\faq.html:197
+msgid "Ваш биржевой"
+msgstr "Your exchange"
+
+#: .\main_app\templates\faq.html:197
+msgid "аккаунт не"
+msgstr "account is not"
+
+#: .\main_app\templates\faq.html:197
+msgid "зарегистрирован, как"
+msgstr "registered as"
+
+#: .\main_app\templates\faq.html:197
+msgid "партнерский"
+msgstr "partner one"
+
+#: .\main_app\templates\faq.html:198
+msgid "Депозит"
+msgstr "A deposit"
+
+#: .\main_app\templates\faq.html:198
+msgid "на вашем биржевом аккаунте"
+msgstr "on your exchange account"
+
+#: .\main_app\templates\faq.html:198
+msgid "не позволяет выставить ордер"
+msgstr "is not sufficient to place an order"
+
+#: .\main_app\templates\faq.html:199
+msgid "Данные"
+msgstr "Data"
+
+#: .\main_app\templates\faq.html:199
+msgid "не верны или устарели"
+msgstr "are invalid or out of date"
+
+#: .\main_app\templates\faq.html:210
+msgid ""
+"Я произвел оплату для продления доступа к площадке, но статус учетной записи "
+"в личном кабинете  “Не активна”?"
+msgstr ""
+"I made a payment to extend access to the website, but the account is still "
+"“Inactive”?"
+
+#: .\main_app\templates\faq.html:216
+msgid ""
+"Площадка выполняет сверку по оплате каждые два часа в последний день "
+"рассчетного периода и каждые 6 часов в другие дни. Сверка в последний день "
+"рассчетного периода осуществляется в  00:00, 02:00, 04:00, 06:00, 08:00, "
+"10:00, 12:00, 14:00, 16:00, 18:00, 20:00 и  22:00 (UTC).Сверка в любой "
+"другой день осуществляется в 00:00, 06:00, 12:00, 18:00 (UTC).\n"
+"                                        Доступ к системе будет воcстановлен "
+"в момент подтверждения площадкой оплаты после сверки, но не позднее 24 часов "
+"после перевода."
+msgstr ""
+"The platform performs a payment reconciliation every two hours on the last "
+"day of the billing period and every 6 hours on other days. Reconciliation on "
+"the last day of the billing period is carried out at 00:00, 02:00, 04:00, "
+"06:00, 08:00, 10:00, 12:00, 14:00, 16:00, 18:00, 20: 00 and 22:00. Access to "
+"the system will be restored after the platform confirms the payment, but no "
+"later than 24 hours after the payment."
+
+#: .\main_app\templates\faq.html:218
+msgid "Мы так же напоминаем Вам, что согласно пункту 5.2.1.1"
+msgstr "Bear in mind that according to the clause 5.2.1.1 of the"
+
+#: .\main_app\templates\faq.html:218 .\user_app\templates\register.html:178
+msgid "Пользовательского соглашения"
+msgstr "End User License Agreement"
+
+#: .\main_app\templates\faq.html:218
+msgid ""
+"оплата должна производится с кошелька, указанного при регистрации, либо "
+"кошелька указанного и подтвержденного в личном кабинете, в противном случае "
+"перевод считается добровольным пожертвованием и возврату не подлежит."
+msgstr ""
+"payment must be made from the wallet indicated during the registration, or "
+"the wallet indicated and confirmed in your account, otherwise the payment is "
+"considered a voluntary donation and will not be returned."
+
+#: .\main_app\templates\faq.html:229
+msgid ""
+"Вы (площадка) говорите, что торговая стратегия основана на рисках от 1 до 3 "
+"процентов, что это занчит?"
+msgstr ""
+"You (the platform) say that your trading strategy is based on risks of 1 to "
+"3 percent. What does it mean?"
+
+#: .\main_app\templates\faq.html:235
+msgid ""
+"Это значит что сумма каждой сделки, открытой площадкой, не будет превышать "
+"от 1 до 3 процентов от суммы депозита"
+msgstr ""
+"This means that the amount of each transaction, opened by the platform will "
+"not exceed from 1 to 3% of the deposit"
+
+#: .\main_app\templates\faq.html:236
+msgid ""
+"Приводя пример на цифрах, сумма сделки не первысит 30 долларов при депозите "
+"в 1000 долларов"
+msgstr ""
+"An example in numbers: the amount of the transaction will not exceed $ 30 "
+"with a deposit of $ 1000"
+
+#: .\main_app\templates\faq.html:246
+msgid ""
+"Мне неудобно самостоятельно регистрировать биржевой аккаунт. Может ли это "
+"сделать площадка для меня?"
+msgstr ""
+"It is inconvenient for me to register an exchange account on my own. Could "
+"you do this for me?"
+
+#: .\main_app\templates\faq.html:252
+msgid ""
+"Нет. Это противоречит концепции площадки о защищенности клиентов.\n"
+"                                    Доступ к Вашему биржевому аккаунту "
+"должен быть только у Вас."
+msgstr ""
+"No. This contradicts the platform’s concept of customer protection. Only you "
+"should have access to your exchange account."
+
+#: .\main_app\templates\faq.html:253
+msgid "Если у Вас возникли сложности при регистрации, ознакомьтесь с"
+msgstr "If you have any difficulties upon the registration, check out"
+
+#: .\main_app\templates\faq.html:253
+msgid "нашей пошаговой инструкцией"
+msgstr "our step-by-step GUIDE"
+
+#: .\main_app\templates\faq.html:254
+msgid "она правда написана очень доступным языком"
+msgstr "It is really written in a simple language"
+
+#: .\main_app\templates\faq.html:264
+msgid "За счет чего формируется прибыль?"
+msgstr "How is the profit generated?"
+
+#: .\main_app\templates\faq.html:270
+msgid ""
+"В основе Вашего процветания лежат наши навыки трейдинга. Маржинальная "
+"торговля с кредитным плечом\n"
+"                                    и краткосрочные спекуляции - основа "
+"торговли на бирже, как фондовой, так и криптовалютной.\n"
+"                                    Если Вы хотите узнать больше о торговле "
+"на криптовалютной бирже, а так же быть в курсе последних новостей компании - "
+"подписывайтесь на наш"
+msgstr ""
+"Your prosperity is based on Our trading skills. Leveraged margin trading and "
+"short-term speculation are the backbone of exchange trading, both stock and "
+"cryptocurrency. If you want to learn more about trading on the "
+"cryptocurrency exchange, as well as keep updated on the latest company news, "
+"subscribe to our"
+
+#: .\main_app\templates\faq.html:272
+msgid "телеграм канал"
+msgstr "telegram channel"
+
+#: .\main_app\templates\faq.html:282
+msgid "Я не нашел ответа на свой вопрос!"
+msgstr "I have not found the answer to my question!"
+
+#: .\main_app\templates\faq.html:288
+msgid ""
+"К сожалению, мы не можем ответить на все вопросы, которые могут возникнуть у "
+"клиента на этой странице. \n"
+"                                    К счастью, мы ценим каждого клиента и "
+"верим, что Ваши вопросы позволят нам сделать продукт качественней."
+msgstr ""
+"Unfortunately, it is impossible to take into account all the questions that "
+"the client may have. Fortunately, we value every our customer."
+
+#: .\main_app\templates\faq.html:289
+msgid ""
+"Пожалуйста, задайте нам \n"
+"                                    свой вопрос"
+msgstr "Ask us your question"
+
+#: .\main_app\templates\faq.html:290
+msgid "напрямую"
+msgstr "directly"
+
+#: .\main_app\templates\faq.html:290
+msgid "и мы Вам обязательно ответим"
+msgstr "and we will definitely answer you"
+
+#: .\main_app\templates\guide.html:81
+msgid "Перейдите по"
+msgstr "Follow the"
+
+#: .\main_app\templates\guide.html:81
+msgid "ссылке"
+msgstr "link"
+
+#: .\main_app\templates\guide.html:81
+msgid ""
+"или вставьте в строчку запроса\n"
+"                        “https://www.bybit.com/ru-RU/register?"
+"affiliate_id=31341&group_id=0&group_type=1” и зарегистрируйте\n"
+"                        аккаунт на бирже Bybit."
+msgstr ""
+"or copy-paste it in your browser  “https://www.bybit.com/ru-RU/register?"
+"affiliate_id=24364&group_id=0&group_type=1” and register an account on the "
+"Bybit exchange."
+
+#: .\main_app\templates\guide.html:86
+msgid ""
+"Обратите внимание, приведен пример интерфейса десктопного веб приложения. "
+"Если Вы используете мобильное\n"
+"                        устройство - ищите вкладку \"активы\" в левом  "
+"выпадающем меню \"купить криптовалюту\"."
+msgstr ""
+"Please note that this is an example of a desktop web application interface. "
+"If you use a mobile device - look for the \"Assets\" tab in the left drop-"
+"down menu \"Buy cryptocurrency\"."
+
+#: .\main_app\templates\guide.html:90
+msgid "Следуйте инструкциям биржи для регистрации аккаунта."
+msgstr "Follow the instructions of the exchange to register an account."
+
+#: .\main_app\templates\guide.html:100
+msgid ""
+"После успешного создания и подтверждения аккаунта - подключите 2FA для "
+"своего аккаунта.\n"
+"                        Это дополнительсная степень защиты, интегрированная "
+"биржей, необходимая для создания API ключа и секрета."
+msgstr ""
+"After you successfully created and verified your account, please enable 2FA "
+"for your account. This is an additional degree of protection integrated by "
+"the exchange, necessary to create an API key and secret."
+
+#: .\main_app\templates\guide.html:112
+msgid "Нажмите на иконку"
+msgstr "Click on the icon"
+
+#: .\main_app\templates\guide.html:122
+msgid "Нажмите кнопку настройки"
+msgstr "Click the button “Settings”"
+
+#: .\main_app\templates\guide.html:132
+msgid ""
+"Примечание: для работы с площадкой TRINETBIT настраивать SMS аутентификацию "
+"не обязательно,\n"
+"                            но мы рекомендуем Вам настроить и ее. Это "
+"дополнительная степень защиты Вашего аккаунта."
+msgstr ""
+"Note: In order to start working with the TRINETBIT platform, it is not "
+"necessary to configure SMS authentication, but we recommend that you do it "
+"as well. This is an additional level of protection for your account."
+
+#: .\main_app\templates\guide.html:136
+msgid "Следуйте дальнейшим инструкциям на сайте"
+msgstr "Follow the next instructions on the website"
+
+#: .\main_app\templates\guide.html:140
+msgid "Создание API"
+msgstr "Create an API"
+
+#: .\main_app\templates\guide.html:171
+msgid "ОБРАТИТЕ ВНИМАНИЕ"
+msgstr "PLEASE NOTE"
+
+#: .\main_app\templates\guide.html:171
+msgid ""
+"После нажатия “Подтвержаю” Вы не сможете посмотреть секрет! Скопируйте и\n"
+"                        вставьте его сразу в поле регистрации или запишите в "
+"недоступном для третьих лиц месте, что бы\n"
+"                        скопировать позже."
+msgstr ""
+"After clicking “I Confirm” you will not be able to see the secret! Copy and "
+"paste it immediately into the registration field or write it down in a place "
+"inaccessible to third parties to copy later."
+
+#: .\main_app\templates\guide.html:183
+msgid ""
+"Вы успешно зарегистрировались на бирже и создали API. Для подлючения к "
+"платформе почти все готово.\n"
+"                        Осталась пара шагов."
+msgstr ""
+"You have successfully registered on the exchange and created the API. Almost "
+"everything is ready to connect to the platform. There are a couple of steps "
+"left."
+
+#: .\main_app\templates\guide.html:187
+msgid "Пополните"
+msgstr "Fund"
+
+#: .\main_app\templates\guide.html:187
+msgid "свой"
+msgstr "your"
+
+#: .\main_app\templates\guide.html:187
+msgid "биржевой счет на сумму от"
+msgstr "exchange account with"
+
+#: .\main_app\templates\guide.html:187
+msgid ""
+"долларов. Чтобы не терять комиссию на обменниках, при конвертации \n"
+"                        фиатной валюты в криптовалюту (USDT, BTC и другие), "
+"мы рекомендуем использовать P2P обмен (напрямую между покупателем и \n"
+"                        продавцом). Данный сервис представлен на бирже"
+msgstr ""
+"or more. In order not to lose commission on exchangers, when converting fiat "
+"currency to cryptocurrency (USDT, BTC and others), we recommend using a P2P "
+"exchange (directly between the buyer and the seller). This service is listed "
+"on the"
+
+#: .\main_app\templates\guide.html:189
+msgid ""
+"Вы можете использовать услуги любых удобных Вам сервисов, но \n"
+"                        если Вы никогда этого не делали раньше - мы "
+"рекомендуем обменник биржи Binance."
+msgstr ""
+"You can use any services which you use or trust, but if you have never done "
+"this before, we recommend the Binance exchange platform."
+
+#: .\main_app\templates\guide.html:193
+msgid "БУДЬТЕ ВНИМАТЕЛЬНЫ ПРИ ОБМЕНЕ"
+msgstr "BE CAREFUL WHEN MAKING AN EXCHANGE"
+
+#: .\main_app\templates\guide.html:196
+msgid ""
+"После совершения обмена на USDT, необходимо перевести средства на Ваш счет "
+"на бирже bybit, на которой\n"
+"                        мы ведем торговлю. Для удобства и скорости, "
+"рекомендуем использовать монету USDT сеть TRX (TRC 20)"
+msgstr ""
+"After making an exchange for USDT, you need to transfer funds to your "
+"account on the bybit exchange, where we trade. For your convenience and "
+"speed, we recommend using the USDT coin TRX network (TRC 20)"
+
+#: .\main_app\templates\guide.html:200
+msgid "Теперь переведите средства с спотового счета на деривативный."
+msgstr ""
+"Now transfer the funds from the spot account to the derivative account."
+
+#: .\main_app\templates\guide.html:204
+msgid "Перейдите во вкладки “активы” и выберите “Спот Аккаунт”"
+msgstr "Go to the “Assets” tabs and select “Spot Account”"
+
+#: .\main_app\templates\guide.html:214
+msgid "Нажмите на кнопку “перевод” в левой верхней части страницы"
+msgstr "Click on the “Transfer” button at the top left of the page"
+
+#: .\main_app\templates\guide.html:224
+msgid "Переведите средства в деривативный аккаунт"
+msgstr "Transfer funds to your Derivatives Account"
+
+#: .\main_app\templates\guide.html:235
+msgid "ПОЗДРАВЛЯЕМ"
+msgstr "CONGRATULATIONS"
+
+#: .\main_app\templates\guide.html:235
+msgid ""
+"Все необходимое для работы с площадкой TRINEBIT готово.\n"
+"                        Регистрируйтесь по кнопке внизу и начинайте получать "
+"прибыль!"
+msgstr ""
+"Now everything that you need to work with the TRINEBIT platform is ready. "
+"Sign up using the button below and start making money!"
+
+#: .\main_app\templates\guide.html:241
+msgid " ЗАРЕГИСТРИРОВАТЬСЯ "
+msgstr "SIGN IN"
+
+#: .\main_app\templates\guide.html:246
+msgid ""
+"Если у Вас остались вопросы касательно регистрации, пожалуста, напишите нам "
+"на почту"
+msgstr "If you have any questions regarding registration, please email us at"
+
+#: .\main_app\templates\guide.html:247
+msgid "с пометкой “помощь с регистрацией”, и мы постараемся Вам помочь"
+msgstr ""
+"with the note “help with registration”, and we will do our best to help you"
+
+#: .\main_app\templates\index.html:87
+msgid "простой способ получать прибыль"
+msgstr "your easy way to make profit"
+
+#: .\main_app\templates\index.html:94
+msgid "зарегистрированных клиента"
+msgstr "registered clients"
+
+#: .\main_app\templates\index.html:100
+msgid "средний ежемесячный процент"
+msgstr "an average monthly interest"
+
+#: .\main_app\templates\index.html:106
+msgid "средний процент закрытых сделок в плюс"
+msgstr "an average percent of positive closed trades"
+
+#: .\main_app\templates\index.html:112
+msgid "средняя прибыль клиента за месяц"
+msgstr "an average monthly profit of our client"
+
+#: .\main_app\templates\index.html:118
+msgid "суммарная прибыль клиентов за месяц"
+msgstr "an average total profit of all our clients"
+
+#: .\main_app\templates\index.html:123
+msgid "неделя"
+msgstr "week"
+
+#: .\main_app\templates\index.html:124
+msgid "среднее время получения первой прибыли"
+msgstr "average time to make first profit"
+
+#: .\main_app\templates\index.html:130
+msgid "Узнать"
+msgstr "Click"
+
+#: .\main_app\templates\index.html:130
+msgid "подробнее"
+msgstr "here"
+
+#: .\main_app\templates\index.html:130
+msgid "о продукте"
+msgstr "to find out more"
+
+#: .\main_app\templates\index.html:135
+msgid "Рассчитайте свой доход сейчас"
+msgstr "Calculate your profit now"
+
+#: .\main_app\templates\index.html:138
+msgid "Стартовый депозит"
+msgstr "Initial deposit"
+
+#: .\main_app\templates\index.html:141
+msgid "Время в месяцах"
+msgstr "time (monthly)"
+
+#: .\main_app\templates\index.html:144
+msgid "Ваша прибыль"
+msgstr "your profit"
+
+#: .\main_app\templates\index.html:148
+msgid "Прибыль рассчитывается исходя из среднего ежемесячного процента"
+msgstr "Profit is calculated according to an average monthly interest"
+
+#: .\main_app\templates\index.html:168 .\user_app\templates\register.html:170
+msgid "ЗАРЕГИСТРИРОВАТЬСЯ"
 msgstr "Register"
 
-#: .\user_app\forms.py:10
-msgid "имя пользователя"
-msgstr "user's name"
+#: .\main_app\templates\private_policity.html:80
+msgid "Политика обработки персональных"
+msgstr "Confidentiality Policy"
 
-#: .\user_app\forms.py:11
-msgid "пароль"
-msgstr "password"
-
-#: .\user_app\forms.py:15
-msgid "   Имя пользователя"
+#: .\main_app\templates\private_policity.html:83
+msgid ""
+"Настоящая политика обработки персональных данных (далее по тексту — "
+"«Политика») TRINETBIT (далее по тексту — «Площадка») устанавливает объем, "
+"цели и способы обработки персональных данных пользователей (посетителей) "
+"сайта https://trinetbit.com/ (далее по тексту — «Сайт») и публикуется в "
+"открытом доступе в соответствиями с требованиями Федерального закона от "
+"27.07.2006 № 152-ФЗ «О персональных данных»."
 msgstr ""
+"This personal data processing policy (hereinafter referred to as the \"Policy"
+"\") TRINETBIT (collectively the \"Platform\") sets the scope, purposes and "
+"methods of processing users’ (visitors’) personal data of the website "
+"https://trinetbit.com/ (hereinafter referred to as the \"Website\") and is "
+"published in the public domain in accordance with the requirements of the "
+"Federal Law of 27.07.2006 No. 152-FZ \"On Personal Data\"."
 
-#: .\user_app\forms.py:16
-msgid "   Адрес кошелька"
+#: .\main_app\templates\private_policity.html:85
+msgid ""
+"Настоящая политика обработки персональных данных является частью "
+"Пользовательского соглашения, текущая версия которого расположена по адресу"
 msgstr ""
+"This personal data processing policy is part of the End User License "
+"Agreement, the current version of which is located at"
 
-#: .\user_app\forms.py:17
-msgid "   Пароль"
-msgstr "Password"
+#: .\main_app\templates\private_policity.html:91
+msgid "Правовые основания обработки персональных данных"
+msgstr "Legal basis for the personal data processing"
 
-#: .\user_app\forms.py:18
-msgid "   Повторите пароль"
+#: .\main_app\templates\private_policity.html:94
+msgid ""
+"Правовыми основаниями обработки персональных данных являются, в частности, "
+"части 1, 8 пункта 1 статьи 6 Федерального закона РФ «О персональных данных»."
 msgstr ""
+"The legal grounds for the processing of personal data are, in particular, "
+"parts 1 and 8 of the paragraph 1 of the article 6 of the Federal Law of the "
+"Russian Federation \"On Personal Data\"."
 
-#: .\user_app\forms.py:19
-msgid "   Api key"
+#: .\main_app\templates\private_policity.html:99
+msgid "Согласие Пользователя на обработку персональных данных"
+msgstr "User's consent to the personal data  processing"
+
+#: .\main_app\templates\private_policity.html:102
+msgid ""
+"Отправляя сообщение через формы обратной связи, размещенные на Сайте и в "
+"Приложениях, Пользователь выражает свое согласие на обработку персональных "
+"данных в определенных настоящей Политикой целях и объеме.\n"
+"                            Пользователь может подписаться на получение "
+"рассылки по электронной почте, если такая возможность предоставляется "
+"Сайтом. Рассылка может содержать сведения о новостях, аналитических "
+"материалах, мероприятиях, проводимых Площадкой и тому подобное. Заполняя "
+"поле «e-mail» Пользователь дает свое согласие на получение таких рассылок. "
+"Пользователь в любой момент может отозвать свое согласие на получение "
+"рассылки. Возможность отписаться от рассылки предоставляется Пользователю в "
+"каждом письме.\n"
+"                            С целью отправки сообщений по электронной почте "
+"Компания может передавать специализированным сервисам такие персональные "
+"данные как адрес электронной почты."
 msgstr ""
+"By sending a message through the feedback forms on the Website and in the "
+"Applications, the User grants their  consent to the processing of personal "
+"data according to the purposes and scope specified in this Policy. The user "
+"can subscribe to the newsletters by email, if it is provided by the Website. "
+"The mailing list may contain information about news, analytical materials, "
+"events held by the Platform, etc.. By filling in the email field, the User "
+"agrees to receive such newsletters. The user can withhold his consent to "
+"receive the newsletter at any time. It is possible to unsubscribe from the "
+"mailing list in every newsletter. In order to send messages by email, the "
+"Company may transfer to specialized services such personal data as an email "
+"address."
 
-#: .\user_app\forms.py:20
-msgid "   Api secret"
+#: .\main_app\templates\private_policity.html:109
+msgid "Цель обработки персональных данных"
+msgstr "Purpose of processing personal data"
+
+#: .\main_app\templates\private_policity.html:112
+msgid ""
+"Целью обработки персональных данных является предоставление Пользователю "
+"возможности использования личного кабинета, организация автоматизированного "
+"предоставления Пользователям технических возможностей и сервисов Площадки.\n"
+"                            Если Пользователь просто просматривает Сайт, то "
+"персональные данные не обрабатываются."
 msgstr ""
+"The purpose of processing personal data is to provide the User with the "
+"opportunity to use their account, to organize the automated provisioning of "
+"technical capabilities and services of the Website to Users. If the User "
+"just browses the Website, the personal data is not processed."
 
-#: .\user_app\forms.py:21
-msgid "   Email"
-msgstr ""
+#: .\main_app\templates\private_policity.html:118
+msgid "Объем обрабатываемых персональных данных"
+msgstr "The volume of processed personal data"
 
-#: .\user_app\forms.py:52
-msgid "Код"
-msgstr "Code"
+#: .\main_app\templates\private_policity.html:121
+msgid "При регистрации профиля на Сайте"
+msgstr "When creating a profile on the Website"
 
-#: .\user_app\models.py:8
-msgid "пользователь"
-msgstr ""
+#: .\main_app\templates\private_policity.html:123
+msgid "псевдоним (логин),"
+msgstr "Username (login),"
 
-#: .\user_app\models.py:9
-msgid "дата регистрации"
-msgstr ""
+#: .\main_app\templates\private_policity.html:124
+msgid "номер BTC кошелька,"
+msgstr "BTC wallet address,"
 
-#: .\user_app\models.py:10
-msgid "статус подписки"
-msgstr ""
+#: .\main_app\templates\private_policity.html:125
+msgid "API key и API secret, сформированный клиентом на бирже;"
+msgstr "API key and API secret are generated by the client on the exchange;"
 
-#: .\user_app\models.py:11
-msgid "адрес кошелька"
-msgstr ""
-
-#: .\user_app\models.py:12
-msgid "api key"
-msgstr ""
-
-#: .\user_app\models.py:13
-msgid "api secret"
-msgstr ""
-
-#: .\user_app\models.py:14
-msgid "id пользователя bybit"
-msgstr ""
-
-#: .\user_app\models.py:15
-msgid "Электронная почта"
-msgstr ""
-
-#: .\user_app\models.py:25
-msgid "профиль"
-msgstr ""
-
-#: .\user_app\models.py:26
-msgid "профили"
-msgstr ""
-
-#: .\user_app\templates\login.html:6
-msgid "Вход"
-msgstr ""
-
-#: .\user_app\templates\login.html:9
-msgid "Страница входа"
-msgstr ""
-
-#: .\user_app\templates\profile.html:6
-msgid "Профиль"
-msgstr ""
-
-#: .\user_app\templates\profile.html:12
-msgid "Редактирование профиля"
-msgstr ""
-
-#: .\user_app\templates\profile.html:16
-msgid "Сохранить"
-msgstr "Save"
-
-#: .\user_app\templates\register.html:20
+#: .\main_app\templates\private_policity.html:128
 msgid "Контакты"
 msgstr "Contacts"
 
-#: .\user_app\templates\register.html:48
-msgid "Зарегистрироваться"
-msgstr "Register"
-
-#: .\user_app\templates\verification.html:7
-#: .\user_app\templates\verification.html:11
-msgid "Подтверждение email"
+#: .\main_app\templates\private_policity.html:134
+msgid ""
+"На Сайте используется технологии обработки куки (cookie) — это небольшие "
+"текстовые файлы, в которые\n"
+"                                браузер записывает данные с посещенных "
+"пользователем сайтов. Эти данные служат для сбора информации\n"
+"                                о действиях посетителей на сайте, для "
+"улучшения качества его содержания и возможностей.\n"
+"                                В любое время Пользователь можете изменить "
+"параметры в настройках своего браузера таким образом,\n"
+"                                чтобы браузер перестал сохранять все файлы "
+"cookie, а также оповещал их об отправке. В этом случае\n"
+"                                некоторые сервисы и функции Сайта могут "
+"перестать работать или работать некорректно."
 msgstr ""
+"The Website uses cookies data collection (cookies) - they are small text "
+"files where the information about the User’s previously visited websites is "
+"recorded. This data is used to collect information about the visitors’ "
+"behavior on the Website, to improve the quality of its content and "
+"capabilities. The User can change and manage at any time the settings of his "
+"browser and disable all cookies collection, as well as notifications about "
+"sending. In this case, some services and functions of the Website may stop "
+"working or work incorrectly."
 
-#: .\user_app\templates\verification.html:15
+#: .\main_app\templates\private_policity.html:145
+msgid "Конфиденциальность персональных данных"
+msgstr "Confidentiality of personal data"
+
+#: .\main_app\templates\private_policity.html:148
+msgid ""
+"Компания не раскрывает третьим лицам и не распространяет персональные данные "
+"Пользователей без их согласия кроме случаев, предусмотренных федеральным "
+"законом."
+msgstr ""
+"The Company does not disclose to the third parties and does share the Users’ "
+"personal data without their consent, except in cases provided by the federal "
+"law."
+
+#: .\main_app\templates\private_policity.html:153
+msgid "Срок обработки персональных данных"
+msgstr "Cookies lifetime "
+
+#: .\main_app\templates\private_policity.html:156
+msgid ""
+"Предоставленные Пользователем данные обрабатываются бессрочно, либо до "
+"момента, когда Пользователь не отзовет свое согласие на обработку "
+"персональных данных, либо не удалит свою учетную запись, либо откажется от "
+"рассылки информации, либо до момента прекращения деятельности Сайта."
+msgstr ""
+"The data provided by the User is processed indefinitely, or until the moment "
+"when the User withdraws his consent to the personal data processing, or "
+"deletes his account, or refuses to send information, or until the end of "
+"service of the Website."
+
+#: .\main_app\templates\private_policity.html:161
+msgid "Права субъекта персональных данных"
+msgstr "Personal data subject rights"
+
+#: .\main_app\templates\private_policity.html:164
+msgid ""
+"Субъект персональных данных вправе направить запрос администратору Сайта на "
+"получение информации, касающейся обработки его персональных данных в "
+"соответствии с требованиями статьи 14 Федерального закона РФ «О персональных "
+"данных».\n"
+"                            Данный запрос может быть направлен по адресам, "
+"указанным в разделе «Контакты»."
+msgstr ""
+"The subject of personal data has the right to send a request to the "
+"administrator of the Website regarding the information about their personal "
+"data processing in accordance with the requirements of Article 14 of the "
+"Federal Law of the Russian Federation \"On Personal Data\"."
+
+#: .\main_app\templates\private_policity.html:170
+msgid "Защита персональных данных"
+msgstr "Personal data protection"
+
+#: .\main_app\templates\private_policity.html:173
+msgid ""
+"Компания принимает меры, необходимые и достаточные для обеспечения "
+"выполнения обязанностей, предусмотренных Федеральным законом «О персональных "
+"данных» и принятыми в соответствии с ним нормативными правовыми актами. "
+"Компания самостоятельно определяет состав и перечень мер, необходимых и "
+"достаточных для обеспечения выполнения таких обязанностей.\n"
+"                            Доступ к персональным данным имеют только "
+"уполномоченные сотрудники Компании. Все сотрудники Компании, имеющие доступ "
+"к персональным данным, должны придерживаться политики по обеспечению "
+"конфиденциальности и защиты персональных данных. В целях обеспечения "
+"конфиденциальности информации и защиты персональных данных Компания "
+"поддерживает соответствующую ИТ-среду и принимает все меры, необходимые для "
+"предотвращения несанкционированного доступа."
+msgstr ""
+"The company takes all necessary and sufficient measures to ensure the "
+"fulfillment of the obligations, stipulated by the Federal Law \"On Personal "
+"Data\" and the regulatory legal acts adopted in accordance with it. The "
+"company solely determines the content and list of measures necessary and "
+"sufficient to ensure the fulfillment of such obligations. Only authorized "
+"employees of the Company have access to personal data. All employees of the "
+"Company who have access to personal data must follow the policy of "
+"confidentiality and personal data security. In order to ensure the "
+"confidentiality of information and the protection of personal data, the "
+"Company maintains an appropriate IT environment and takes all measures "
+"necessary to prevent unauthorized access."
+
+#: .\user_app\forms.py:9
+msgid "API Ключ"
+msgstr "API Key"
+
+#: .\user_app\forms.py:10
+msgid "API Секрет"
+msgstr "API Secret"
+
+#: .\user_app\forms.py:11
+msgid "Имя пользователя"
+msgstr "User's name"
+
+#: .\user_app\forms.py:13
+msgid "BTC Кошелёк"
+msgstr "BTC Wallet"
+
+#: .\user_app\forms.py:14
+msgid "Пароль"
+msgstr "Password"
+
+#: .\user_app\forms.py:15 .\user_app\forms.py:106
+msgid "Повторите пароль"
+msgstr "Repeat the password"
+
+#: .\user_app\forms.py:49 .\user_app\forms.py:144
+msgid "Недостаточно баланса!"
+msgstr "Insufficient balance!"
+
+#: .\user_app\forms.py:53 .\user_app\forms.py:149
+msgid "Неверные api key и api secret!"
+msgstr "Invalid api key and api secret!"
+
+#: .\user_app\forms.py:62
+msgid "Неверный формат почты!"
+msgstr "Invalid mail format!"
+
+#: .\user_app\forms.py:65
+msgid "Вы не подтвердили пользовательское соглашение!"
+msgstr "You have not confirmed the user agreement!"
+
+#: .\user_app\forms.py:80
+msgid "Код"
+msgstr "Code"
+
+#: .\user_app\forms.py:86
+msgid "Неверный код!"
+msgstr "Wrong code!"
+
+#: .\user_app\forms.py:100
+msgid "Введите старый пароль"
+msgstr "Enter the old password"
+
+#: .\user_app\forms.py:103
+msgid "Введите новый пароль"
+msgstr "Enter a new password"
+
+#: .\user_app\forms.py:124
+msgid "Введите новый кошелёк"
+msgstr "Enter a new wallet"
+
+#: .\user_app\forms.py:134
+msgid "Введите новый ключ"
+msgstr "Enter a new key"
+
+#: .\user_app\forms.py:136
+msgid "Введите новый секрет"
+msgstr "Enter a new secret"
+
+#: .\user_app\templates\account.html:32 .\user_app\templates\account.html:42
+#: .\user_app\templates\account.html:60 .\user_app\templates\account.html:91
+#: .\user_app\templates\account.html:108 .\user_app\templates\account.html:141
+msgid "ИЗМЕНИТЬ"
+msgstr "CHANGE"
+
+#: .\user_app\templates\login_user.html:99
+msgid "Забыл пароль"
+msgstr "Forgot the password"
+
+#: .\user_app\templates\mail_confirmation.html:90
 msgid "Подтвердить"
-msgstr ""
+msgstr "Confirm"
 
-#: .\user_app\templates\verification.html:16
-msgid "Выслать новый"
+#: .\user_app\templates\mail_confirmation.html:93
+msgid "Отправить новый"
+msgstr "Submit new"
+
+#: .\user_app\templates\register.html:91 .\user_app\templates\register.html:100
+msgid " и "
+msgstr "and "
+
+#: .\user_app\templates\register.html:91 .\user_app\templates\register.html:100
+msgid "неооходимы для того, что бы открывать и закрывать сделки на бирже"
+msgstr "are necessary in order to open and close transactions on the exchange"
+
+#: .\user_app\templates\register.html:92 .\user_app\templates\register.html:101
+msgid ""
+"Подробнее о том, как это работает читайте в разделе “Как это работает” на "
+"странице"
 msgstr ""
+"Read more about how it works in the section “How it works” on the page "
+
+#: .\user_app\templates\register.html:93 .\user_app\templates\register.html:102
+msgid "Подробнее о самой самом API читайте на сайте"
+msgstr "Read more about the API itself on the"
+
+#: .\user_app\templates\register.html:109
+#: .\user_app\templates\register.html:113
+msgid "Имя пользователя должно содержать"
+msgstr "The user name must contain"
+
+#: .\user_app\templates\register.html:109
+#: .\user_app\templates\register.html:113
+msgid "от 3 до 20"
+msgstr "from 3 to 20"
+
+#: .\user_app\templates\register.html:109
+#: .\user_app\templates\register.html:113
+msgid ""
+"символов, и не должно противоречить нормам\n"
+"                                        и действующему законодательству "
+"страны клиента."
+msgstr ""
+"characters, and must not contradict the norms and current legislation of the "
+"client's country."
+
+#: .\user_app\templates\register.html:121
+#: .\user_app\templates\register.html:125
+msgid "Пожалуйста, вводите"
+msgstr "Please, enter a"
+
+#: .\user_app\templates\register.html:121
+#: .\user_app\templates\register.html:125
+msgid "действительный"
+msgstr "valid"
+
+#: .\user_app\templates\register.html:121
+#: .\user_app\templates\register.html:125
+msgid ""
+"адрес электронной почты. На него придет код подтверждения.\n"
+"                                        Так же с помощью него можно будет "
+"сбросить пароль от личного кабинета."
+msgstr ""
+"email address. A confirmation code will be sent to it. You can also use it "
+"to reset the password from your personal account."
+
+#: .\user_app\templates\register.html:133
+#: .\user_app\templates\register.html:137
+msgid ""
+"Номер BTC кошелька, с которого будут выполнятся переводы вознаграждения.\n"
+"                                        Он необходим для сверки поступающих "
+"средств и продления доступа к площадке."
+msgstr ""
+"The number of the BTC wallet from which the reward transfers will be made. "
+"It is necessary to verify incoming funds and extend access to the site."
+
+#: .\user_app\templates\register.html:145
+#: .\user_app\templates\register.html:149
+msgid "Обратите внимание, пароль должен состоять"
+msgstr "Please note that the password must consist of"
+
+#: .\user_app\templates\register.html:145
+#: .\user_app\templates\register.html:149
+msgid "не менее"
+msgstr "at least"
+
+#: .\user_app\templates\register.html:145
+#: .\user_app\templates\register.html:149
+msgid "чем из"
+msgstr " "
+
+#: .\user_app\templates\register.html:145
+#: .\user_app\templates\register.html:149
+msgid "символов"
+msgstr "characters"
+
+#: .\user_app\templates\register.html:146
+#: .\user_app\templates\register.html:150
+msgid "Содержать цифру, один из спецсимволов, строчные и заглавные буквы"
+msgstr ""
+"Contain a digit, one of the special characters, lowercase and uppercase "
+"letters"
+
+#: .\user_app\templates\register.html:157
+#: .\user_app\templates\register.html:160
+msgid "Пожалуйста, повторите пароль"
+msgstr "Please repeat the password"
+
+#: .\user_app\templates\register.html:178
+msgid "Я принимаю условия"
+msgstr "I accept the terms of the"
+
+#: .\user_app\templates\register.html:178
+msgid ""
+"и даю\n"
+"                                        своё согласие TRINETBIT на обработку "
+"моей персональной информации на условиях, определенных"
+msgstr ""
+"and give my consent to TRINETBIT to process my personal information on the "
+"terms defined by the"
+
+#: .\user_app\templates\register.html:179
+msgid "Политикой конфиденциальности"
+msgstr "Confidentiality Policy"
+
+#: .\user_app\templates\register.html:185
+msgid ""
+"Я <span class=\"link\">НЕ хочу</span> получать информационную рассылку "
+"данного сервиса."
+msgstr "I do NOT want to receive the newsletter of this service."
+
+#: .\user_app\views.py:141
+msgid "На почту привязанную к введенному имени отправлен новый пароль!"
+msgstr ""
+"A new password has been sent to the email associated with the entered name!"
+
+#: .\user_app\views.py:143
+msgid "Введённого имени пользователя нет!"
+msgstr "No username entered!"
+
+#: .\user_app\views.py:145
+msgid "Введите имя пользователя!"
+msgstr "Enter username!"
+
+#: .\user_app\views.py:240
+msgid "Данные проверяются!"
+msgstr "Data is being verified!"
+
+#: .\user_app\views.py:262
+msgid "Неверный старый пароль!"
+msgstr "Wrong old password!"
+
+#: .\user_app\views.py:274 .\user_app\views.py:285
+msgid "Данные успешно обновлены!"
+msgstr "Data updated successfully"

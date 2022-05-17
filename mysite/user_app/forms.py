@@ -1,9 +1,22 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.utils.translation import gettext_lazy as _
 from validate_email import validate_email
 from .bybit_methods import validate_deposit
+from django.utils.translation import gettext_lazy as _
+
+SETTINGS_REGISTER_INPUT = {
+    "api_key": dict(name_class='register-input', id='key', placeholder=_('API Ключ')),
+    "api_secret": dict(name_class='register-input', id='api', placeholder=_('API Секрет')),
+    "username": dict(name_class='register-input', id='userName', placeholder=_('Имя пользователя')),
+    "email": dict(name_class='register-input', id='email', placeholder='Email'),
+    "wallet_address": dict(name_class='register-input', id='wallet', placeholder=_('BTC Кошелёк')),
+    "password1": dict(name_class='register-input', id='password', placeholder=_('Пароль')),
+    "password2": dict(name_class='register-input', id='repeatPassword', placeholder=_('Повторите пароль')),
+    "agreement": dict(name_class='form-check-input', id='flexCheckDefault'),
+    "mailing": dict(name_class='form-check-input', id='flexCheckChecked'),
+
+}
 
 
 class RegisterForm(UserCreationForm):
@@ -20,14 +33,10 @@ class RegisterForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
         for name, field in self.fields.items():
-            if name == 'agreement' or name == 'mailing':
-                field.widget.attrs['class'] = "check_input"
-            elif name == 'password1':
-                field.widget.attrs['class'] = "label label-pass-img-left"
-            elif name == 'password2':
-                field.widget.attrs['class'] = "label label-pass-img"
-            else:
-                field.widget.attrs['class'] = "label"
+            field.widget.attrs['class'] = SETTINGS_REGISTER_INPUT[name]['name_class']
+            field.widget.attrs['id'] = SETTINGS_REGISTER_INPUT[name]['id']
+            if name != 'agreement' and name != 'mailing':
+                field.widget.attrs['placeholder'] = SETTINGS_REGISTER_INPUT[name]['placeholder']
 
     def clean(self):
         cleaned_data = super().clean()
@@ -37,11 +46,11 @@ class RegisterForm(UserCreationForm):
         result_validate_balance = validate_deposit(api_key, api_secret)
         agreement = cleaned_data.get('agreement')
         if result_validate_balance is False:
-            msg = "Not enough balance!"
+            msg = _("Недостаточно баланса!")
             self.add_error('api_key', msg)
             self.add_error('api_secret', msg)
         elif result_validate_balance is None:
-            msg = "Invalid api key and api secret!"
+            msg = _("Неверные api key и api secret!")
             self.add_error('api_key', msg)
             self.add_error('api_secret', msg)
             return
@@ -50,10 +59,10 @@ class RegisterForm(UserCreationForm):
         except Exception:
             answer_email = False
         if answer_email is False:
-            msg = "Email format is incorrect!"
+            msg = _("Неверный формат почты!")
             self.add_error('email', msg)
         if agreement is False:
-            msg = "You have not confirmed the user agreement with an agreement!"
+            msg = _("Вы не подтвердили пользовательское соглашение!")
             self.add_error('agreement', msg)
 
     class Meta:
@@ -62,18 +71,19 @@ class RegisterForm(UserCreationForm):
 
 
 class VerificationForm(forms.Form):
-    code = forms.CharField(max_length=6, min_length=6, label=_('Код'), required=False)
+    code = forms.CharField(max_length=6, min_length=6, label="Code", required=False)
     user_code = None
 
     def __init__(self, *args, **kwargs):
         super(VerificationForm, self).__init__(*args, **kwargs)
-        self.fields['code'].widget.attrs['class'] = "label"
+        self.fields['code'].widget.attrs['class'] = "login-input w-100"
+        self.fields['code'].widget.attrs['placeholder'] = _("Код")
 
     def clean(self):
         cleaned_data = super().clean()
         code = cleaned_data.get("code")
         if code != self.user_code:
-            msg = "Error code!"
+            msg = _("Неверный код!")
             self.add_error('code', msg)
 
 
@@ -84,8 +94,16 @@ class PasswordForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(PasswordForm, self).__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.widget.attrs['class'] = "change-pass update-input pass-edit"
+        for name, field in self.fields.items():
+            if name == "old_password":
+                field.widget.attrs['class'] = "w-50 modal-input"
+                field.widget.attrs['placeholder'] = _("Введите старый пароль")
+            elif name == "password1":
+                field.widget.attrs['class'] = "w-50 modal-input mt-5 mb-3"
+                field.widget.attrs['placeholder'] = _("Введите новый пароль")
+            else:
+                field.widget.attrs['class'] = "w-50 modal-input"
+                field.widget.attrs['placeholder'] = _("Повторите пароль")
 
     def clean(self):
         cleaned_data = super().clean()
@@ -93,8 +111,8 @@ class PasswordForm(forms.Form):
         password2 = cleaned_data.get("password2")
         if password2 != password1:
             msg = "Password mismatch!"
-            self.add_error('api_key', msg)
-            self.add_error('api_secret', msg)
+            self.add_error('password1', msg)
+            self.add_error('password2', msg)
 
 
 class WalletForm(forms.Form):
@@ -102,7 +120,8 @@ class WalletForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(WalletForm, self).__init__(*args, **kwargs)
-        self.fields['wallet_address'].widget.attrs['class'] = "update-input"
+        self.fields['wallet_address'].widget.attrs['class'] = "w-100 modal-input"
+        self.fields['wallet_address'].widget.attrs['placeholder'] = _("Введите новый кошелёк")
 
 
 class ApiForm(forms.Form):
@@ -111,8 +130,10 @@ class ApiForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(ApiForm, self).__init__(*args, **kwargs)
-        self.fields['api_key'].widget.attrs['class'] = "update-input change-pass"
-        self.fields['api_secret'].widget.attrs['class'] = "update-input change-pass"
+        self.fields['api_key'].widget.attrs['class'] = "w-100 modal-input"
+        self.fields['api_key'].widget.attrs['placeholder'] = _("Введите новый ключ")
+        self.fields['api_secret'].widget.attrs['class'] = "w-100 modal-input mt-3"
+        self.fields['api_secret'].widget.attrs['placeholder'] = _("Введите новый секрет")
 
     def clean(self):
         cleaned_data = super().clean()
@@ -120,12 +141,12 @@ class ApiForm(forms.Form):
         api_secret = cleaned_data.get("api_secret")
         result_validate_balance = validate_deposit(api_key, api_secret)
         if result_validate_balance is False:
-            msg = "Not enough balance!"
+            msg = _("Недостаточно баланса!")
             self.add_error('api_key', msg)
             self.add_error('api_secret', msg)
             return
         elif result_validate_balance is None:
-            msg = "Invalid api key and api secret!"
+            msg = _("Неверные api key и api secret!")
             self.add_error('api_key', msg)
             self.add_error('api_secret', msg)
             return
